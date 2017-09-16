@@ -16,7 +16,7 @@
 
 
     //Title Message Function
-    chat.client.addHeader = function (name) {
+    chat.client.addHeader = function (name) {  
         setInterval(function () {
             document.title = "New message from " + htmlEncode(name);
         }, 3000);
