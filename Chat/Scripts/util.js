@@ -9,8 +9,10 @@
     //New Message Function
     chat.client.addMessage = function (name, message) {
         $('#chatroom').append('<p><b>' + htmlEncode(name)
-            + '</b>: ' + htmlEncode(message) + '</p>');
+            + '</b>: ' + htmlEncode(message) + '  ' + new Date().toLocaleTimeString() + '</p>');
+        $('#message').val("");
     };
+
 
 
     //Title Message Function
@@ -35,7 +37,7 @@
         // hiden tags set
         $('#hdId').val(id);
         $('#username').val(userName);
-        $('#header').html('<h3>Добро пожаловать, ' + userName + '</h3>');
+        $('#header').html('<h3>Hello ' + userName + '</h3>');
 
         // All users
         for (i = 0; i < allUsers.length; i++) {
@@ -62,21 +64,14 @@
         $('#sendmessage').click(function () {
             // Call send method from hub
             chat.server.send($('#username').val(), $('#message').val());
+            
+            $('#message').val("");
 
-            $('#message').val('');
         });
-
-        // Login check
-        $("#btnLogin").click(function () {
-
+    
             var name = $("#txtUserName").val();
-            if (name.length > 0) {
-                chat.server.connect(name);
-            }
-            else {
-                alert("Введите имя");
-            }
-        });
+            chat.server.connect(name);
+      
     });
 });
 // Tag coding

@@ -5,13 +5,14 @@ using System.Web;
 using Microsoft.AspNet.SignalR;
 using Chat.Models;
 using System.Web.Mvc;
+using Chat.Controllers;
 
 namespace Chat.Hubs
 {
     public class ChatHub : Hub
     {
         static List<User> Users = new List<User>();
-
+         
         // Send message
         public void Send(string name, string message)
         {
@@ -28,12 +29,15 @@ namespace Chat.Hubs
             }
            
         }
-
+         
         // New user
         public void Connect(string userName)
         {
-            var id = Context.ConnectionId;
 
+           
+            
+            var id = Context.ConnectionId;
+            
 
             if (!Users.Any(x => x.ConnectionId == id))
             {
@@ -47,7 +51,7 @@ namespace Chat.Hubs
             }
         }
 
-        // Disctonect user
+        // Disconect user
         public override System.Threading.Tasks.Task OnDisconnected(bool stopCalled)
         {
             var item = Users.FirstOrDefault(x => x.ConnectionId == Context.ConnectionId);

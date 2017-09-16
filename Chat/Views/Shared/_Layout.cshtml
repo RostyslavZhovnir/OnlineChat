@@ -23,6 +23,11 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    @{if (User.Identity.IsAuthenticated)
+                        { 
+                            <li>@Html.ActionLink("LogOut", "LogOff", "Account")</li>
+                        } }
+                
                 </ul>
             </div>
         </div>
@@ -31,11 +36,11 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - by Rostyslav Zhovnir</p>
         </footer>
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
+    @*@Scripts.Render("~/bundles/jquery")*@
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>

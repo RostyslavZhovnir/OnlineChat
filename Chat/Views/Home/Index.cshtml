@@ -1,24 +1,29 @@
 ﻿@{
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 <!DOCTYPE html>
 <html>
 <head>
     <title>Thank you for visiting Us</title>
 </head>
 <body>
+    @{ if (User.Identity.IsAuthenticated)
+        {
+
+
     <h2>Chat</h2>
     <div class="main">
         <div id="loginBlock">
-            Login:<br />
-            <input id="txtUserName" type="text" />
-            <input id="btnLogin" type="button" value="Войти" />
+         
+            <input id="txtUserName" type="text"  value="@User.Identity.Name"/>
+           
         </div>
         <div id="chatBody">
             <div id="header"></div>
             <div id="inputForm">
                 <input type="text" id="message" />
-                <input type="button" id="sendmessage" value="Отправить" />
+                <input type="button" id="sendmessage" value="Send" />
             </div>
             <div id="emptymessage"></div>
             <div id="chatroom"></div>
@@ -30,8 +35,16 @@
         <input id="username" type="hidden" />
     </div>
     <script src="~/Scripts/jquery-3.2.1.min.js"></script>
+
     <script src="~/Scripts/jquery.signalR-2.2.2.min.js"></script>
     <script src="~/signalr/hubs"></script>
-    <script src="~/Scripts/util.js"></script>
+    <script src="~/Scripts/util.js"></script>}
+
+        else
+        {
+           <p> @Html.ActionLink("LogIn", "Login", "Account") </p>
+           <p> @Html.ActionLink("SignUp", "Register", "Account") </p>
+        }
+    }
 </body>
 </html>
