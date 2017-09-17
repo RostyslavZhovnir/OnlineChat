@@ -6,6 +6,7 @@ using Microsoft.AspNet.SignalR;
 using Chat.Models;
 using System.Web.Mvc;
 using Chat.Controllers;
+using System.Web.Security;
 
 namespace Chat.Hubs
 {
@@ -31,11 +32,12 @@ namespace Chat.Hubs
         }
          
         // New user
-        public void Connect(string userName)
+        public void Connect(LogOnModel model)
         {
 
-           
-            
+            var userName = Membership.GetUser().UserName;
+
+
             var id = Context.ConnectionId;
             
 
