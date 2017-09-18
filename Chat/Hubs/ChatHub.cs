@@ -13,6 +13,7 @@ namespace Chat.Hubs
     public class ChatHub : Hub
     {
         static List<User> Users = new List<User>();
+        static long counter = 0;
          
         // Send message
         public void Send(string name, string message)
@@ -45,11 +46,16 @@ namespace Chat.Hubs
             {
                 Users.Add(new User { ConnectionId = id, Name = userName });
 
+                //Count total Users Online
+                counter = counter + 1;
+                Clients.All.UpdateCounter(counter);
+
                 // Send message to current user
                 Clients.Caller.onConnected(id, userName, Users);
 
                 // Send message to all users except current
                 Clients.AllExcept(id).onNewUserConnected(id, userName);
+                
             }
         }
 
@@ -61,6 +67,11 @@ namespace Chat.Hubs
             {
                 Users.Remove(item);
                 var id = Context.ConnectionId;
+                
+                //Count total Users Online
+                counter = counter - 1;
+                Clients.All.UpdateCounter(counter);
+
                 Clients.All.onUserDisconnected(id, item.Name);
             }
 

@@ -1,7 +1,7 @@
 ﻿$(function () {
 
     $('#chatBody').hide();
-    $('#loginBlock').show();
+    //$('#loginBlock').show();
     // Auto generated hub link
     var chat = $.connection.chatHub;
 
@@ -28,22 +28,27 @@
         $('#emptymessage').css('color', 'red').append('</br>' + htmlEncode(message));
     };
 
+    chat.client.UpdateCounter = function (counter) {
+        $('#all').text("Users online  "+counter);
+    };
 
     // New User Function
     chat.client.onConnected = function (id, userName, allUsers) {
 
-        $('#loginBlock').hide();
+        //$('#loginBlock').hide();
         $('#chatBody').show();
         // hiden tags set
         $('#hdId').val(id);
         $('#username').val(userName);
         $('#header').html('<h3>Hello ' + userName + '</h3>');
-
-        // All users
+       
+        
         for (i = 0; i < allUsers.length; i++) {
 
             AddUser(allUsers[i].ConnectionId, allUsers[i].Name);
-        }
+         }
+        
+        
     }
 
     // Add new user
@@ -71,7 +76,7 @@
     
             var name = $("#txtUserName").val();
             chat.server.connect(name);
-      
+            
     });
 });
 // Tag coding
@@ -88,4 +93,5 @@ function AddUser(id, name) {
 
         $("#chatusers").append('<p id="' + id + '"><b>' + name + '</b></p>');
     }
+    
 }
