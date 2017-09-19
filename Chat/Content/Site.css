@@ -76,8 +76,9 @@ textarea {
     }
 
         .navbar-nav > li {
-
-            float: right;
+            float: none;
+            text-align:right;
+           
         }
 
             .navbar-nav > li > a {
@@ -91,6 +92,7 @@ textarea {
                 color: #666666;
                 text-align: right !important;
                 letter-spacing: 0.3em;
+                
             }
 
     .collapse.in {
