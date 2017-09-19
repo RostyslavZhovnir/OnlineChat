@@ -85,7 +85,7 @@ textarea {
                 padding-top: 10px;
                 padding-bottom: 10px;
                 font-family: "Open Sans", sans-serif;
-                font-size: 12px;
+                font-size: 11px;
                 font-weight: lighter;
                 font-variant: normal;
                 text-transform: uppercase;
@@ -145,6 +145,7 @@ textarea {
 
 *, *::after, *::before {
     box-sizing: border-box;
+
 }
 
 html {
@@ -249,7 +250,7 @@ cd-intro {
         }
 
         .cd-intro-content .action-wrapper > * {
-            float: left;
+            float: none;
         }
 
 @media only screen and (min-width: 768px) {
@@ -275,9 +276,8 @@ cd-intro {
     background-color: #202e4a;
     border-radius: .25em;
     margin-right: 1.5em;
-    border-color:white;
-    
-   
+    border-color: white;
+    margin-top: 10px;
 }
 
     
@@ -289,12 +289,15 @@ cd-intro {
 @media only screen and (min-width: 480px) {
     .cd-btn {
         padding: 1.2em 1.6em;
+        
+       
     }
 }
 
 @media only screen and (min-width: 768px) {
     .cd-btn {
         padding: 1.4em 1.8em;
+
     }
 }
 
