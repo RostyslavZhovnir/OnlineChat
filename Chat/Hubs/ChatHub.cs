@@ -35,8 +35,8 @@ namespace Chat.Hubs
         // New user
         public void Connect(LogOnModel model)
         {
-
-            var userName = Membership.GetUser().UserName;
+            
+            
 
 
             var id = Context.ConnectionId;
@@ -44,6 +44,7 @@ namespace Chat.Hubs
 
             if (!Users.Any(x => x.ConnectionId == id))
             {
+                string userName = Membership.GetUser().UserName;
                 Users.Add(new User { ConnectionId = id, Name = userName });
 
                 //Count total Users Online

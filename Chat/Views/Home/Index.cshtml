@@ -41,14 +41,32 @@
     <script src="~/Scripts/jquery-3.2.1.min.js"></script>
     <script src="~/Scripts/jquery.signalR-2.2.2.min.js"></script>
     <script src="~/signalr/hubs"></script>
-    <script src="~/Scripts/util.js"></script>}
+    <script src="~/Scripts/util.js"></script>
+
+        }
 
         else
         {
-           <p> @Html.ActionLink("LogIn", "Login", "Account") </p>
+           <script src="~/Scripts/jquery-3.2.1.min.js"></script>
+
+        <section class="cd-intro">
+            <div class="cd-intro-content bouncy">
+                <h1>Thank you for visiting us</h1>
+                <p>We hope you will enjoy the time to be here</p>
+                <div class="action-wrapper">
+                    <a href="~/Account/login" class="cd-btn main-action">Login</a>
+                    <a href="~/Account/register" class="cd-btn">SignUp</a>
+                    <a href="~/Account/ResendPassword" class="cd-btn">Forgot Password?</a>
+                </div>
+            </div>
+        </section>
+
+
+           @*<p> @Html.ActionLink("LogIn", "Login", "Account") </p>
            <p> @Html.ActionLink("SignUp", "Register", "Account") </p>
-           <p> @Html.ActionLink("Forgot your password?", "ResendPassword", "Account") </p>
+           <p> @Html.ActionLink("Forgot your password?", "ResendPassword", "Account") </p>*@
         }
     }
+    
 </body>
 </html>

@@ -29,7 +29,7 @@
     };
 
     chat.client.UpdateCounter = function (counter) {
-        $('#all').text("Users online  "+counter);
+        $('#all').text("Online  "+counter);
     };
 
     // New User Function
