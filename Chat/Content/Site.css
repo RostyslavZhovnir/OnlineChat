@@ -22,6 +22,8 @@ select,
 textarea {
     max-width: 280px;
 }
+
+
 #all, #settings {
     padding-top: 15px;
     padding-left: 15px;
@@ -29,6 +31,19 @@ textarea {
     padding-bottom: 15px;
     color: #9d9d9d;
     font-weight:lighter;
+}
+
+
+/*NavBar Logoff + ChangePassword*/
+.navbar-nav > li.logoff > a {
+    font-family: "Open Sans", sans-serif;
+    font-size: 9px;
+    font-weight: lighter;
+    font-variant: normal;
+    text-transform: uppercase;
+    color: #fb5e58;
+    text-align: right !important;
+    letter-spacing: 0.3em;
 }
 /*NavBar section*/
 @media (max-width: 2000px) {
@@ -39,7 +54,10 @@ textarea {
         
         
     }
-   
+.container > .navbar-header, .container-fluid > .navbar-header, .container > .navbar-collapse, .container-fluid > .navbar-collapse {
+        margin-right: 0; margin-left: 0; border: none;
+    }
+ 
     .navbar-header {
         float: none;
     }
@@ -190,9 +208,9 @@ a {
     text-decoration: none;
 }
 
-a:hover, a:focus {
-        color: antiquewhite;
-        text-decoration:none;
+    a:hover, a:focus {
+        color: rgba(192,192,192,0.9);
+        text-decoration: none;
     }
 
 cd-intro {
@@ -276,7 +294,7 @@ cd-intro {
     background-color: #202e4a;
     border-radius: .25em;
     margin-right: 1.5em;
-    border-color: white;
+    
     margin-top: 10px;
 }
 

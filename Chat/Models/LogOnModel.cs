@@ -24,7 +24,7 @@ namespace Chat.Models
     public class RegisterModel
     {
         [Required]
-        [Display(Name = "Login")]
+        [Display(Name = "User Name")]
         public string UserName { get; set; }
 
         [Required]
