@@ -7,6 +7,7 @@ using Chat.Models;
 using System.Web.Mvc;
 using Chat.Controllers;
 using System.Web.Security;
+using System.Threading.Tasks;
 
 namespace Chat.Hubs
 {
@@ -14,14 +15,25 @@ namespace Chat.Hubs
     {
         static List<User> Users = new List<User>();
         static long counter = 0;
-         
+        static string group;
+     
         // Send message
         public void Send(string name, string message)
         {
             if (message.Length>0)
             {
-                Clients.All.addMessage(name, message);
+                if (group is null)
+                {
+                    Clients.Caller.errorEmptyMessage(name, "Error!! First join to some group");
+                    return;
+                }
+
+                //Clients.All.addMessage(name, message);
+                //Clients.OthersInGroup(group).addMessage(name, message);
+                Clients.Caller.clearError();
+                Clients.Group(group).addMessage(name, message);
                 Clients.Others.addHeader(name);
+               
             }
             else
             {
@@ -78,5 +90,17 @@ namespace Chat.Hubs
 
             return base.OnDisconnected(stopCalled);
         }
+
+        //UserRomms
+        
+        public void JoinGroup(string groupName)
+        {
+            group = groupName;
+            this.Groups.Add(this.Context.ConnectionId, groupName);
+            Clients.Group(groupName).addMessage(Context.User.Identity.Name + " joined group" +groupName);
+            Clients.Caller.clearError();
+        }
+
+       
     }
 }

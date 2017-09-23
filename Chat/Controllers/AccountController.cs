@@ -32,7 +32,7 @@ namespace Chat.Controllers
                     }
                     else
                     {
-                        return RedirectToAction("Index", "Home");
+                        return RedirectToAction("Index", "Topics");
 
                     }
                 }

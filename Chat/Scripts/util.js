@@ -1,5 +1,23 @@
-﻿$(function () {
+﻿
 
+$(function () {
+
+    $(".table").on('click', '.btnSelect', function () {
+        // get the current row
+        var currentRow = $(this).closest("tr");
+
+        var col1 = currentRow.find("td:eq(0)").text(); // get current row 1st TD value
+        //var col2 = currentRow.find("td:eq(1)").text(); // get current row 2nd TD
+        //var col3 = currentRow.find("td:eq(2)").text(); // get current row 3rd TD
+        var data = col1;
+
+        alert(data);
+
+                $(function () {
+          chat.server.joinGroup(data);
+        });
+    });
+    
     $('#chatBody').hide();
     //$('#loginBlock').show();
     // Auto generated hub link
@@ -8,12 +26,31 @@
 
     //New Message Function
     chat.client.addMessage = function (name, message) {
-        $('#chatroom').append('<p><b>' + htmlEncode(name)
-            + '</b>: ' + htmlEncode(message) + '  ' + new Date().toLocaleTimeString() + '</p>');
-        $('#message').val("");
+        
+
+
+            $('#chatroom').append('<p><b>' + htmlEncode(name)
+                + '</b>: ' + htmlEncode(message) + '  ' + new Date().toLocaleTimeString() + '</p>');
+            $('#message').val("");
+           
+       
+    };
+    // Clear ErrorMessage
+
+        chat.client.clearError = function () {
+
+            $('#emptymessage').empty();
+
+
+      
+
+
     };
 
+  
+        
 
+    
 
     //Title Message Function
     chat.client.addHeader = function (name) {  
@@ -22,10 +59,13 @@
         }, 3000);
     };
 
-
+  
     //Empty Message Error
     chat.client.errorEmptyMessage = function (name, message) {
+        
+        
         $('#emptymessage').css('color', 'red').append('</br>' + htmlEncode(message));
+       
     };
 
     chat.client.UpdateCounter = function (counter) {
@@ -34,12 +74,14 @@
 
     // New User Function
     chat.client.onConnected = function (id, userName, allUsers) {
-
+        
+        
         //$('#loginBlock').hide();
         $('#chatBody').show();
         // hiden tags set
         $('#hdId').val(id);
-        $('#username').val(userName);
+      
+          $('#username').val(userName);
         $('#header').html('<h3>Hello ' + userName + '</h3>');
        
         
@@ -55,6 +97,7 @@
     chat.client.onNewUserConnected = function (id, name) {
 
         AddUser(id, name);
+
     }
 
     // Delete user
@@ -65,12 +108,18 @@
 
     // Open connection
     $.connection.hub.start().done(function () {
+        //Join grop
+        //$(function () {
+        //    chat.server.joinGroup(data);
+        //});
 
         $('#sendmessage').click(function () {
+           
             // Call send method from hub
             chat.server.send($('#username').val(), $('#message').val());
             
             $('#message').val("");
+
 
         });
     
