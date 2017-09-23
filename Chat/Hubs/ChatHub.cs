@@ -14,13 +14,17 @@ namespace Chat.Hubs
     public class ChatHub : Hub
     {
         static List<User> Users = new List<User>();
+        
         static long counter = 0;
-        static string group;
+        //static string group;
      
         // Send message
-        public void Send(string name, string message)
+        public void Send(string name, string message, string group)
         {
-            if (message.Length>0)
+
+            //Clients.All.addMessage(name, message);
+            Clients.Caller.clearError();
+            if (message.Length > 0)
             {
                 if (group is null)
                 {
@@ -28,22 +32,22 @@ namespace Chat.Hubs
                     return;
                 }
 
-                //Clients.All.addMessage(name, message);
-                //Clients.OthersInGroup(group).addMessage(name, message);
-                Clients.Caller.clearError();
+                //    //Clients.All.addMessage(name, message);
+                //    //Clients.OthersInGroup(group).addMessage(name, message);
+                //    Clients.Caller.clearError();
                 Clients.Group(group).addMessage(name, message);
-                Clients.Others.addHeader(name);
+            Clients.Others.addHeader(name);
                
             }
             else
             {
 
-                Clients.Caller.errorEmptyMessage(name,"Error!! Message can not be empty");
+                Clients.Caller.errorEmptyMessage(name, "Error!! Message can not be empty");
 
             }
-           
+
         }
-         
+
         // New user
         public void Connect(LogOnModel model)
         {
@@ -95,10 +99,11 @@ namespace Chat.Hubs
         
         public void JoinGroup(string groupName)
         {
-            group = groupName;
-            this.Groups.Add(this.Context.ConnectionId, groupName);
+            
+           this.Groups.Add(this.Context.ConnectionId, groupName);
             Clients.Group(groupName).addMessage(Context.User.Identity.Name + " joined group" +groupName);
             Clients.Caller.clearError();
+           
         }
 
         public void LeaveGroup(string groupName)

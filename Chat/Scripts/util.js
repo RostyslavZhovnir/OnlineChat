@@ -15,6 +15,9 @@ $(function () {
                 $(function () {
                     chat.server.joinGroup(data);
                     $('#inputForm').show();
+                    $('#grp').val(data);
+                   
+                    
         });
     });
     
@@ -28,13 +31,14 @@ $(function () {
 
     //New Message Function
     chat.client.addMessage = function (name, message) {
-        
 
+         
 
             $('#chatroom').append('<p><b>' + htmlEncode(name)
                 + '</b>: ' + htmlEncode(message) + '  ' + new Date().toLocaleTimeString() + '</p>');
             $('#message').val("");
-           
+         
+            
        
     };
     // Clear ErrorMessage
@@ -118,7 +122,7 @@ $(function () {
         $('#sendmessage').click(function () {
            
             // Call send method from hub
-            chat.server.send($('#username').val(), $('#message').val());
+            chat.server.send($('#username').val(), $('#message').val(), $('#grp').val());
             
             $('#message').val("");
 
