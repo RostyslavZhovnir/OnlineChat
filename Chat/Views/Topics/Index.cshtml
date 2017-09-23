@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<Chat.Models.Topics>
 
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <!DOCTYPE html>
@@ -12,7 +12,24 @@
     <title>Index</title>
 </head>
 <body>
-    <p>
+    <section class="cd-intro">
+        <div class="cd-intro-content bouncy">
+            <h1>Thank you for visiting us</h1>
+            <p>We hope you will enjoy the time to be here</p>
+            @{ if (User.Identity.IsAuthenticated == false)
+                {
+                    <script src="~/Scripts/jquery-3.2.1.min.js"></script>
+
+                    <div class="action-wrapper">
+                        <a href="~/Account/login" class="cd-btn main-action">Login</a>
+                        <a href="~/Account/register" class="cd-btn">New user?</a>
+                        <a href="~/Account/ResendPassword" class="cd-btn">Forgot Password?</a>
+                    </div>
+                }}
+           
+        </div>
+    </section>
+    <p class="creatNewGroup">
         @Html.ActionLink("Create New", "Create")
     </p>
     <table class="table" id="table">
@@ -28,98 +45,79 @@
             </th>
             <th></th>
         </tr>
-    
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.imageone)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.imagetwo)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
-                @Html.ActionLink("Details", "Details", new { id = item.id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.id })
-            </td>
-           
-@{ if (User.Identity.IsAuthenticated)
-    {
-            
-            <td><button class="btnSelect">Join</button></td>
-        }
-    }
-        </tr>
-    }
-    
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.imageone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.imagetwo)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                </td>
+
+                @{ if (User.Identity.IsAuthenticated)
+                    {
+
+                        <td><button class="cd-btnmin" id="btnSelect">Join</button></td>
+                    }
+                }
+            </tr>
+                    }
+
     </table>
     @{ if (User.Identity.IsAuthenticated)
         {
 
 
-            <h2>Chat</h2>
-            <div class="main">
-                @*<div id="loginBlock">
 
-                        <input id="txtUserName" type="text"  value="@User.Identity.Name"/>
+                    <div class="main">
+                        @*<div id="loginBlock">
 
-                    </div>*@
+                                <input id="txtUserName" type="text"  value="@User.Identity.Name"/>
 
-                <div id="chatBody">
-                    <div id="header"></div>
-                    <div id="count"></div>
-                    <div id="inputForm">
-                        <input type="text" id="message" />
-                        <input type="button" id="sendmessage" value="Send" />
+                            </div>*@
+
+                        <div id="chatBody">
+                            <div id="header"></div>
+                            <div id="count"></div>
+                            <div id="inputForm">
+                                <input type="text" id="message" />
+                                <input type="button" id="sendmessage" value="Send" />
+                            </div>
+                            <div id="emptymessage"></div>
+
+                            <div id="chatroom"></div>
+
+                            <div id="chatusers">
+                                <p><b>Users Online</b></p>
+
+                            </div>
+                        </div>
+
+                        <input id="hdId" type="hidden" />
+                        <input id="username" type="hidden" />
                     </div>
-                    <div id="emptymessage"></div>
-                   
-                    <div id="chatroom"></div>
+                    <script src="~/Scripts/jquery-3.2.1.min.js"></script>
+                    <script src="~/Scripts/jquery.signalR-2.2.2.min.js"></script>
+                    <script src="~/signalr/hubs"></script>
+                    <script src="~/Scripts/util.js"></script>
 
-                    <div id="chatusers">
-                        <p><b>Users Online</b></p>
-                    </div>
-                </div>
-
-
-                <input id="hdId" type="hidden" />
-                <input id="username" type="hidden" />
-            </div>
-            <script src="~/Scripts/jquery-3.2.1.min.js"></script>
-            <script src="~/Scripts/jquery.signalR-2.2.2.min.js"></script>
-            <script src="~/signalr/hubs"></script>
-            <script src="~/Scripts/util.js"></script>
-
+            }
         }
 
-        else
-        {
-    <script src="~/Scripts/jquery-3.2.1.min.js"></script>
-
-            <section class="cd-intro">
-                <div class="cd-intro-content bouncy">
-                    <h1>Thank you for visiting us</h1>
-                    <p>We hope you will enjoy the time to be here</p>
-                    <div class="action-wrapper">
-                        <a href="~/Account/login" class="cd-btn main-action">Login</a>
-                        <a href="~/Account/register" class="cd-btn">New user?</a>
-                        <a href="~/Account/ResendPassword" class="cd-btn">Forgot Password?</a>
-                    </div>
-                </div>
-            </section>
 
 
-            @*<p> @Html.ActionLink("LogIn", "Login", "Account") </p>
-                <p> @Html.ActionLink("SignUp", "Register", "Account") </p>
-                <p> @Html.ActionLink("Forgot your password?", "ResendPassword", "Account") </p>*@
-        }
-    }
-   
-    
-  
+
+
 </body>
+
 </html>

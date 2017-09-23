@@ -101,6 +101,9 @@ namespace Chat.Hubs
             Clients.Caller.clearError();
         }
 
-       
+        public void LeaveGroup(string groupName)
+        {
+            Groups.Remove(this.Context.ConnectionId, groupName);
+        }
     }
 }

@@ -1,12 +1,14 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    
 }
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
+
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -171,12 +173,23 @@ html {
 }
 
 body {
-    font-size: 1.6rem;
+    font-size: 13px;
     font-family: "Open Sans", sans-serif;
-    color: #040404;
+   
     background-color: #2e416a;
     padding-top:0px;
+    
+
 }
+table {
+color:white;
+
+}
+
+
+
+
+
 
 label {
     display: inline-block;
@@ -298,7 +311,32 @@ cd-intro {
     margin-top: 10px;
 }
 
-    
+.cd-btnmin {
+    display: inline-block;
+    padding: 0.5em 0.5em;
+    font-size: 10px;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 0.3em;
+    background-color: #202e4a;
+    border-radius: 0.1px;
+    margin-right: 1.5em;
+    margin-top: 10px;
+}
+
+
+
+
+.creatNewGroup a {
+
+    color: #ffffff;
+   
+}
+
+    .creatNewGroup a:hover, a:focus {
+        color: #fb5e58;
+    } 
 
     .cd-btn.main-action {
         background-color: #fb5e58;

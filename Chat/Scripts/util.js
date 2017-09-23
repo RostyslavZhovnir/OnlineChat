@@ -2,23 +2,25 @@
 
 $(function () {
 
-    $(".table").on('click', '.btnSelect', function () {
+    $(".table").on('click', '#btnSelect', function () {
         // get the current row
         var currentRow = $(this).closest("tr");
 
         var col1 = currentRow.find("td:eq(0)").text(); // get current row 1st TD value
-        //var col2 = currentRow.find("td:eq(1)").text(); // get current row 2nd TD
-        //var col3 = currentRow.find("td:eq(2)").text(); // get current row 3rd TD
+        
         var data = col1;
 
         alert(data);
 
                 $(function () {
-          chat.server.joinGroup(data);
+                    chat.server.joinGroup(data);
+                    $('#inputForm').show();
         });
     });
     
     $('#chatBody').hide();
+    $('#inputForm').hide();
+   
     //$('#loginBlock').show();
     // Auto generated hub link
     var chat = $.connection.chatHub;
@@ -82,7 +84,7 @@ $(function () {
         $('#hdId').val(id);
       
           $('#username').val(userName);
-        $('#header').html('<h3>Hello ' + userName + '</h3>');
+        $('#header').html('<h4>Hello ' + userName + '</h4>');
        
         
         for (i = 0; i < allUsers.length; i++) {
