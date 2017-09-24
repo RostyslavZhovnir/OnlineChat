@@ -182,6 +182,24 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Hubs\ChatHub.cs" />
+    <Compile Include="Models\ConversationHistory.cs">
+      <DependentUpon>GroupsHistory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GroupsHistory.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GroupsHistory.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GroupsHistory.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GroupsHistory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GroupsHistory.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GroupsHistory.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Models\LogOnModel.cs" />
     <Compile Include="Models\Topics.Context.cs">
       <AutoGen>True</AutoGen>
@@ -229,8 +247,25 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Topics.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <Content Include="Models\GroupsHistory.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>GroupsHistory.edmx</DependentUpon>
+      <LastGenOutput>GroupsHistory.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\GroupsHistory.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>GroupsHistory.edmx</DependentUpon>
+      <LastGenOutput>GroupsHistory.cs</LastGenOutput>
+    </Content>
     <Content Include="Models\Topics.edmx.diagram">
       <DependentUpon>Topics.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\GroupsHistory.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>GroupsHistory.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\GroupsHistory.edmx.diagram">
+      <DependentUpon>GroupsHistory.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
     <Content Include="Models\Topics.Context.tt">
@@ -289,6 +324,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\User\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

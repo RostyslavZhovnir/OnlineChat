@@ -5,12 +5,19 @@ using System.Web;
 
 namespace Chat.Models
 {
-    public class User
+    using System;
+    using System.Collections.Generic;
+    using System.Data.Entity;
+
+    public partial class User
     {
-        public string ConnectionId { get; set; }
-        public string Name { get; set; }
-        public string GroupName { get; set; }
+        public string ConnID { get; set; }
+        public string UserName { get; set; }
+        public string UserGroup { get; set; }
         public string Message { get; set; }
 
     }
 }
+
+
+

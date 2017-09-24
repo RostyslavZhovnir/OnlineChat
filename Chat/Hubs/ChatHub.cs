@@ -14,10 +14,11 @@ namespace Chat.Hubs
     public class ChatHub : Hub
     {
         static List<User> Users = new List<User>();
-        
+        static List<ConversationHistory> MessageList = new List<ConversationHistory>();
+        private ChatDBEntities2 x = new ChatDBEntities2();
         static long counter = 0;
         //static string group;
-     
+
         // Send message
         public void Send(string name, string message, string group)
         {
@@ -36,8 +37,15 @@ namespace Chat.Hubs
                 //    //Clients.OthersInGroup(group).addMessage(name, message);
                 //    Clients.Caller.clearError();
                 Clients.Group(group).addMessage(name, message);
-            Clients.Others.addHeader(name);
-               
+                Clients.Others.addHeader(name);
+                var y = new ConversationHistory
+                { UserName = name, Message = message, UserGroup = group, ConnID = Context.ConnectionId };
+                x.ConversationHistory.Add(y);
+                x.SaveChanges();
+
+                //var dog = Users.Where(d => d.UserName == name).FirstOrDefault();
+                //if (dog != null) { dog.UserGroup = group; dog.Message = message; }
+
             }
             else
             {
@@ -51,17 +59,17 @@ namespace Chat.Hubs
         // New user
         public void Connect(LogOnModel model)
         {
-            
-            
+
+
 
 
             var id = Context.ConnectionId;
-            
 
-            if (!Users.Any(x => x.ConnectionId == id))
+
+            if (!Users.Any(x => x.ConnID == id))
             {
                 string userName = Membership.GetUser().UserName;
-                Users.Add(new User { ConnectionId = id, Name = userName });
+                Users.Add(new User { ConnID = id, UserName = userName });
 
                 //Count total Users Online
                 counter = counter + 1;
@@ -72,38 +80,47 @@ namespace Chat.Hubs
 
                 // Send message to all users except current
                 Clients.AllExcept(id).onNewUserConnected(id, userName);
-                
+
             }
         }
 
         // Disconect user
         public override System.Threading.Tasks.Task OnDisconnected(bool stopCalled)
         {
-            var item = Users.FirstOrDefault(x => x.ConnectionId == Context.ConnectionId);
+            var item = Users.FirstOrDefault(x => x.ConnID == Context.ConnectionId);
             if (item != null)
             {
                 Users.Remove(item);
                 var id = Context.ConnectionId;
-                
+
                 //Count total Users Online
                 counter = counter - 1;
                 Clients.All.UpdateCounter(counter);
 
-                Clients.All.onUserDisconnected(id, item.Name);
+                Clients.All.onUserDisconnected(id, item.UserName);
             }
 
             return base.OnDisconnected(stopCalled);
         }
 
         //UserRomms
-        
+
         public void JoinGroup(string groupName)
         {
-            
-           this.Groups.Add(this.Context.ConnectionId, groupName);
-            Clients.Group(groupName).addMessage(Context.User.Identity.Name + " joined group" +groupName);
+
+            this.Groups.Add(this.Context.ConnectionId, groupName);
+            Clients.Group(groupName).addMessage(Context.User.Identity.Name + " joined group" + groupName);
             Clients.Caller.clearError();
-           
+            //var dog = Users.Where(d => d.Name == Context.User.Identity.Name).FirstOrDefault();
+
+            //if (dog != null) { dog.GroupName = groupName; }
+            //var z = x.ConversationHistory.f;
+            //foreach (var item in z)
+            //{
+            //    Clients.Group(groupName).addMessage();
+            //}
+
+
         }
 
         public void LeaveGroup(string groupName)
