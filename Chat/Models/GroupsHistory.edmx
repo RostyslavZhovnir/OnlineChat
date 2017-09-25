@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ChatDBModelHistory.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="ChatDBModelHistory.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="ConversationHistory">
           <Key>
             <PropertyRef Name="id" />
@@ -14,15 +14,18 @@
           <Property Name="ConnID" Type="varchar" MaxLength="100" />
           <Property Name="UserGroup" Type="varchar" MaxLength="2000" />
           <Property Name="Message" Type="varchar" MaxLength="5000" />
+          <Property Name="Date" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityContainer Name="ChatDBModelHistoryStoreContainer">
           <EntitySet Name="ConversationHistory" EntityType="Self.ConversationHistory" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ChatDBModelHistory" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="ChatDBEntities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ConversationHistory" EntityType="ChatDBModelHistory.ConversationHistory" />
+        </EntityContainer>
         <EntityType Name="ConversationHistory">
           <Key>
             <PropertyRef Name="id" />
@@ -32,10 +35,8 @@
           <Property Name="ConnID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="UserGroup" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
           <Property Name="Message" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="Date" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityContainer Name="ChatDBEntities2" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="ConversationHistory" EntityType="Self.ConversationHistory" />
-        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -45,11 +46,12 @@
           <EntitySetMapping Name="ConversationHistory">
             <EntityTypeMapping TypeName="ChatDBModelHistory.ConversationHistory">
               <MappingFragment StoreEntitySet="ConversationHistory">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="UserName" ColumnName="UserName" />
-                <ScalarProperty Name="ConnID" ColumnName="ConnID" />
-                <ScalarProperty Name="UserGroup" ColumnName="UserGroup" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="UserGroup" ColumnName="UserGroup" />
+                <ScalarProperty Name="ConnID" ColumnName="ConnID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

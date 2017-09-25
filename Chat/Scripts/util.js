@@ -43,12 +43,12 @@
     };
 
     //New Message Function
-    chat.client.addMessageHistory = function (name, message) {
+    chat.client.addMessageHistory = function (name, message,date) {
 
 
 
         $('#chatroom').append('<p><i>' + htmlEncode(name)
-            + htmlEncode(message) + '</i></p>');
+            + htmlEncode(message) + ' <br> </i></p>' + '<p class ="small"><i>'+ htmlEncode(date) +'</i></p>');
 
 
         $('#message').val('');
@@ -142,9 +142,11 @@
         $('#sendmessage').click(function () {
 
             // Call send method from hub
-            chat.server.send($('#username').val(), $('#message').val(), $('#grp').val());
+            var date = new Date().toLocaleString();
+            //var newD = new Date();
+            chat.server.send($('#username').val(), $('#message').val(), $('#grp').val(),date );
 
-         
+          
            
 
 

@@ -20,7 +20,7 @@ namespace Chat.Hubs
         //static string group;
 
         // Send message
-        public void Send(string name, string message, string group)
+        public void Send(string name, string message, string group,string date)
         {
 
             //Clients.All.addMessage(name, message);
@@ -32,14 +32,14 @@ namespace Chat.Hubs
                     Clients.Caller.errorEmptyMessage(name, "Error!! First join to some group");
                     return;
                 }
-
+                
                 //    //Clients.All.addMessage(name, message);
                 //    //Clients.OthersInGroup(group).addMessage(name, message);
                 //    Clients.Caller.clearError();
                 Clients.Group(group).addMessage(name, message);
                 Clients.Others.addHeader(name);
                 var y = new ConversationHistory
-                { UserName = name, Message = message, UserGroup = group, ConnID = Context.ConnectionId };
+                { UserName = name, Message = message, UserGroup = group, ConnID = Context.ConnectionId, Date = date };
                 x.ConversationHistory.Add(y);
                 x.SaveChanges();
 
@@ -117,7 +117,7 @@ namespace Chat.Hubs
             var z = y.Where(x => x.UserGroup == groupName);
             foreach (var item in z)
             {
-                Clients.Group(groupName).addMessageHistory(item.UserName + " : " + item.Message);
+                Clients.Group(groupName).addMessageHistory(item.UserName + " : " ,item.Message ,item.Date);
             }
             //var dog = Users.Where(d => d.Name == Context.User.Identity.Name).FirstOrDefault();
 

@@ -19,5 +19,6 @@ namespace Chat.Models
         public string ConnID { get; set; }
         public string UserGroup { get; set; }
         public string Message { get; set; }
+        public string Date { get; set; }
     }
 }
