@@ -1,6 +1,6 @@
 ﻿$(function () {
 
-    $(".table").on('click', '#btnSelect', function () {
+    $(".table").on('click', '#joinGroup', function () {
         // get the current row
         var currentRow = $(this).closest("tr");
 
@@ -8,14 +8,15 @@
 
         var data = col1;
 
-        alert(data);
+
 
         $(function () {
             chat.server.joinGroup(data);
             $('#inputForm').show();
             $('#grp').val(data);
             $('#chatroom').empty();
-            $('#chatroom').append('You Joined group'+' ( '+ data + ' ) ' +'  '+ new Date().toLocaleTimeString() + '</p>');
+            //$('#chatroom').append('You Joined group' + ' ( ' + data + ' ) ' + '<br>' + new Date().toLocaleTimeString() + ' ');
+            $('#groupName').html('<h4>You are in ' + data +'group'+ '</h4>');
         });
     });
 
@@ -33,16 +34,37 @@
 
 
         $('#chatroom').append('<p><b>' + htmlEncode(name)
-            + '</b>: ' + htmlEncode(message) + '  ' + new Date().toLocaleTimeString() + '</p>');
-        $('#message').val("");
+            + '</b>: ' + htmlEncode(message) + ' <br> ' + '</p>' + '<p class ="small"><i>' + new Date().toLocaleString() + '</i></p>');
 
+
+        $('#message').val('');
 
 
     };
-    // Clear ErrorMessage
 
+    //New Message Function
+    chat.client.addMessageHistory = function (name, message) {
+
+
+
+        $('#chatroom').append('<p><i>' + htmlEncode(name)
+            + htmlEncode(message) + '</i></p>');
+
+
+        $('#message').val('');
+
+
+    };
+
+  
+    // Clear Message History
+        $('#clearHistory').click(function () {
+            $('#chatroom').empty() });
+
+        
+
+     // Clear ErrorMessage
     chat.client.clearError = function () {
-
         $('#emptymessage').empty();
 
 
@@ -122,7 +144,8 @@
             // Call send method from hub
             chat.server.send($('#username').val(), $('#message').val(), $('#grp').val());
 
-            $('#message').val("");
+         
+           
 
 
         });
@@ -144,7 +167,7 @@ function AddUser(id, name) {
 
     if (userId != id) {
 
-        $("#chatusers").append('<p id="' + id + '"><b>' + name + '</b></p>');
+        $("#chatusers").append('<p><img src="../Images/online.png" />'+'  <b>  ' + name + '</b></p>');
     }
 
 }

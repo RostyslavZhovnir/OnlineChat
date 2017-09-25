@@ -114,10 +114,10 @@ namespace Chat.Hubs
             Clients.Caller.clearError();
 
             var y = x.ConversationHistory.ToList();
-            var z= y.Where(x => x.UserGroup == groupName);
+            var z = y.Where(x => x.UserGroup == groupName);
             foreach (var item in z)
             {
-                Clients.Group(groupName).addMessage(item.UserName+" : "+item.Message);
+                Clients.Group(groupName).addMessageHistory(item.UserName + " : " + item.Message);
             }
             //var dog = Users.Where(d => d.Name == Context.User.Identity.Name).FirstOrDefault();
 

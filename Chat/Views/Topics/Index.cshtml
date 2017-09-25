@@ -11,11 +11,14 @@
     <meta name="viewport" content="width=device-width" />
     <title>Index</title>
 </head>
+
 <body>
+  
     <section class="cd-intro">
         <div class="cd-intro-content bouncy">
             <h1>Thank you for visiting us</h1>
             <p>We hope you will enjoy the time to be here</p>
+           
             @{ if (User.Identity.IsAuthenticated == false)
                 {
                     <script src="~/Scripts/jquery-3.2.1.min.js"></script>
@@ -29,22 +32,27 @@
            
         </div>
     </section>
+ 
     <p class="creatNewGroup">
         @Html.ActionLink("Create New", "Create")
     </p>
+   <p>Please Join Any Group to start live conversation with other users</p>
     <table class="table" id="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.title)
-            </th>
+       
+        
+       
+        @*<tr>
+            
+             Please Join Any Group to start live conversation with other users
+           
             <th>
                 @Html.DisplayNameFor(model => model.imageone)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.imagetwo)
             </th>
-            <th></th>
-        </tr>
+            
+        </tr>*@
 
         @foreach (var item in Model)
         {
@@ -52,22 +60,22 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.title)
                 </td>
-                <td>
+                @*<td>
                     @Html.DisplayFor(modelItem => item.imageone)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.imagetwo)
-                </td>
-                <td>
+                </td>*@
+                @*<td>
                     @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
                     @Html.ActionLink("Details", "Details", new { id = item.id }) |
                     @Html.ActionLink("Delete", "Delete", new { id = item.id })
-                </td>
+                </td>*@
 
                 @{ if (User.Identity.IsAuthenticated)
                     {
 
-                        <td><button class="cd-btnmin" id="btnSelect">Join</button></td>
+                        <td><button class="cd-btnmin" id="joinGroup">Join</button></td>
                     }
                 }
             </tr>
@@ -88,19 +96,22 @@
                         
                         <div id="chatBody">
                             <div id="header"></div>
+                            <div id="groupName"></div>
                             <div id="count"></div>
                             <div id="inputForm">
                                 <input type="text" id="message" />
                                 <input type="button" id="sendmessage" value="Send" />
+                                <input type="button" id="clearHistory" value="Hide History" />
+                               
                             </div>
                             <div id="emptymessage"></div>
 
                             <div id="chatroom"></div>
 
-                            <div id="chatusers">
+                            @*<div class="usersonlinenames" id="chatusers">
                                 <p><b>Users Online</b></p>
 
-                            </div>
+                            </div>*@
                         </div>
 
                         <input id="hdId" type="hidden" />
