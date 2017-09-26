@@ -61,7 +61,19 @@
         $('#clearHistory').click(function () {
             $('#chatroom').empty() });
 
-        
+       //Show Message History
+
+       
+        $('#showHistory').click(function () {
+            var x = $('#grp').val();
+            //chat.server.ShowHistory(x);
+            //chat.server.joinGroup(x);
+            $('#chatroom').empty();
+            chat.server.showHistory(x);
+          
+
+        });
+
 
      // Clear ErrorMessage
     chat.client.clearError = function () {
@@ -146,7 +158,7 @@
             //var newD = new Date();
             chat.server.send($('#username').val(), $('#message').val(), $('#grp').val(),date );
 
-          
+            
            
 
 

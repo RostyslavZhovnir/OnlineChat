@@ -113,12 +113,7 @@ namespace Chat.Hubs
             Clients.Group(groupName).addMessage(Context.User.Identity.Name + " joined");
             Clients.Caller.clearError();
 
-            var y = x.ConversationHistory.ToList();
-            var z = y.Where(x => x.UserGroup == groupName);
-            foreach (var item in z)
-            {
-                Clients.Group(groupName).addMessageHistory(item.UserName + " : " ,item.Message ,item.Date);
-            }
+            ShowHistory(groupName);
             //var dog = Users.Where(d => d.Name == Context.User.Identity.Name).FirstOrDefault();
 
             //if (dog != null) { dog.GroupName = groupName; }
@@ -130,6 +125,20 @@ namespace Chat.Hubs
 
 
         }
+
+        //Show History
+        public void ShowHistory(string groupName)
+        {
+            var y = x.ConversationHistory.ToList();
+            var z = y.Where(x => x.UserGroup == groupName);
+            foreach (var item in z)
+            {
+                //Clients.Group(groupName).addMessageHistory(item.UserName + " : ", item.Message, item.Date);
+                Clients.Caller.addMessageHistory(item.UserName + " : ", item.Message, item.Date);
+            }
+        }
+
+        
 
         public void LeaveGroup(string groupName)
         {
