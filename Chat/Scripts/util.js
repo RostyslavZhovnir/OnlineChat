@@ -105,16 +105,26 @@
 
 
 
-
+    ////Title Message Function
+    //chat.client.addHeader = function (name) {
+    //    setInterval(function () {
+    //        document.title = "New message from " + htmlEncode(name);
+    //    }, 3000);
+    //};
 
     //Title Message Function
     chat.client.addHeader = function (name) {
         setInterval(function () {
-            document.title = "New message from " + htmlEncode(name);
-        }, 3000);
+
+            var title = document.title;
+
+            document.title = (title == "New message from" ? htmlEncode(name) : "New message from");
+        }, 4000);
+
+           
     };
-
-
+   
+     
     //Empty Message Error
     chat.client.errorEmptyMessage = function (name, message) {
 
