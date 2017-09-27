@@ -18,7 +18,8 @@
                     <span class="icon-bar"></span>
                 </button>
                 @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-                <div id="all" class="usersonline" style="padding-right:75px" ></div>
+                @*<div id="all"  class="usersonline" ></div>*@
+                <div id="header" class="usersonline"></div>
 
             </div>
             <div class="navbar-collapse collapse">
@@ -49,7 +50,7 @@
 </div>
         </div>
     </div>
-    @{ if (User.Identity.IsAuthenticated)
+    @*@{ if (User.Identity.IsAuthenticated)
         {
 
 
@@ -59,12 +60,36 @@
              
             </div>
             
-        }}
+        }}*@
     
-    <div class="container body-content">
-       @RenderBody()
+    @*<div class="container body-content">*@
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-8 col-sm-10 col-lg-10">@RenderBody()</div>
+            <div class="col-xs-4 col-sm-2 col-lg-2">
+
+
+
+                @{ if (User.Identity.IsAuthenticated)
+                    {
+
+
+                        <div class="usersonlinenames" id="chatusers">
+
+                            <p><b>Users Online</b></p>
+
+                        </div>
+
+                    }}
+
 
             </div>
+        </div>
+
+    </div>
+           
+
+        
         
           <hr />
                 <footer>

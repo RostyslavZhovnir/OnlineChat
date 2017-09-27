@@ -11,12 +11,13 @@
 
 
         $(function () {
+           
             chat.server.joinGroup(data);
             $('#inputForm').show();
             $('#grp').val(data);
             $('#chatroom').empty();
             //$('#chatroom').append('You Joined group' + ' ( ' + data + ' ) ' + '<br>' + new Date().toLocaleTimeString() + ' ');
-            $('#groupName').html('<h4>You are in ' + data +'group'+ '</h4>');
+            $('#groupName').html('You join group: ' + data);
         });
     });
 
@@ -33,8 +34,8 @@
 
 
 
-        $('#chatroom').append('<p><b>' + htmlEncode(name)
-            + '</b>: ' + htmlEncode(message) + ' <br> ' + '</p>' + '<p class ="small"><i>' + new Date().toLocaleString() + '</i></p>');
+        $('#chatroom').append('<p><b id ="userName">' + htmlEncode(name)
+            + ':</b> ' + htmlEncode(message) + ' <br> ' + '</p>' + '<p class ="small" id= "chatTime"><i>' + new Date().toLocaleString() + '</i></p>');
 
 
         $('#message').val('');
@@ -43,12 +44,28 @@
     };
 
     //New Message Function
+    chat.client.userGroupOnline = function (name, message) {
+
+       
+
+        $('#chatroom').append('<p><b>' + htmlEncode(name)
+            + htmlEncode(message) + ' <br> </p>');
+
+
+        $('#message').val('');
+
+
+    };
+
+
+
+    //New Message Function
     chat.client.addMessageHistory = function (name, message,date) {
 
 
 
-        $('#chatroom').append('<p><i>' + htmlEncode(name)
-            + htmlEncode(message) + ' <br> </i></p>' + '<p class ="small"><i>'+ htmlEncode(date) +'</i></p>');
+        $('#chatroom').append('<p><i> ' + htmlEncode(name)
+            + htmlEncode(message) + ' <br> </i></p>' + '<p class ="small" id="chatTime"><i>'+ htmlEncode(date) +'</i></p>');
 
 
         $('#message').val('');
@@ -106,9 +123,9 @@
 
     };
 
-    chat.client.UpdateCounter = function (counter) {
-        $('#all').text("Online  " + counter);
-    };
+    //chat.client.UpdateCounter = function (counter) {
+    //    $('#all').text("Online  " + counter);
+    //};
 
     // New User Function
     chat.client.onConnected = function (id, userName, allUsers) {
@@ -120,7 +137,7 @@
         $('#hdId').val(id);
 
         $('#username').val(userName);
-        $('#header').html('<h4>Hello ' + userName + '</h4>');
+        $('#header').html('Hello ' + userName );
 
 
         for (i = 0; i < allUsers.length; i++) {
@@ -142,6 +159,7 @@
     chat.client.onUserDisconnected = function (id, userName) {
 
         $('#' + id).remove();
+      
     }
 
     // Open connection

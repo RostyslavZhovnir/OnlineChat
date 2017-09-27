@@ -16,7 +16,7 @@ namespace Chat.Hubs
         static List<User> Users = new List<User>();
         static List<ConversationHistory> MessageList = new List<ConversationHistory>();
         private ChatDBEntities2 x = new ChatDBEntities2();
-        static long counter = 0;
+        //static long counter = 0;
         //static string group;
 
         // Send message
@@ -72,8 +72,8 @@ namespace Chat.Hubs
                 Users.Add(new User { ConnID = id, UserName = userName });
 
                 //Count total Users Online
-                counter = counter + 1;
-                Clients.All.UpdateCounter(counter);
+                //counter = counter + 1;
+                //Clients.All.UpdateCounter(counter);
 
                 // Send message to current user
                 Clients.Caller.onConnected(id, userName, Users);
@@ -93,9 +93,9 @@ namespace Chat.Hubs
                 Users.Remove(item);
                 var id = Context.ConnectionId;
 
-                //Count total Users Online
-                counter = counter - 1;
-                Clients.All.UpdateCounter(counter);
+                ////Count total Users Online
+                //counter = counter - 1;
+                //Clients.All.UpdateCounter(counter);
 
                 Clients.All.onUserDisconnected(id, item.UserName);
             }
@@ -110,7 +110,7 @@ namespace Chat.Hubs
 
             this.Groups.Add(this.Context.ConnectionId, groupName);
             //Clients.Group(groupName).addMessage(Context.User.Identity.Name + " joined group" + groupName);
-            Clients.Group(groupName).addMessage(Context.User.Identity.Name + " joined");
+            Clients.Group(groupName).userGroupOnline(Context.User.Identity.Name + " online");
             Clients.Caller.clearError();
 
             ShowHistory(groupName);

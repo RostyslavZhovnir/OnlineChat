@@ -24,19 +24,28 @@
                     <script src="~/Scripts/jquery-3.2.1.min.js"></script>
 
                     <div class="action-wrapper">
-                        <a href="~/Account/login" class="cd-btn main-action">Login</a>
-                        <a href="~/Account/register" class="cd-btn">New user?</a>
-                        <a href="~/Account/ResendPassword" class="cd-btn">Forgot Password?</a>
+                        <a href="~/Account/login" class="loginBlock"> Login &nbsp;</a>
+                        <a href="~/Account/register" class="loginBlock"> New user? &nbsp; </a>
+                        <a href="~/Account/ResendPassword" class="loginBlock"> Forgot Password? </a>
                     </div>
                 }}
            
         </div>
     </section>
- 
-    <p class="creatNewGroup">
-        @Html.ActionLink("Create New", "Create")
-    </p>
-   <p>Please Join Any Group to start live conversation with other users</p>
+ @{ if (User.Identity.IsAuthenticated)
+     {
+    <div id="createNewGroup">
+         @Html.ActionLink("Create Discussion", "Create") 
+</div>
+    <br>
+    <p>Please Join Any Group to start live conversation with other users</p>
+
+     }
+     else
+     {
+        <p>Please Login to join Any Group and start live conversation with other users</p>
+     } }
+   
     <table class="table" id="table">
        
         
@@ -75,7 +84,7 @@
                 @{ if (User.Identity.IsAuthenticated)
                     {
 
-                        <td><button class="cd-btnmin" id="joinGroup">Join</button></td>
+                        <td><a href="#"><p id="joinGroup">Join</p> </a> </td>
                     }
                 }
             </tr>
@@ -95,15 +104,26 @@
                             </div>*@
                         
                         <div id="chatBody">
-                            <div id="header"></div>
+
                             <div id="groupName"></div>
+                            <br>
                             <div id="count"></div>
                             <div id="inputForm">
                                 <input type="text" id="message" />
                                 <input type="button" id="sendmessage" value="Send" />
-                                <input type="button" id="clearHistory" value="Hide History" />
-                                <input type="button" id="showHistory" value="Show History" />
-                            </div>
+                                @*<input type="button" id="clearHistory" value="Hide History" />*@
+                                @*<input type="button" id="showHistory" value="Show History" />*@
+                               <br>
+                                <a href="#">
+                                    <span class="glyphicon glyphicon-arrow-up" id="clearHistory">Hide</span>
+                                </a>
+                                <a href="#">
+                                    <span class="glyphicon glyphicon-arrow-down" id="showHistory">Show</span>
+                                </a>
+                         
+                            
+                        </div>
+                            <br>
                             <div id="emptymessage"></div>
 
                             <div id="chatroom"></div>
