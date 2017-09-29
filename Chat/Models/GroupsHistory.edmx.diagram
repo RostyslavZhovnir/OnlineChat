@@ -6,6 +6,7 @@
     <edmx:Diagrams>
       <Diagram DiagramId="27866cb18f194e188edaa15bd1db1b9f" Name="Diagram1">
         <EntityTypeShape EntityType="ChatDBModelHistory.ConversationHistory" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ChatDBModelHistory.Likes" Width="1.5" PointX="3.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

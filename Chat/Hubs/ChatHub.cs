@@ -16,7 +16,8 @@ namespace Chat.Hubs
         static List<User> Users = new List<User>();
         static List<ConversationHistory> MessageList = new List<ConversationHistory>();
         private ChatDBEntities2 x = new ChatDBEntities2();
-        //static long counter = 0;
+        static int counter = 0;
+        static bool alreadyCalled;
         //static string group;
 
         // Send message
@@ -127,6 +128,61 @@ namespace Chat.Hubs
 
         }
 
+        //Likes
+        public void Likes(string groupName)
+        {  
+           
+           
+            string userName = Context.User.Identity.Name.ToString();
+            
+            var z = x.Likes.FirstOrDefault(x => x.UserName == userName && x.UserGroup == groupName);
+
+            if (z is null)
+            {
+                counter++;
+
+                alreadyCalled = false;
+
+                var newLikes = new Likes()
+                { UserName = userName, UserGroup = groupName, count = counter };
+                x.Likes.Add(newLikes);
+                x.SaveChanges();
+
+            }
+
+
+
+            else if (alreadyCalled == false)
+            {
+
+
+                counter--;
+                z.count = counter;
+                x.SaveChanges();
+                //var newLikes = new Likes()
+                //{ UserName = userName, UserGroup = groupName, count = counter };
+                //x.Likes.Add(newLikes);
+                //x.SaveChanges();
+                alreadyCalled = true;
+
+            }
+
+            else if( alreadyCalled==true)
+            {
+                counter++;
+                z.count = counter;
+                x.SaveChanges();
+                //var newLikes = new Likes()
+                //{ UserName = userName, UserGroup = groupName, count = counter };
+                //x.Likes.Add(newLikes);
+                //x.SaveChanges();
+                alreadyCalled = false;
+            }
+               
+            
+            
+        }
+
         //Show History
         public void ShowHistory(string groupName)
         {
@@ -139,7 +195,7 @@ namespace Chat.Hubs
             }
         }
 
-        
+
 
         public void LeaveGroup(string groupName)
         {

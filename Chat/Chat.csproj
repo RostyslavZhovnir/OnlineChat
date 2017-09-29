@@ -200,6 +200,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>GroupsHistory.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\Likes.cs">
+      <DependentUpon>GroupsHistory.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\LogOnModel.cs" />
     <Compile Include="Models\Topics.Context.cs">
       <AutoGen>True</AutoGen>

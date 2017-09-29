@@ -1,6 +1,6 @@
 ﻿$(function () {
 
-    $(".table").on('click', '#joinGroup', function () {
+    $(".table").on('click', '#joinGroup, #like', function () {
         // get the current row
         var currentRow = $(this).closest("tr");
 
@@ -8,7 +8,7 @@
 
         var data = col1;
 
-
+        chat.server.likes(data);
 
         $(function () {
            
@@ -102,7 +102,16 @@
 
     };
 
+    //Likes
+    //$('#like').click(function (counter) {
+    //    var x = $('#grp').val();
+    //    //chat.server.ShowHistory(x);
+    //    //chat.server.joinGroup(x);
+    //    //$('#chatroom').empty();
+    //    chat.server.likes(x);
 
+
+    //});
 
 
     ////Title Message Function
