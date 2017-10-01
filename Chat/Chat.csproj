@@ -204,23 +204,8 @@
       <DependentUpon>GroupsHistory.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LogOnModel.cs" />
-    <Compile Include="Models\Topics.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Topics.Context.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\Topics.cs">
-      <DependentUpon>Topics.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Topics.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Topics.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Topics1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Topics.tt</DependentUpon>
+      <DependentUpon>GroupsHistory.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -247,10 +232,6 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
-    <EntityDeploy Include="Models\Topics.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Topics.Designer.cs</LastGenOutput>
-    </EntityDeploy>
     <Content Include="Images\online.png" />
     <Content Include="Models\GroupsHistory.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -262,9 +243,6 @@
       <DependentUpon>GroupsHistory.edmx</DependentUpon>
       <LastGenOutput>GroupsHistory.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\Topics.edmx.diagram">
-      <DependentUpon>Topics.edmx</DependentUpon>
-    </Content>
     <EntityDeploy Include="Models\GroupsHistory.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>GroupsHistory.Designer.cs</LastGenOutput>
@@ -273,16 +251,6 @@
       <DependentUpon>GroupsHistory.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
-    <Content Include="Models\Topics.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Topics.edmx</DependentUpon>
-      <LastGenOutput>Topics.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\Topics.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Topics.edmx</DependentUpon>
-      <LastGenOutput>Topics1.cs</LastGenOutput>
-    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.2.1.js" />

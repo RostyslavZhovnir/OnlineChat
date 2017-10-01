@@ -3,6 +3,7 @@
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
+
 }
 
 <!DOCTYPE html>
@@ -49,7 +50,7 @@
    
     <table class="table" id="table">
        
-        
+      
        
         @*<tr>
             
@@ -63,12 +64,18 @@
             </th>
             
         </tr>*@
-      
-        @foreach (var item in Model)
-        {
-            <tr>
+
+       
+              
+
+                    @foreach (var item in Model)
+                    {
+<tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.countLikes)
                 </td>
                 @*<td>
                     @Html.DisplayFor(modelItem => item.imageone)
@@ -81,16 +88,19 @@
                     @Html.ActionLink("Details", "Details", new { id = item.id }) |
                     @Html.ActionLink("Delete", "Delete", new { id = item.id })
                 </td>*@
-              
+             
                 @{ if (User.Identity.IsAuthenticated)
-                    {
-                       
-                     
-                     
+                    { 
+
+
+
                         <td><a href="#"><p id="joinGroup">Join</p> </a> </td>
+
+  
                         <td><a href="#"><p id="like">Like</p> </a> </td>
-                        
-                      
+ 
+
+
                     }
                 }
                 

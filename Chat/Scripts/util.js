@@ -1,4 +1,6 @@
 ﻿$(function () {
+    
+
 
     $(".table").on('click', '#joinGroup', function () {
         // get the current row
@@ -6,7 +8,7 @@
 
         var col1 = currentRow.find("td:eq(0)").text(); // get current row 1st TD value
 
-        var data = col1;
+        var data = col1.trim();
 
 
 
@@ -20,6 +22,7 @@
             $('#groupName').html('You join group: ' + data);
         });
     });
+
     //Like group select
     $(".table").on('click', '#like', function () {
         // get the current row
@@ -27,21 +30,16 @@
 
         var col1 = currentRow.find("td:eq(0)").text(); // get current row 1st TD value
 
-        var data = col1;
+        var data = col1.trim();
 
-        //$(this).toggleClass("active");
+     
         if ($(this).text()=='Like') {
             $(this).text("Unlike");
         } else {
             $(this).text("Like");
         }
 
-        //if ($('#like').text() == 'Like') {
-        //    $('#like').text('Unlike');
-        //}
-        //else {
-        //    $('#like').text('Like');
-        //}
+     
 
 
 
@@ -69,6 +67,9 @@
 
 
     };
+
+   
+
 
     //New Message Function
     chat.client.userGroupOnline = function (name, message) {
@@ -131,58 +132,22 @@
     };
 
 
-    //Show likes in groups
-    chat.client.Likes = function (countTotal,groupName) {
+    ////Show likes in groups
+    //chat.client.Likes = function (alreadyCalled, groupName) {
 
-        //var periodStart = $(this).closest('tr').children('td:eq(0)').text();
-        //$(this).closest('tr').children('td:eq(0)').text(htmlEncode(countTotal));
-        //var newTr = '<tr><td name="pieTD">' + item + '</td></tr>';
-        //$('table').append(newTr);
-        //var textToInsert = '';
 
-        $('table tr').each(function () {
-            if ($(this).find('td').eq(0).text() == groupName) {
+    //};
 
-                $('.likes').remove();
-
-                $(this).append('<p class="likes">'+countTotal+'</p>');
-
-                //$(this).append(countTotal);
-
-                //append('<p><img src="../Images/online.png" />' + '  <b>  ' + name + '</b></p>');
-                //$('.likes').css('color', 'red').text(htmlEncode(countTotal));
-            }
-        });
-
-        //if (groupName == periodStart) {
-        //    $('.likes').css('color', 'red').text(htmlEncode(countTotal));
-        //}
+        
       
            
-        
+       
 
         
 
-    };
-
-    //Likes
-    //$('#like').click(function (counter) {
-    //    var x = $('#grp').val();
-    //    //chat.server.ShowHistory(x);
-    //    //chat.server.joinGroup(x);
-    //    //$('#chatroom').empty();
-    //    chat.server.likes(x);
+    
 
 
-    //});
-
-
-    ////Title Message Function
-    //chat.client.addHeader = function (name) {
-    //    setInterval(function () {
-    //        document.title = "New message from " + htmlEncode(name);
-    //    }, 3000);
-    //};
 
     //Title Message Function
     chat.client.addHeader = function (name) {

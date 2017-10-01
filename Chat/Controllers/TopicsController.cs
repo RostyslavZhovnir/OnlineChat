@@ -13,11 +13,14 @@ namespace Chat.Controllers
 {
     public class TopicsController : Controller
     {
-        private ChatDBEntities1 db = new ChatDBEntities1();
+        private ChatDBEntities2 db = new ChatDBEntities2();
 
         // GET: Topics
         public async Task<ActionResult> Index()
+
         {
+            
+           
             return View(await db.Topics.ToListAsync());
         }
 

@@ -27,5 +27,6 @@ namespace Chat.Models
     
         public virtual DbSet<ConversationHistory> ConversationHistory { get; set; }
         public virtual DbSet<Likes> Likes { get; set; }
+        public virtual DbSet<Topics> Topics { get; set; }
     }
 }

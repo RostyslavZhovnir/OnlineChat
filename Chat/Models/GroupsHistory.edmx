@@ -25,9 +25,20 @@
           <Property Name="count" Type="int" />
           <Property Name="UserGroup" Type="varchar" MaxLength="2000" />
         </EntityType>
+        <EntityType Name="Topics">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="title" Type="varchar" MaxLength="1000" Nullable="false" />
+          <Property Name="imageone" Type="nchar" MaxLength="100" />
+          <Property Name="imagetwo" Type="nchar" MaxLength="100" />
+          <Property Name="countLikes" Type="int" />
+        </EntityType>
         <EntityContainer Name="ChatDBModelHistoryStoreContainer">
           <EntitySet Name="ConversationHistory" EntityType="Self.ConversationHistory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Likes" EntityType="Self.Likes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Topics" EntityType="Self.Topics" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -36,6 +47,7 @@
         <EntityContainer Name="ChatDBEntities2" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="ConversationHistory" EntityType="ChatDBModelHistory.ConversationHistory" />
           <EntitySet Name="Likes" EntityType="ChatDBModelHistory.Likes" />
+          <EntitySet Name="Topics" EntityType="ChatDBModelHistory.Topics" />
         </EntityContainer>
         <EntityType Name="ConversationHistory">
           <Key>
@@ -56,6 +68,16 @@
           <Property Name="UserName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="count" Type="Int32" />
           <Property Name="UserGroup" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Topics">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="title" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="imageone" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="imagetwo" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="countLikes" Type="Int32" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -81,6 +103,17 @@
                 <ScalarProperty Name="UserGroup" ColumnName="UserGroup" />
                 <ScalarProperty Name="count" ColumnName="count" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Topics">
+            <EntityTypeMapping TypeName="ChatDBModelHistory.Topics">
+              <MappingFragment StoreEntitySet="Topics">
+                <ScalarProperty Name="countLikes" ColumnName="countLikes" />
+                <ScalarProperty Name="imagetwo" ColumnName="imagetwo" />
+                <ScalarProperty Name="imageone" ColumnName="imageone" />
+                <ScalarProperty Name="title" ColumnName="title" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>

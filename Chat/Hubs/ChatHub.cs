@@ -16,6 +16,7 @@ namespace Chat.Hubs
         static List<User> Users = new List<User>();
         static List<ConversationHistory> MessageList = new List<ConversationHistory>();
         private ChatDBEntities2 x = new ChatDBEntities2();
+        
 
 
         //static int counter = 0;
@@ -81,6 +82,7 @@ namespace Chat.Hubs
 
                 // Send message to current user
                 Clients.Caller.onConnected(id, userName, Users);
+               
 
                 // Send message to all users except current
                 Clients.AllExcept(id).onNewUserConnected(id, userName);
@@ -139,7 +141,9 @@ namespace Chat.Hubs
 
             var z = x.Likes.FirstOrDefault(x => x.UserName == userName && x.UserGroup == groupName);
             //var last = x.Likes.Where(x => x.UserGroup == groupName);
-            //var likesInTopics = y.Topics.Where(x => x.title == groupName);
+            //var likesInTopics = x.Topics.FirstOrDefault(x => x.title == groupName).ToString();
+            var totallikes = x.Topics.FirstOrDefault(x => x.title == groupName);
+
 
             if (z is null)
             {
@@ -150,10 +154,17 @@ namespace Chat.Hubs
                 var newLikes = new Likes()
                 { UserName = userName, UserGroup = groupName, count = counter };
                 x.Likes.Add(newLikes);
+                if (totallikes.countLikes is null)
+                {
+                    totallikes.countLikes = +1;
+                }
+                else
+                {
+                    totallikes.countLikes++;
 
-                 
-                
-               await x.SaveChangesAsync();
+                }
+
+                await x.SaveChangesAsync();
 
             }
 
@@ -166,13 +177,14 @@ namespace Chat.Hubs
              
                    z.count = 0;
 
-               
-               await x.SaveChangesAsync();
+                totallikes.countLikes --;
+                await x.SaveChangesAsync();
                 //var newLikes = new Likes()
                 //{ UserName = userName, UserGroup = groupName, count = counter };
                 //x.Likes.Add(newLikes);
                 //x.SaveChanges();
                 alreadyCalled = true;
+                //Clients.Caller.likes(alreadyCalled, groupName);
 
             }
 
@@ -182,18 +194,27 @@ namespace Chat.Hubs
                 
                  z.count =1;
 
+                totallikes.countLikes++;
 
-               await x.SaveChangesAsync();
+                await x.SaveChangesAsync();
                 //var newLikes = new Likes()
                 //{ UserName = userName, UserGroup = groupName, count = counter };
                 //x.Likes.Add(newLikes);
                 //x.SaveChanges();
+               
                 alreadyCalled = false;
+               
             }
-            string countTotal = x.Likes.Where(x=>x.UserGroup==groupName).Sum(x=>x.count).ToString();
+            //string countTotal = x.Likes.Where(x=>x.UserGroup==groupName).Sum(x=>x.count).ToString();
            
-           
-            Clients.All.likes(countTotal,groupName);
+
+
+          
+
+            
+            
+            
+
 
         }
 
