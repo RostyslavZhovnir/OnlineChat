@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ChatDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="ChatDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Topics">
           <Key>
             <PropertyRef Name="id" />
@@ -13,12 +13,12 @@
           <Property Name="title" Type="varchar" MaxLength="1000" Nullable="false" />
           <Property Name="imageone" Type="nchar" MaxLength="100" />
           <Property Name="imagetwo" Type="nchar" MaxLength="100" />
+          <Property Name="countLikes" Type="int" />
         </EntityType>
         <EntityContainer Name="ChatDBModelStoreContainer">
           <EntitySet Name="Topics" EntityType="Self.Topics" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ChatDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -30,6 +30,7 @@
           <Property Name="title" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="imageone" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
           <Property Name="imagetwo" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="countLikes" Type="Int32" />
         </EntityType>
         <EntityContainer Name="ChatDBEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Topics" EntityType="Self.Topics" />
@@ -43,6 +44,7 @@
           <EntitySetMapping Name="Topics">
             <EntityTypeMapping TypeName="ChatDBModel.Topics">
               <MappingFragment StoreEntitySet="Topics">
+                <ScalarProperty Name="countLikes" ColumnName="countLikes" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="title" ColumnName="title" />
                 <ScalarProperty Name="imageone" ColumnName="imageone" />

@@ -16,12 +16,14 @@ namespace Chat.Hubs
         static List<User> Users = new List<User>();
         static List<ConversationHistory> MessageList = new List<ConversationHistory>();
         private ChatDBEntities2 x = new ChatDBEntities2();
-        static int counter = 0;
+
+
+        //static int counter = 0;
         static bool alreadyCalled;
         //static string group;
 
         // Send message
-        public void Send(string name, string message, string group,string date)
+        public void Send(string name, string message, string group, string date)
         {
 
             //Clients.All.addMessage(name, message);
@@ -33,7 +35,7 @@ namespace Chat.Hubs
                     Clients.Caller.errorEmptyMessage(name, "Error!! First join to some group");
                     return;
                 }
-                
+
                 //    //Clients.All.addMessage(name, message);
                 //    //Clients.OthersInGroup(group).addMessage(name, message);
                 //    Clients.Caller.clearError();
@@ -129,24 +131,29 @@ namespace Chat.Hubs
         }
 
         //Likes
-        public void Likes(string groupName)
-        {  
-           
-           
+        public  async Task Likes(string groupName)
+        {
+
+
             string userName = Context.User.Identity.Name.ToString();
-            
+
             var z = x.Likes.FirstOrDefault(x => x.UserName == userName && x.UserGroup == groupName);
+            //var last = x.Likes.Where(x => x.UserGroup == groupName);
+            //var likesInTopics = y.Topics.Where(x => x.title == groupName);
 
             if (z is null)
             {
-                counter++;
+               int counter=1;
 
                 alreadyCalled = false;
 
                 var newLikes = new Likes()
                 { UserName = userName, UserGroup = groupName, count = counter };
                 x.Likes.Add(newLikes);
-                x.SaveChanges();
+
+                 
+                
+               await x.SaveChangesAsync();
 
             }
 
@@ -156,9 +163,11 @@ namespace Chat.Hubs
             {
 
 
-                counter--;
-                z.count = counter;
-                x.SaveChanges();
+             
+                   z.count = 0;
+
+               
+               await x.SaveChangesAsync();
                 //var newLikes = new Likes()
                 //{ UserName = userName, UserGroup = groupName, count = counter };
                 //x.Likes.Add(newLikes);
@@ -167,20 +176,25 @@ namespace Chat.Hubs
 
             }
 
-            else if( alreadyCalled==true)
+            else if (alreadyCalled == true)
             {
-                counter++;
-                z.count = counter;
-                x.SaveChanges();
+
+                
+                 z.count =1;
+
+
+               await x.SaveChangesAsync();
                 //var newLikes = new Likes()
                 //{ UserName = userName, UserGroup = groupName, count = counter };
                 //x.Likes.Add(newLikes);
                 //x.SaveChanges();
                 alreadyCalled = false;
             }
-               
-            
-            
+            string countTotal = x.Likes.Where(x=>x.UserGroup==groupName).Sum(x=>x.count).ToString();
+           
+           
+            Clients.All.likes(countTotal,groupName);
+
         }
 
         //Show History

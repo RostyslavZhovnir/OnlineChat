@@ -1,6 +1,6 @@
 ﻿$(function () {
 
-    $(".table").on('click', '#joinGroup, #like', function () {
+    $(".table").on('click', '#joinGroup', function () {
         // get the current row
         var currentRow = $(this).closest("tr");
 
@@ -8,10 +8,10 @@
 
         var data = col1;
 
-        chat.server.likes(data);
+
 
         $(function () {
-           
+
             chat.server.joinGroup(data);
             $('#inputForm').show();
             $('#grp').val(data);
@@ -19,6 +19,33 @@
             //$('#chatroom').append('You Joined group' + ' ( ' + data + ' ) ' + '<br>' + new Date().toLocaleTimeString() + ' ');
             $('#groupName').html('You join group: ' + data);
         });
+    });
+    //Like group select
+    $(".table").on('click', '#like', function () {
+        // get the current row
+        var currentRow = $(this).closest("tr");
+
+        var col1 = currentRow.find("td:eq(0)").text(); // get current row 1st TD value
+
+        var data = col1;
+
+        //$(this).toggleClass("active");
+        if ($(this).text()=='Like') {
+            $(this).text("Unlike");
+        } else {
+            $(this).text("Like");
+        }
+
+        //if ($('#like').text() == 'Like') {
+        //    $('#like').text('Unlike');
+        //}
+        //else {
+        //    $('#like').text('Like');
+        //}
+
+
+
+        chat.server.likes(data);
     });
 
     $('#chatBody').hide();
@@ -46,7 +73,7 @@
     //New Message Function
     chat.client.userGroupOnline = function (name, message) {
 
-       
+
 
         $('#chatroom').append('<p><b>' + htmlEncode(name)
             + htmlEncode(message) + ' <br> </p>');
@@ -60,12 +87,12 @@
 
 
     //New Message Function
-    chat.client.addMessageHistory = function (name, message,date) {
+    chat.client.addMessageHistory = function (name, message, date) {
 
 
 
         $('#chatroom').append('<p><i> ' + htmlEncode(name)
-            + htmlEncode(message) + ' <br> </i></p>' + '<p class ="small" id="chatTime"><i>'+ htmlEncode(date) +'</i></p>');
+            + htmlEncode(message) + ' <br> </i></p>' + '<p class ="small" id="chatTime"><i>' + htmlEncode(date) + '</i></p>');
 
 
         $('#message').val('');
@@ -73,32 +100,68 @@
 
     };
 
-  
+
     // Clear Message History
-        $('#clearHistory').click(function () {
-            $('#chatroom').empty() });
+    $('#clearHistory').click(function () {
+        $('#chatroom').empty()
+    });
 
-       //Show Message History
-
-       
-        $('#showHistory').click(function () {
-            var x = $('#grp').val();
-            //chat.server.ShowHistory(x);
-            //chat.server.joinGroup(x);
-            $('#chatroom').empty();
-            chat.server.showHistory(x);
-          
-
-        });
+    //Show Message History
 
 
-     // Clear ErrorMessage
+    $('#showHistory').click(function () {
+        var x = $('#grp').val();
+        //chat.server.ShowHistory(x);
+        //chat.server.joinGroup(x);
+        $('#chatroom').empty();
+        chat.server.showHistory(x);
+
+
+    });
+
+
+    // Clear ErrorMessage
     chat.client.clearError = function () {
         $('#emptymessage').empty();
 
 
 
 
+
+    };
+
+
+    //Show likes in groups
+    chat.client.Likes = function (countTotal,groupName) {
+
+        //var periodStart = $(this).closest('tr').children('td:eq(0)').text();
+        //$(this).closest('tr').children('td:eq(0)').text(htmlEncode(countTotal));
+        //var newTr = '<tr><td name="pieTD">' + item + '</td></tr>';
+        //$('table').append(newTr);
+        //var textToInsert = '';
+
+        $('table tr').each(function () {
+            if ($(this).find('td').eq(0).text() == groupName) {
+
+                $('.likes').remove();
+
+                $(this).append('<p class="likes">'+countTotal+'</p>');
+
+                //$(this).append(countTotal);
+
+                //append('<p><img src="../Images/online.png" />' + '  <b>  ' + name + '</b></p>');
+                //$('.likes').css('color', 'red').text(htmlEncode(countTotal));
+            }
+        });
+
+        //if (groupName == periodStart) {
+        //    $('.likes').css('color', 'red').text(htmlEncode(countTotal));
+        //}
+      
+           
+        
+
+        
 
     };
 
@@ -130,10 +193,10 @@
             document.title = (title == "New message from" ? htmlEncode(name) : "New message from");
         }, 4000);
 
-           
+
     };
-   
-     
+
+
     //Empty Message Error
     chat.client.errorEmptyMessage = function (name, message) {
 
@@ -156,7 +219,7 @@
         $('#hdId').val(id);
 
         $('#username').val(userName);
-        $('#header').html('Hello ' + userName );
+        $('#header').html('Hello ' + userName);
 
 
         for (i = 0; i < allUsers.length; i++) {
@@ -178,7 +241,7 @@
     chat.client.onUserDisconnected = function (id, userName) {
 
         $('#' + id).remove();
-      
+
     }
 
     // Open connection
@@ -193,10 +256,10 @@
             // Call send method from hub
             var date = new Date().toLocaleString();
             //var newD = new Date();
-            chat.server.send($('#username').val(), $('#message').val(), $('#grp').val(),date );
+            chat.server.send($('#username').val(), $('#message').val(), $('#grp').val(), date);
 
-            
-           
+
+
 
 
         });
@@ -218,7 +281,7 @@ function AddUser(id, name) {
 
     if (userId != id) {
 
-        $("#chatusers").append('<p><img src="../Images/online.png" />'+'  <b>  ' + name + '</b></p>');
+        $("#chatusers").append('<p><img src="../Images/online.png" />' + '  <b>  ' + name + '</b></p>');
     }
 
 }

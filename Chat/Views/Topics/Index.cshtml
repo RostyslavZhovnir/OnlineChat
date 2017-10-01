@@ -1,5 +1,6 @@
 ﻿@model IEnumerable<Chat.Models.Topics>
 
+
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -62,7 +63,7 @@
             </th>
             
         </tr>*@
-
+      
         @foreach (var item in Model)
         {
             <tr>
@@ -80,14 +81,19 @@
                     @Html.ActionLink("Details", "Details", new { id = item.id }) |
                     @Html.ActionLink("Delete", "Delete", new { id = item.id })
                 </td>*@
-
+              
                 @{ if (User.Identity.IsAuthenticated)
                     {
-
+                       
+                     
+                     
                         <td><a href="#"><p id="joinGroup">Join</p> </a> </td>
                         <td><a href="#"><p id="like">Like</p> </a> </td>
+                        
+                      
                     }
                 }
+                
             </tr>
                     }
 
