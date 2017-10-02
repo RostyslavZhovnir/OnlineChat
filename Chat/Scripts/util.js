@@ -40,7 +40,7 @@
         }
 
      
-
+        
 
 
         chat.server.likes(data);
@@ -68,10 +68,81 @@
 
     };
 
+
+    //New Message Function
+    chat.client.AddLike = function (plusOrMinus,groupName) {
+                
+        $('table tr').each(function () {
+
+            var x = $(this).find('td').eq(0).text();
+            var y = x.trim();
+            if ( y== groupName) {
+
+                var el = parseInt($(this).find('td').eq(1).text());
+                        
+
+               if (plusOrMinus == false) {
+                   //var div = $('#likecounter').text(el - 1);
+                   //$(this).append('<td id="likecounter">' + div.text() + '</td>');
+                   //$('#likecounter').text(el - 1);
+                   //$(this).text(el + 1);
+                   //$('.likes').remove();
+                   var x = el - 1;
+                   //$(this).append('<td class="likes">' + x + '</td>');
+                   $(this).find('td').eq(1).text(x);
+                   //$('td:eq(1)').append('<td class="likes">' + x + '</td>');
+                 
+                }
+               if (plusOrMinus == true) {
+                   //$('.likes').remove();
+                   var y = el + 1;
+                   $(this).find('td').eq(1).text(y);
+                   //$(this).append('<td class="likes">' + y + '</td>');
+                   //$('td:eq(1)').text(y);
+                }
+
+                
+
+
+                
+                
+
+
+
+
+                //$('table tr').each(function () {
+                //    if ($(this).find('td').eq(0).text() == groupName) {
+
+                //        $('.likes').remove();
+
+                //        $(this).append('<p class="likes">' + countTotal + '</p>');
+
+
+
+
+
+                //var el = parseInt($('#likecounter').text());
+
+
+                //if (plusOrMinus == false) {
+                //    $('#likecounter').text(el - 1);
+                //}
+                //if (plusOrMinus == true) {
+                //    $('#likecounter').text(el + 1);
+                //}
+
+            }
+        }
+
+      
+
+
+   ) };
+
    
 
 
-    //New Message Function
+    //Users Online
     chat.client.userGroupOnline = function (name, message) {
 
 
@@ -87,7 +158,7 @@
 
 
 
-    //New Message Function
+    //Message Histry
     chat.client.addMessageHistory = function (name, message, date) {
 
 
@@ -132,21 +203,7 @@
     };
 
 
-    ////Show likes in groups
-    //chat.client.Likes = function (alreadyCalled, groupName) {
-
-
-    //};
-
-        
-      
-           
-       
-
-        
-
-    
-
+  
 
 
     //Title Message Function

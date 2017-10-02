@@ -19,5 +19,6 @@ namespace Chat.Models
         public string imageone { get; set; }
         public string imagetwo { get; set; }
         public Nullable<int> countLikes { get; set; }
+       
     }
 }
