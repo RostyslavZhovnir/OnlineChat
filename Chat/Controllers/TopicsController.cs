@@ -50,10 +50,11 @@ namespace Chat.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "id,title,imageone,imagetwo")] Topics topics)
+        public async Task<ActionResult> Create([Bind(Include = "id,title")] Topics topics)
         {
             if (ModelState.IsValid)
             {
+                topics.countLikes = 0;
                 db.Topics.Add(topics);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");

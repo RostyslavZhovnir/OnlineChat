@@ -91,7 +91,8 @@ namespace Chat.Hubs
                 var newLikes = new Likes()
                 { UserName = userName, UserGroup = groupName, count = counter };
                 x.Likes.Add(newLikes);
-               
+                
+
 
                 if (totallikes.countLikes ==0)
                 {
@@ -110,22 +111,22 @@ namespace Chat.Hubs
 
             else if (z.count==1)
             {
-                alreadyCalled = false;
+                //alreadyCalled = false;
                 z.count = 0;
                 totallikes.countLikes --;
                 await x.SaveChangesAsync();
-                Clients.All.Addlike(alreadyCalled,groupName);
-                alreadyCalled = true;
+                Clients.All.Addlike(false,groupName);
+                //alreadyCalled = true;
             }
 
             else if (z.count==0)
             {
-                alreadyCalled = true;
+                //alreadyCalled = true;
                 z.count =1;
                 totallikes.countLikes++;
                 await x.SaveChangesAsync();
-                Clients.All.Addlike(alreadyCalled,groupName);
-                alreadyCalled = false;
+                Clients.All.Addlike(true,groupName);
+                //alreadyCalled = false;
                
             }
         }
