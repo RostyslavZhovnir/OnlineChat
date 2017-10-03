@@ -72,7 +72,7 @@ namespace Chat.Hubs
         public void JoinGroup(string groupName)
         {
             this.Groups.Add(this.Context.ConnectionId, groupName);
-            Clients.Group(groupName).userGroupOnline(Context.User.Identity.Name + " online");
+            Clients.Group(groupName).userGroupOnline(Context.User.Identity.Name + " join");
             Clients.Caller.clearError();
             ShowHistory(groupName);
         }
@@ -87,39 +87,44 @@ namespace Chat.Hubs
             if (z is null)
             {
                int counter=1;
-                alreadyCalled = false;
+                
                 var newLikes = new Likes()
                 { UserName = userName, UserGroup = groupName, count = counter };
                 x.Likes.Add(newLikes);
+               
 
-
-                if (totallikes.countLikes is null)
+                if (totallikes.countLikes ==0)
                 {
-                    totallikes.countLikes = +1;
+                    totallikes.countLikes =+1;
+                    Clients.All.Addlike(true, groupName);
                 }
                 else
                 {
                     totallikes.countLikes++;
+                    Clients.All.Addlike(true, groupName);
                 }
+               
                 await x.SaveChangesAsync();
             }
 
 
-            else if (alreadyCalled == false)
+            else if (z.count==1)
             {
-                   z.count = 0;
+                alreadyCalled = false;
+                z.count = 0;
                 totallikes.countLikes --;
                 await x.SaveChangesAsync();
-                Clients.Caller.Addlike(alreadyCalled,groupName);
+                Clients.All.Addlike(alreadyCalled,groupName);
                 alreadyCalled = true;
             }
 
-            else if (alreadyCalled == true)
+            else if (z.count==0)
             {
-                 z.count =1;
+                alreadyCalled = true;
+                z.count =1;
                 totallikes.countLikes++;
                 await x.SaveChangesAsync();
-                Clients.Caller.Addlike(alreadyCalled,groupName);
+                Clients.All.Addlike(alreadyCalled,groupName);
                 alreadyCalled = false;
                
             }

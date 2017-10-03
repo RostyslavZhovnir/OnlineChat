@@ -33,11 +33,11 @@
         var data = col1.trim();
 
      
-        if ($(this).text()=='Like') {
-            $(this).text("Unlike");
-        } else {
-            $(this).text("Like");
-        }
+        //if ($(this).text()=='Like') {
+        //    $(this).text("Unlike");
+        //} else {
+        //    $(this).text("Like");
+        //}
 
      
         
@@ -78,10 +78,11 @@
             var y = x.trim();
             if ( y== groupName) {
 
-                var el = parseInt($(this).find('td').eq(1).text());
+                //var el = parseInt($(this).find('td').eq(1).text());
                         
 
-               if (plusOrMinus == false) {
+                if (plusOrMinus == false) {
+                    var el = parseInt($(this).find('td').eq(1).text());
                    //var div = $('#likecounter').text(el - 1);
                    //$(this).append('<td id="likecounter">' + div.text() + '</td>');
                    //$('#likecounter').text(el - 1);
@@ -91,14 +92,17 @@
                    //$(this).append('<td class="likes">' + x + '</td>');
                    $(this).find('td').eq(1).text(x);
                    //$('td:eq(1)').append('<td class="likes">' + x + '</td>');
+                   el = 0;
                  
                 }
-               if (plusOrMinus == true) {
+                if (plusOrMinus == true) {
+                    var el = parseInt($(this).find('td').eq(1).text());
                    //$('.likes').remove();
                    var y = el + 1;
                    $(this).find('td').eq(1).text(y);
                    //$(this).append('<td class="likes">' + y + '</td>');
                    //$('td:eq(1)').text(y);
+                   el = 0;
                 }
 
                 
