@@ -16,7 +16,7 @@ namespace Chat.Hubs
         static List<ConversationHistory> MessageList = new List<ConversationHistory>();
         private ChatDBEntities2 x = new ChatDBEntities2();
         //static int counter = 0;
-        static bool alreadyCalled;
+        //static bool alreadyCalled;
         //static string group;
         // Send message
         public void Send(string name, string message, string group, string date)
@@ -31,7 +31,8 @@ namespace Chat.Hubs
                     return;
                 }
                 Clients.Group(group).addMessage(name, message);
-                Clients.Group(group).addHeader(name);
+                //Clients.Group(group).addHeader(name);
+                Clients.OthersInGroup(group).addHeader(name);
                 var y = new ConversationHistory
                 { UserName = name, Message = message, UserGroup = group, ConnID = Context.ConnectionId, Date = date };
                 x.ConversationHistory.Add(y);

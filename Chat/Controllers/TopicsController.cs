@@ -19,9 +19,9 @@ namespace Chat.Controllers
         public async Task<ActionResult> Index()
 
         {
-            
+            List<Topics> lst = await db.Topics.OrderByDescending(x => x.countLikes).ToListAsync();
            
-            return View(await db.Topics.ToListAsync());
+            return View(lst);
         }
 
         // GET: Topics/Details/5

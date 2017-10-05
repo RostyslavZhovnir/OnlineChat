@@ -19,7 +19,7 @@
     <section class="cd-intro">
         <div class="cd-intro-content bouncy">
             <h1>Thank you for visiting us</h1>
-            <p>We hope you will enjoy the time to be here</p>
+            <p>We hope you will have a great stay in our live rooms</p>
            
             @{ if (User.Identity.IsAuthenticated == false)
                 {
@@ -37,15 +37,16 @@
  @{ if (User.Identity.IsAuthenticated)
      {
     <div id="createNewGroup">
-         @Html.ActionLink("Create Discussion", "Create") 
+       
+         @Html.ActionLink("Create group", "Create") 
 </div>
     <br>
-    <p>Please Join Any Group to start live conversation with other users</p>
+    <p class="indexPageText">Please Join Any Group to start live conversation with other users</p>
 
      }
      else
      {
-        <p>Please Login to join Any Group and start live conversation with other users</p>
+        <p class="indexPageText">Please Login to join Any Group and start live conversation with other users</p>
      } }
    
     <table class="table" id="table">
@@ -74,9 +75,9 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.title)
                 </td>
-                <td>
-                @Html.DisplayFor(modelItem => item.countLikes)
-               </td>
+                @*<td class="likes">
+                @Html.DisplayFor(modelItem => item.countLikes )
+               </td>*@
                 @*<td>
                     @Html.DisplayFor(modelItem => item.imageone)
                 </td>
@@ -100,6 +101,9 @@
                         @*<td><a href="#"><p id="like">Like</p> </a> </td>*@
  
                         <td><a href="#"><span class="glyphicon glyphicon-thumbs-up" id="like"></span></a></td>
+                        <td class="likes">
+                          @Html.DisplayFor(modelItem => item.countLikes) 
+                        </td>
 
                     }
                 }
@@ -126,7 +130,7 @@
                             <br>
                             <div id="count"></div>
                             <div id="inputForm">
-                                <input type="text" id="message" />
+                                <input type="text" class="message" />
                                 <input type="button" id="sendmessage" value="Send" />
                                 @*<input type="button" id="clearHistory" value="Hide History" />*@
                                 @*<input type="button" id="showHistory" value="Show History" />*@

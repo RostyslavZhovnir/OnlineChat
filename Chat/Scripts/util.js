@@ -3,6 +3,7 @@
 
 
     $(".table").on('click', '#joinGroup', function () {
+       
         // get the current row
         var currentRow = $(this).closest("tr");
 
@@ -63,7 +64,8 @@
             + ':</b> ' + htmlEncode(message) + ' <br> ' + '</p>' + '<p class ="small" id= "chatTime"><i>' + new Date().toLocaleString() + '</i></p>');
 
 
-        $('#message').val('');
+        $('.message').val('');
+       
 
 
     };
@@ -82,7 +84,7 @@
                         
 
                 if (plusOrMinus == false) {
-                    var el = parseInt($(this).find('td').eq(1).text());
+                    var el = parseInt($(this).find('td').eq(3).text());
                    //var div = $('#likecounter').text(el - 1);
                    //$(this).append('<td id="likecounter">' + div.text() + '</td>');
                    //$('#likecounter').text(el - 1);
@@ -90,16 +92,16 @@
                    //$('.likes').remove();
                    var x = el - 1;
                    //$(this).append('<td class="likes">' + x + '</td>');
-                   $(this).find('td').eq(1).text(x);
+                   $(this).find('td').eq(3).text(x);
                    //$('td:eq(1)').append('<td class="likes">' + x + '</td>');
                    el = 0;
                  
                 }
                 if (plusOrMinus == true) {
-                    var el = parseInt($(this).find('td').eq(1).text());
+                    var el = parseInt($(this).find('td').eq(3).text());
                    //$('.likes').remove();
                    var y = el + 1;
-                   $(this).find('td').eq(1).text(y);
+                   $(this).find('td').eq(3).text(y);
                    //$(this).append('<td class="likes">' + y + '</td>');
                    //$('td:eq(1)').text(y);
                    el = 0;
@@ -155,7 +157,7 @@
             + htmlEncode(message) + ' <br> </p>');
 
 
-        $('#message').val('');
+        $('.message').val('');
 
 
     };
@@ -171,7 +173,7 @@
             + htmlEncode(message) + ' <br> </i></p>' + '<p class ="small" id="chatTime"><i>' + htmlEncode(date) + '</i></p>');
 
 
-        $('#message').val('');
+        $('.message').val('');
 
 
     };
@@ -282,7 +284,7 @@
             // Call send method from hub
             var date = new Date().toLocaleString();
             //var newD = new Date();
-            chat.server.send($('#username').val(), $('#message').val(), $('#grp').val(), date);
+            chat.server.send($('#username').val(), $('.message').val(), $('#grp').val(), date);
 
 
 
