@@ -8,13 +8,13 @@
 
 <!DOCTYPE html>
 
-<html>
+@*<html>*@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Index</title>
 </head>
 
-<body>
+@*<body>*@
   
     <section class="cd-intro">
         <div class="cd-intro-content bouncy">
@@ -41,7 +41,7 @@
          @Html.ActionLink("Create group", "Create") 
 </div>
     <br>
-    <p class="indexPageText">Please Join Any Group to start live conversation with other users</p>
+    <p class="indexPageText">Please Join Any Group and start live conversation with other users</p>
 
      }
      else
@@ -135,11 +135,12 @@
                                 @*<input type="button" id="clearHistory" value="Hide History" />*@
                                 @*<input type="button" id="showHistory" value="Show History" />*@
                                <br>
+                               
                                 <a href="#">
-                                    <span class="glyphicon glyphicon-arrow-up" id="clearHistory">Hide</span>
+                                    <span class="glyphicon glyphicon-arrow-down" id="showHistory">Show History</span>
                                 </a>
                                 <a href="#">
-                                    <span class="glyphicon glyphicon-arrow-down" id="showHistory">Show</span>
+                                    <span class="glyphicon glyphicon-arrow-up" id="clearHistory">Hide History</span>
                                 </a>
                          
                             
@@ -153,6 +154,11 @@
                                 <p><b>Users Online</b></p>
 
                             </div>*@
+
+                           
+                            @*<a href="#" id="back-to-top" title="Back to top">&uarr;</a>*@
+
+
                         </div>
 
                         <input id="hdId" type="hidden" />
@@ -163,6 +169,7 @@
                     <script src="~/Scripts/jquery.signalR-2.2.2.min.js"></script>
                     <script src="~/signalr/hubs"></script>
                     <script src="~/Scripts/util.js"></script>
+                    <script src = "~/Scripts/backToTop.js" ></script>
 
             }
         }
@@ -171,6 +178,6 @@
 
 
 
-</body>
+@*</body>*@
 
-</html>
+@*</html>*@

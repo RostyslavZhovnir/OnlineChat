@@ -14,13 +14,17 @@
 
 
         $(function () {
-
+            //Slide down to chatroom
+            $('html,body').animate({
+                scrollTop: $("#groupName").offset().top },
+                'slow');
+            //end Slide down
             chat.server.joinGroup(data);
             $('#inputForm').show();
             $('#grp').val(data);
             $('#chatroom').empty();
             //$('#chatroom').append('You Joined group' + ' ( ' + data + ' ) ' + '<br>' + new Date().toLocaleTimeString() + ' ');
-            $('#groupName').html('You join group: ' + data);
+            $('#groupName').html('<p>You join group:</p> ' + data);
         });
     });
 
@@ -60,8 +64,8 @@
 
 
 
-        $('#chatroom').append('<p><b id ="userName">' + htmlEncode(name)
-            + ':</b> ' + htmlEncode(message) + ' <br> ' + '</p>' + '<p class ="small" id= "chatTime"><i>' + new Date().toLocaleString() + '</i></p>');
+        $('#chatroom').append('<div id ="userName"><p><b>' + htmlEncode(name)
+            + ' : ' +'</b>'+ htmlEncode(message) + ' <br> ' + '</p>' + '<p class ="small" id= "chatTime">' + new Date().toLocaleString() + '</p></div>');
 
 
         $('.message').val('');
@@ -153,8 +157,8 @@
 
 
 
-        $('#chatroom').append('<p><b>' + htmlEncode(name)
-            + htmlEncode(message) + ' <br> </p>');
+        $('#chatroom').append('<p id="userJoin"><b>' + htmlEncode(name)
+             + htmlEncode(message) + ' <br> </p>');
 
 
         $('.message').val('');
@@ -167,12 +171,13 @@
     //Message Histry
     chat.client.addMessageHistory = function (name, message, date) {
 
+   
 
+        $('#chatroom').append('<div><p>' + htmlEncode(name)
+            + htmlEncode(message) + ' <br> </p>' + '<p class ="small" id="chatTime">' + htmlEncode(date) + '</p></div>');
 
-        $('#chatroom').append('<p><i> ' + htmlEncode(name)
-            + htmlEncode(message) + ' <br> </i></p>' + '<p class ="small" id="chatTime"><i>' + htmlEncode(date) + '</i></p>');
-
-
+        var navigationToTop = '<a href="#" id="back-to-top" title="Back to top">&uarr;</a>';
+        $("#chatroom").append(navigationToTop);
         $('.message').val('');
 
 
@@ -181,6 +186,11 @@
 
     // Clear Message History
     $('#clearHistory').click(function () {
+
+        //Slide down to chatroom
+        $('html,body').animate({ scrollTop: $("#groupName").offset().top }, 'slow');
+
+         
         $('#chatroom').empty()
     });
 
@@ -188,11 +198,16 @@
 
 
     $('#showHistory').click(function () {
+
+        //Slide down to chatroom
+        $('html,body').animate({ scrollTop: $("#groupName").offset().top }, 'fast');
+
         var x = $('#grp').val();
         //chat.server.ShowHistory(x);
         //chat.server.joinGroup(x);
         $('#chatroom').empty();
         chat.server.showHistory(x);
+
 
 
     });
@@ -278,7 +293,7 @@
         //$(function () {
         //    chat.server.joinGroup(data);
         //});
-
+        $("#chatusers").append('<p><b>' + "Users Online"+'</b></p>');
         $('#sendmessage').click(function () {
 
             // Call send method from hub

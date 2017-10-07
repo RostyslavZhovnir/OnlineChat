@@ -73,9 +73,9 @@ namespace Chat.Hubs
         public void JoinGroup(string groupName)
         {
             this.Groups.Add(this.Context.ConnectionId, groupName);
-            Clients.Group(groupName).userGroupOnline(Context.User.Identity.Name + " join");
+            Clients.Group(groupName).userGroupOnline(Context.User.Identity.Name + "  online");
             Clients.Caller.clearError();
-            ShowHistory(groupName);
+            //ShowHistory(groupName);
         }
         //Likes
         public  async Task Likes(string groupName)

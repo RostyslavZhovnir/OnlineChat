@@ -1,9 +1,9 @@
-﻿<!DOCTYPE html>
+﻿
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title byMilana</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
@@ -17,14 +17,14 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("by Milana", "Index", "Topics", new { area = "" }, new { @class = "navbar-brand" })
                 @*<div id="all"  class="usersonline" ></div>*@
                 <div id="header" class="usersonline"></div>
 
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav " >
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Home", "Index", "Topics")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                     
@@ -76,11 +76,8 @@
 
                         <div class="usersonlinenames" id="chatusers">
 
-                            <p><b>Users Online</b></p>
-                            @{ for (int i = 0; i < 100; i++)
-                                {
-                                  <p>@i</p>
-                                }}
+                           
+                           
                         </div>
 
                     }}

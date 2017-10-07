@@ -1,4 +1,23 @@
 ﻿
+#back-to-top {
+    position: fixed;
+    bottom: 55px;
+    right: 40px;
+    z-index: 9999;
+    width: 32px;
+    height: 32px;
+    font-size:larger;
+    text-align: center;
+    line-height: 30px;
+   
+    color: #fb5e58;
+}
+    footer {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        float: left;
+        padding-left: 1em;
+        font-size: x-small;
+    }
 
 
     body {
@@ -12,22 +31,18 @@
         padding-right: 15px;
     }
 
-.usersonlinenames {
-    margin-top: 50%;
-    display: block;
-    width: 100px;
-    height: 620px;
-    float: left;
-    position: relative;
-    padding-left: 15px;
-    overflow-y: scroll;
-    -ms-overflow-style: none;
-}
-::-webkit-scrollbar {
-    width: 0px;
-    display:none;
-    background: transparent; /* make scrollbar transparent */
-}
+    .usersonlinenames {
+        font-family: FangSong;
+        font-size: small;
+        margin-top: 50%;
+        display: block;
+        width: 100px;
+        float: left;
+        position: relative;
+        padding-left: 15px;
+        overflow-y: visible;
+    }
+
 
 
 
@@ -45,30 +60,82 @@
         max-width: 280px;
     }
 
-.indexPageText {
-    font-size: medium;
-  text-align:center;
-   
-    color: rgba(220, 220, 220, 0.42);
-    font-weight:600;
-}
+    .indexPageText {
+        font-family: FangSong;
+        font-size: medium;
+        text-align: center;
+        color: #ffffff;
+        font-weight: 600;
+
+
+    }
 
     #chatTime {
     }
 
     #chatBody {
-        width: 70%;
+        font-family:Arial;
+        font-size:medium;
+        width: 100%;
+        color:black;
        
     }
 
-    #showHistory, #clearHistory, #createNewGroup a, #userName, #joinGroup, .loginBlock {
-        font-weight: lighter;
-        font-variant: normal;
-        color: #fb5e58;
-        font-stretch: semi-condensed;
+    #chatroom {
+        font-family: Calibri;
+        font-size: small;
+        float: left;
+        position: relative;
+        overflow-y: visible;
+        
     }
+#userJoin {
+    color: #339933;
+}
 
-        #showHistory:hover, #clearHistory:hover, #createNewGroup :hover,#joinGroup:hover {
+/*Styles form Chatroom*/
+
+#chatroom div:nth-child(even) {
+ padding-left:2em;
+
+}
+
+/*#chatroom p:nth-child(odd) {
+    font-size:small;
+    color: #08fe6f;
+}*/
+
+#chatroom p:nth-child(even) {
+    color: rgba(255, 255, 255, 0.29);
+    font-size:xx-small;
+}
+
+
+
+#chatroom div > p > b:nth-child(odd) {
+    font-size: small;
+    color: #fb5e58;
+}
+
+#viewBag, .field-validation-error {
+    font-size: small;
+    color: #fb5e58;
+}
+
+
+
+
+
+#showHistory, #clearHistory, #createNewGroup a, #joinGroup, .loginBlock {
+    font-weight: lighter;
+    font-variant: normal;
+    color: #fb5e58;
+    padding-right: 5px;
+    padding-left:5px;
+    font-stretch: semi-condensed;
+}
+
+        #showHistory:hover, #clearHistory:hover, #createNewGroup :hover, #joinGroup:hover {
             font-variant: normal;
             color: gainsboro;
             font-stretch: semi-condensed;
@@ -76,12 +143,21 @@
 
 
     #groupName {
-        font-size: small;
+        font-size: medium;
         font-weight: lighter;
         font-variant: normal;
         color: #ffffff;
         font-stretch: semi-condensed;
     }
+
+        #groupName p {
+            font-size: medium;
+            font-weight: lighter;
+            font-variant: normal;
+            color: #fb5e58;
+            font-stretch: semi-condensed;
+            
+        }
 
 
 
@@ -99,19 +175,19 @@
         font-weight: lighter;
     }
 
-  
 
 
-    /*NavBar Logoff + ChangePassword*/
+
+    /*NavBar Logoff + ChangePassword
     .navbar-nav > li.logoff > a {
-        font-family: "Open Sans", sans-serif;
+        font-family: FangSong;
         font-size: 9px;
         font-weight: lighter;
         font-variant: normal;
         text-transform: uppercase;
         color: #fb5e58;
         text-align: right !important;
-        letter-spacing: 0.3em;
+        letter-spacing: 0.9em;
     }
     /*NavBar section*/
     @media (max-width: 2000px) {
@@ -175,7 +251,7 @@
                 .navbar-nav > li > a {
                     padding-top: 10px;
                     padding-bottom: 10px;
-                    font-family: "Open Sans", sans-serif;
+                    font-family: FangSong;
                     font-size: 11px;
                     font-weight: lighter;
                     font-variant: normal;
@@ -214,18 +290,24 @@
         padding-right: 80px;
     }
 
+
+
     .navbar-brand {
         float: left;
-        font-size: 18px;
-        font-family: "Open Sans", sans-serif;
-        font-weight: lighter;
-        font-variant: normal;
+        font-size: large;
+        font-family: FangSong;
+        letter-spacing: 1em;
         text-transform: uppercase;
-        color: #666666;
         padding-top: 22px;
         text-align: left !important;
-        letter-spacing: 0.3em;
     }
+
+    .navbar-inverse .navbar-brand {
+        color: #ffffff;
+    }
+
+
+
     /*.navbar-brand {
     font-family: "Open Sans", sans-serif;
     font-size: 20px;
@@ -250,19 +332,18 @@
     }
 
     body {
-        font-size: 13px;
-        font-family: "Open Sans", sans-serif;
+        font-size: large;
+        font-family: FangSong;
         background-color: #2e416a;
         padding-top: 0px;
     }
 
-.table {
-    color: #e5e5e5;
-    width: 100%;
-    max-width: 100%;
-     margin-bottom: 20px;
-   
-}
+    .table {
+        color: #e5e5e5;
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
 
 
 
@@ -279,7 +360,7 @@
 
     legend {
         display: block;
-        width: 100%;
+        width: 20%;
         padding: 0;
         margin-bottom: 20px;
         font-size: 21px;
@@ -436,14 +517,14 @@
 
 
     .navbar-nav > li.logoff > a {
-        font-family: "Open Sans", sans-serif;
+        font-family: FangSong;
         font-size: 9px;
         font-weight: lighter;
         font-variant: normal;
         text-transform: uppercase;
         color: #fb5e58;
         text-align: right !important;
-        letter-spacing: 0.3em;
+        letter-spacing: 0.9em;
     }
     /*NavBar section*/
 
@@ -453,7 +534,6 @@
         line-height: 1.42857143;
         vertical-align: top;
         border-top: 1px solid rgba(221, 221, 221, 0.14);
-      
     }
 
     tr:hover {
@@ -517,14 +597,14 @@
         }
 
             .navbar-nav > li > a {
-                font-family: "Open Sans", sans-serif;
+                font-family: FangSong;
                 font-size: 9px;
                 font-weight: lighter;
                 font-variant: normal;
                 text-transform: uppercase;
                 color: #666666;
                 text-align: right !important;
-                letter-spacing: 0.3em;
+                letter-spacing: 0.9em;
             }
 
     .collapse.in {

@@ -12,7 +12,7 @@
     @Html.ValidationSummary(true)
 
     <fieldset>
-        <legend>Please enter Login and Password</legend>
+        <legend>Login to your account</legend>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.UserName)
@@ -37,9 +37,9 @@
             @Html.LabelFor(model => model.RememberMe)
         </div>
 
-        <p>
+        
             <input type="submit"class="cd-btn main-action" value="LogIn" />
-        </p>
+        
     </fieldset>
 
 }
