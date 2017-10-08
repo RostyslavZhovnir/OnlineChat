@@ -17,7 +17,7 @@ namespace Chat.Models
         [Display(Name = "Password")]
         public string Password { get; set; }
 
-        [Display(Name = "RememberMe")]
+        [Display(Name = "Remember Me")]
         public bool RememberMe { get; set; }
     }
 

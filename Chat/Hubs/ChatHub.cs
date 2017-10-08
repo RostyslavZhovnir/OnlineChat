@@ -134,7 +134,7 @@ namespace Chat.Hubs
         //Show History
         public void ShowHistory(string groupName)
         {
-            var y = x.ConversationHistory.ToList();
+            var y = x.ConversationHistory.ToList().OrderByDescending(x=>x.id);
             var z = y.Where(x => x.UserGroup == groupName);
             foreach (var item in z)
             {

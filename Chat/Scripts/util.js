@@ -67,7 +67,7 @@ $(function () {
 
 
 
-        $('#chatroom').append('<div id ="userName"><p><b>' + htmlEncode(name)
+        $('#chatroom').prepend('<div id ="userName"><p><b>' + htmlEncode(name)
             + ' : ' +'</b>'+ htmlEncode(message) + ' <br> ' + '</p>' + '<p class ="small" id= "chatTime">' + new Date().toLocaleString() + '</p></div>');
 
 
