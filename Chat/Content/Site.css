@@ -66,6 +66,7 @@
         text-align: center;
         color: #ffffff;
         font-weight: 600;
+       
 
 
     }
@@ -127,6 +128,10 @@
 
 
 #showHistory, #clearHistory, #createNewGroup a, #joinGroup, .loginBlock {
+    
+    font-size:small;
+    letter-spacing:3px;
+    word-spacing:1px;
     font-weight: lighter;
     font-variant: normal;
     color: #fb5e58;
@@ -135,11 +140,11 @@
     font-stretch: semi-condensed;
 }
 
-        #showHistory:hover, #clearHistory:hover, #createNewGroup :hover, #joinGroup:hover {
-            font-variant: normal;
-            color: gainsboro;
-            font-stretch: semi-condensed;
-        }
+    #showHistory:hover, #clearHistory:hover, #createNewGroup :hover, #joinGroup:hover, #back-to-top:hover {
+        font-variant: normal;
+        color: gainsboro;
+        font-stretch: semi-condensed;
+    }
 
 
     #groupName {
@@ -333,7 +338,7 @@
 
     body {
         font-size: large;
-        font-family: FangSong;
+        font-family: Arial;
         background-color: #2e416a;
         padding-top: 0px;
     }

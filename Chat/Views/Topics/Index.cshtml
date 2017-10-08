@@ -6,7 +6,6 @@
 
 }
 
-<!DOCTYPE html>
 
 @*<html>*@
 <head>
@@ -36,19 +35,23 @@
     </section>
  @{ if (User.Identity.IsAuthenticated)
      {
-    <div id="createNewGroup">
-       
-         @Html.ActionLink("Create group", "Create") 
-</div>
-    <br>
+    
     <p class="indexPageText">Please Join Any Group and start live conversation with other users</p>
+    <div id="createNewGroup">
+        <a href="~/topics/create">
+            <span class="glyphicon glyphicon-pencil">Create</span>
+        </a>
+       
+
+        @*@Html.ActionLink("Add new", "Create")*@
+    </div>
 
      }
      else
      {
         <p class="indexPageText">Please Login to join Any Group and start live conversation with other users</p>
      } }
-   
+   <br>
     <table class="table" id="table">
        
       
@@ -136,12 +139,12 @@
                                 @*<input type="button" id="showHistory" value="Show History" />*@
                                <br>
                                
-                                <a href="#">
-                                    <span class="glyphicon glyphicon-arrow-down" id="showHistory">Show History</span>
-                                </a>
-                                <a href="#">
-                                    <span class="glyphicon glyphicon-arrow-up" id="clearHistory">Hide History</span>
-                                </a>
+                               
+                                    <span class="glyphicon glyphicon-arrow-down" id="showHistory">History</span>
+                                
+                                
+                                    <span class="glyphicon glyphicon-arrow-up" id="clearHistory">Hide</span>
+                               
                          
                             
                         </div>
@@ -169,7 +172,7 @@
                     <script src="~/Scripts/jquery.signalR-2.2.2.min.js"></script>
                     <script src="~/signalr/hubs"></script>
                     <script src="~/Scripts/util.js"></script>
-                    <script src = "~/Scripts/backToTop.js" ></script>
+                  
 
             }
         }

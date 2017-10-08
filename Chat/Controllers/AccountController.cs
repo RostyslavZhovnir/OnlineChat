@@ -92,8 +92,17 @@ namespace Chat.Controllers
         {
             if (ModelState.IsValid)
             {
-                Membership.GetUser().ChangePassword(Password, NewPassword);
-                ViewBag.Succes = "Your password was changed";
+               bool x= Membership.GetUser().ChangePassword(Password, NewPassword);
+                if (x)
+                {
+                    ViewBag.Succes = "Your password was changed";
+                    Membership.GetUser().ChangePassword(Password, NewPassword);
+                }
+                else
+                {
+                    ViewBag.Succes = "Wrong old password";
+                }
+                
             }
             else
             {

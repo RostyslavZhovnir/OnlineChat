@@ -1,4 +1,7 @@
-﻿$(function () {
+﻿
+
+
+$(function () {
     
 
 
@@ -171,13 +174,14 @@
     //Message Histry
     chat.client.addMessageHistory = function (name, message, date) {
 
-   
-
         $('#chatroom').append('<div><p>' + htmlEncode(name)
             + htmlEncode(message) + ' <br> </p>' + '<p class ="small" id="chatTime">' + htmlEncode(date) + '</p></div>');
 
+        //Back to Top
         var navigationToTop = '<a href="#" id="back-to-top" title="Back to top">&uarr;</a>';
         $("#chatroom").append(navigationToTop);
+     
+
         $('.message').val('');
 
 
@@ -187,8 +191,6 @@
     // Clear Message History
     $('#clearHistory').click(function () {
 
-        //Slide down to chatroom
-        $('html,body').animate({ scrollTop: $("#groupName").offset().top }, 'slow');
 
          
         $('#chatroom').empty()
@@ -200,7 +202,7 @@
     $('#showHistory').click(function () {
 
         //Slide down to chatroom
-        $('html,body').animate({ scrollTop: $("#groupName").offset().top }, 'fast');
+        $('html,body').animate({ scrollTop: $("#chatroom").offset().top }, 'slow');
 
         var x = $('#grp').val();
         //chat.server.ShowHistory(x);
