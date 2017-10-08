@@ -138,7 +138,7 @@ namespace Chat.Hubs
             var z = y.Where(x => x.UserGroup == groupName);
             foreach (var item in z)
             {
-                Clients.Caller.addMessageHistory(item.UserName + " : ", item.Message, item.Date);
+                Clients.Caller.addMessageHistory(item.UserName, item.Message, item.Date);
             }
         }
         public void LeaveGroup(string groupName)

@@ -174,8 +174,12 @@ $(function () {
     //Message Histry
     chat.client.addMessageHistory = function (name, message, date) {
 
-        $('#chatroom').append('<div><p>' + htmlEncode(name)
-            + htmlEncode(message) + ' <br> </p>' + '<p class ="small" id="chatTime">' + htmlEncode(date) + '</p></div>');
+        //$('#chatroom').append('<div><p>' + htmlEncode(name)
+        //    + htmlEncode(message) + ' <br> </p>' + '<p class ="small" id="chatTime">' + htmlEncode(date) + '</p></div>');
+
+
+        $('#chatroom').append('<span><p>' + htmlEncode(name)
+            + ' : ' + htmlEncode(message) + ' <br> ' + '</p>' + '<p class ="small" id= "chatTime">' + htmlEncode(date) + '</p></span>');
 
         //Back to Top
         var navigationToTop = '<a href="#" id="back-to-top" title="Back to top">&uarr;</a>';

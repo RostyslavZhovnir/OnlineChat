@@ -16,9 +16,7 @@ namespace Chat.Models
     public partial class Topics
     {
         public int id { get; set; }
-        [Required]
-        [Display(Name = "Please insert your text")]
-        [StringLength(1000, MinimumLength = 20, ErrorMessage = "Our policy means that all new Topics must be at least 6 characters long")]
+  
         public string title { get; set; }
         public string imageone { get; set; }
         public string imagetwo { get; set; }

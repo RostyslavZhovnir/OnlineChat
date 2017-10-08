@@ -54,6 +54,16 @@ namespace Chat.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (topics.title is null)
+                {
+                    ViewBag.Error = "Topics can not be empty";
+                    return View(topics);
+                }
+                else if (topics.title.Count() < 20)
+                {
+                    ViewBag.Error = "Topics has to be at least 20 symbols lenght";
+                    return View(topics);
+                }
                 topics.countLikes = 0;
                 db.Topics.Add(topics);
                 await db.SaveChangesAsync();
