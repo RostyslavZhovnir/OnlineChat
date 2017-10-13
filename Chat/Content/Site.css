@@ -132,6 +132,7 @@
 
 
 #showHistory, #clearHistory, #createNewGroup a, #joinGroup, .loginBlock {
+    cursor:pointer;
     
     font-size:small;
     letter-spacing:3px;

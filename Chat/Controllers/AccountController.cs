@@ -133,11 +133,11 @@ namespace Chat.Controllers
                 if (createStatus == MembershipCreateStatus.Success)
                 {
                     FormsAuthentication.SetAuthCookie(model.UserName, false);
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Topics");
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Registration Error");
+                    ViewBag.Succes="User with this name already exist";
                 }
             }
 
