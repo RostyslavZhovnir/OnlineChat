@@ -1,4 +1,8 @@
 ﻿@media only screen and (max-width: 768px) {
+
+   
+
+
    button.dropbtn{
        font-size:10px;
        padding-top:10px;
@@ -54,7 +58,13 @@
 /*.glyphicon {
     font-family: 'PT Serif', Georgia, 'Times New Roman';
 }*/
-
+.seeArticles,.hideArticles{
+    font-size:11px;
+    color:#fb5e58;
+    text-align:center;
+    padding-right:4%;
+    cursor:pointer;
+}
 #homePage {
     width: 100%;
     text-align: left;

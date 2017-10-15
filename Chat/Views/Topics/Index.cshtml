@@ -34,7 +34,7 @@
             @{ if (User.Identity.IsAuthenticated == false)
                 {
                     <script src="~/Scripts/jquery-3.2.1.min.js"></script>
-
+                    
                     <div class="action-wrapper">
                         <a href="~/Account/login" class="loginBlock"> Login &nbsp;</a>
                         <a href="~/Account/register" class="loginBlock"> New user? &nbsp; </a>
@@ -42,15 +42,15 @@
 
                     </div>
 
-                    
+
                 }}
            
         </div>
     </section>
  @{ if (User.Identity.IsAuthenticated)
      {
-    
-    <p class="indexPageText">Please Join Any Group and start live conversation with other users</p>
+       
+    <p class="indexPageText">Join Any Article and start live conversation with other users</p>
     <div id="createNewGroup">
         <a href="~/topics/create">
             <p>&#9998; New Article</p>
@@ -62,7 +62,8 @@
 
      }
      else
-     {     
+     {
+    <script src="~/Scripts/ShowTableWhenUserNotAuth.js"></script>
          <br><br>
 
        <div id="homePage">
@@ -92,8 +93,11 @@
     </div>
     <br>
         <p class="indexPageText">Please take a quick journey of all available Articles at this moment! After login or Signup, you will be able to like, dislike or discuss them in a live chat.</p>
+        <p class="seeArticles">Click to See Articles</p>
      } }
    <br><br>
+
+    
     <table class="table" id="table">
        
       
@@ -157,6 +161,14 @@
                     }
 
     </table>
+    @{ if (User.Identity.IsAuthenticated == false)
+        {
+            <p class="hideArticles">Click to Hide Articles</p>
+        }
+
+    }
+   
+        
     @{ if (User.Identity.IsAuthenticated)
         {
 

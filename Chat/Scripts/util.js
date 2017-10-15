@@ -3,6 +3,7 @@
 
 $(function () {
     
+   
 
 
     $(".table").on('click', '#joinGroup', function () {
