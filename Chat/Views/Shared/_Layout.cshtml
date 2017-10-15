@@ -9,103 +9,116 @@
 
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("click Chats", "Index", "Topics", new { area = "" }, new { @class = "navbar-brand" })
-                @*<div id="all"  class="usersonline" ></div>*@
-                <div id="header" class="usersonline"></div>
-
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav " >
-                    <li>@Html.ActionLink("Home", "Index", "Topics")</li>
-                    @*<li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
-                    @{ if (User.Identity.IsAuthenticated == false)
-                        {
-                            <li class="logoff">@Html.ActionLink("LogIn", "Login", "Account")</li>
-                            <li class="logoff">@Html.ActionLink("Forgot password ?", "ResendPassword", "Account")</li>
-                            <li class="logoff">@Html.ActionLink("SignUp", "Register", "Account")</li>
-
-                        } }
-
-                    @{if (User.Identity.IsAuthenticated)
-                        {
-                            @*<li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                    User
-                                    <span class="caret"></span>
-                                </a>
-                                <ul class="dropdown-menu">*@
-                            
-                                    <li class="logoff">@Html.ActionLink("LogOut", "LogOff", "Account")</li>
-                                    <li class="logoff">@Html.ActionLink("Change password", "ChangePassword", "Account")</li>
-                                @*</ul>
-                            </li>*@
-                                   
-                                   
-                                    } }
-                                   
-                                </ul>
-</div>
-        </div>
-    </div>
-    @*@{ if (User.Identity.IsAuthenticated)
-        {
-
-
-            <div class="usersonlinenames" id="chatusers">
-              
-                <p><b>Users Online</b></p>
-             
-            </div>
-            
-        }}*@
-    
-    @*<div class="container body-content">*@
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-xs-8 col-sm-10 col-lg-10">@RenderBody()</div>
-            <div class="col-xs-4 col-sm-2 col-lg-2">
-
-
-
-                @{ if (User.Identity.IsAuthenticated)
-                    {
-
-
-                        <div class="usersonlinenames" id="chatusers">
-
-                           
-                           
-                        </div>
-
-                    }}
-
-
-            </div>
-        </div>
-
-    </div>
+ 
            
 
-        
-        
-          <hr />
-                <footer>
-                    <p>&copy; @DateTime.Now.Year - by Rostyslav Zhovnir</p>
-                </footer>
-            
-    
-    @*@Scripts.Render("~/bundles/jquery")*@
+            <div class="navbar navbar-inverse navbar-fixed-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
 
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+                       
+
+                            @Html.ActionLink("click Chats", "Index", "Topics", new { area = "" }, new { @class = "navbar-brand" })
+                        
+
+
+
+                        @*<div id="all"  class="usersonline" ></div>*@
+                        
+
+                    </div>
+                    <div class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav ">
+                            @*<li id="header" class="usersonline"></li>*@
+                            <li>@Html.ActionLink("Home", "Index", "Topics")</li>
+                            @*<li>@Html.ActionLink("About", "About", "Home")</li>
+                                <li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
+                            @{ if (User.Identity.IsAuthenticated == false)
+                                {
+                                    <li class="logoff">@Html.ActionLink("LogIn", "Login", "Account")</li>
+                                    <li class="logoff">@Html.ActionLink("Forgot password ?", "ResendPassword", "Account")</li>
+                                    <li class="logoff">@Html.ActionLink("SignUp", "Register", "Account")</li>
+
+                                } }
+
+                            @{if (User.Identity.IsAuthenticated)
+                                {
+                                    @*<li class="dropdown">
+                                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                            User
+                                            <span class="caret"></span>
+                                        </a>
+                                        <ul class="dropdown-menu">*@
+
+                                    <li class="logoff">@Html.ActionLink("LogOut", "LogOff", "Account")</li>
+                                    <li class="logoff">@Html.ActionLink("Change password", "ChangePassword", "Account")</li>
+                                    @*</ul>
+                                        </li>*@
+
+
+                                } }
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            @*@{ if (User.Identity.IsAuthenticated)
+                {
+
+
+                    <div class="usersonlinenames" id="chatusers">
+
+                        <p><b>Users Online</b></p>
+
+                    </div>
+
+                }}*@
+
+            @*<div class="container body-content">*@
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xs-8 col-sm-10 col-lg-10">@RenderBody()</div>
+                    <div class="col-xs-4 col-sm-2 col-lg-2">
+
+
+
+                        @{ if (User.Identity.IsAuthenticated)
+                            {
+                                <div class="dropdown">
+                                    <button class="dropbtn">Users Online &#x25BF</button>
+                                    <div class="dropdown-content">
+                                        <div class="usersonlinenames" id="chatusers"> </div>
+                                    </div>
+                                </div>
+
+                             
+
+                            }}
+
+
+                    </div>
+                </div>
+
+            </div>
+
+
+
+
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - by Rostyslav Zhovnir</p>
+            </footer>
+
+
+            @*@Scripts.Render("~/bundles/jquery")*@
+
+            @Scripts.Render("~/bundles/bootstrap")
+            @RenderSection("scripts", required: false)
 </body>
+
 </html>

@@ -47,7 +47,7 @@ namespace Chat.Controllers
         public ActionResult LogOff()
         {
             FormsAuthentication.SignOut();
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Topics");
         }
 
 

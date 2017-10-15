@@ -160,7 +160,7 @@ $(function () {
 
 
 
-        $('#chatroom').append('<p id="userJoin"><b>' + htmlEncode(name)
+        $('#chatroom').append('<p id="userJoin">  <font size="3" color="red">&#10004</font>  ' + htmlEncode(name)
              + htmlEncode(message) + ' <br> </p>');
 
 
@@ -268,7 +268,7 @@ $(function () {
         $('#hdId').val(id);
 
         $('#username').val(userName);
-        $('#header').html('Hello ' + userName);
+        $('#header').html('Hello, ' + userName);
 
 
         for (i = 0; i < allUsers.length; i++) {
@@ -281,6 +281,8 @@ $(function () {
 
     // Add new user
     chat.client.onNewUserConnected = function (id, name) {
+
+
 
         AddUser(id, name);
 
@@ -299,7 +301,7 @@ $(function () {
         //$(function () {
         //    chat.server.joinGroup(data);
         //});
-        $("#chatusers").append('<p><b>' + "Users Online"+'</b></p>');
+        //$("#chatusers").append('<p><b>' + "Users Online"+'</b></p>');
         $('#sendmessage').click(function () {
 
             // Call send method from hub
@@ -330,7 +332,8 @@ function AddUser(id, name) {
 
     if (userId != id) {
 
-        $("#chatusers").append('<p><img src="../Images/online.png" />' + '  <b>  ' + name + '</b></p>');
+        $("#chatusers").append('<p><font size="1" color="green">&#x25CF</font>' + name + '</p>');
     }
+
 
 }
