@@ -87,26 +87,25 @@
     width: 100%;
     text-align: left;
     float: left;
-    font-size: small;
+    
     border-left: thick solid #4CAF50;
     margin-bottom: 20px;
     word-wrap: break-word;
-    background-image: url('../Images/logo.png');
-    background-repeat: no-repeat;
-    background-size: 7% auto;
-    background-position-x: right;
-    background-position-y: top;
+   
 }
     #homePage p {
+        font-size: 12px;
         padding-left: 4%;
         font-weight: 400;
-        letter-spacing: 2px;
+        letter-spacing: normal;
     }
 
 
 #like.glyphicon.glyphicon-thumbs-up::before {
     content: "\e125";
     font-size: 20px;
+    padding-right:55px;
+    margin-right: -60px;
 }
 
 #like.glyphicon.glyphicon-thumbs-up:hover {
@@ -181,14 +180,15 @@
     }
 
 .indexPageText {
-    font-family: 'PT Serif', Georgia, 'Times New Roman';
+    font-family: 'PT Serif', Georgia, 'Times New Roman', Times, serif;
     font-size: medium;
-    width: 100%;
+    letter-spacing:normal;
+    font-weight:600;
     text-align: center;
     color: #339933;
     font-weight: 400;
+
     word-wrap: break-word;
-   
 }
 
     #chatTime {
@@ -250,10 +250,21 @@
 }
 
 
+#joinGroup {
+    cursor: pointer;
+    font-size: small;
+    letter-spacing: 1px;
+    word-spacing: 1px;
+    font-weight: lighter;
+    font-variant: normal;
+    color: #fb5e58;
+    padding-left: 110em;
+    margin-left: -110em;
+    font-stretch: semi-condensed;
+}
 
 
-
-#showHistory, #clearHistory, #createNewGroup a>p, #createNewGroup, #joinGroup, .loginBlock {
+#showHistory, #clearHistory, #createNewGroup a>p, #createNewGroup, .loginBlock {
     cursor: pointer;
     font-size: small;
     letter-spacing: 1px;
@@ -537,12 +548,12 @@
     }
 
 .table {
-    font-family: 'PT Serif', Georgia, 'Times New Roman';
+    font-family: 'PT Serif', Georgia, 'Times New Roman', Times, serif;
+    font-size: 16px;
     color: black;
-    width: 100%;
+ letter-spacing:normal;
     max-width: 100%;
     margin-bottom: 20px;
-    letter-spacing:2px;
 }
 
 
@@ -718,16 +729,16 @@ cd-intro {
     }
 
 
-    .navbar-nav > li.logoff > a {
-        font-family: FangSong;
-        font-size: 9px;
-        font-weight: 800;
-        font-variant: normal;
-        text-transform: uppercase;
-        color: rgba(255, 255, 255, 0.53);
-        text-align: right !important;
-        letter-spacing: 0.9em;
-    }
+.navbar-nav > li.logoff > a {
+    font-family: 'PT Serif', Georgia, 'Times New Roman', Times, serif;
+    font-size: 9px;
+    font-weight: 400;
+    font-variant: normal;
+    text-transform: uppercase;
+    color: black;
+    text-align: right !important;
+    
+}
 
 
 
@@ -736,7 +747,10 @@ cd-intro {
 
 
     .table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
-        padding-left:5px;
+        padding-left:1px;
+        padding-right:1px;
+        padding-top:2px;
+        padding-bottom:2px;
         line-height: 1.42857143;
         vertical-align: top;
         border-top: 1px solid rgba(157, 157, 157, 0.18);
