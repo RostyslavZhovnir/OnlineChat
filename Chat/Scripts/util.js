@@ -3,7 +3,9 @@
 
 $(function () {
     
-   
+    $(".dropbtn").on("click", function () {
+        $(".dropdown-content").toggle();
+    });
 
 
     $(".table").on('click', '#joinGroup', function () {

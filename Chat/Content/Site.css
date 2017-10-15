@@ -23,7 +23,7 @@
    }
 
     p {
-        font-size: 10px;
+        font-size: 14px;
     }
 
         p.indexPageText {
@@ -203,8 +203,8 @@
     }
 
 #chatroom {
-    font-family: 'PT Serif', Georgia, 'Times New Roman';
-    font-size: small;
+    font-family: 'PT Serif', Georgia, 'Times New Roman', Times, serif;
+    font-size: 14px;
     float: left;
     position: relative;
     overflow-y: visible;
@@ -285,20 +285,27 @@
 
 
     #groupName {
+        font-family: 'PT Serif', Georgia, 'Times New Roman', Times, serif;
+   
+        letter-spacing:normal;
+        word-wrap: break-word;
         font-size: medium;
-        font-weight: lighter;
+        font-weight:600;
         font-variant: normal;
         color: black;
         font-stretch: semi-condensed;
     }
 
         #groupName p {
+            font-family: 'PT Serif', Georgia, 'Times New Roman', Times, serif;
+            word-wrap: break-word;
+            width:100%;
+            letter-spacing:normal;
             font-size: medium;
             font-weight: lighter;
             font-variant: normal;
             color: #fb5e58;
             font-stretch: semi-condensed;
-            
         }
 
 
@@ -538,14 +545,14 @@
         font-size: 62.5%;
     }
 
-    body {
-        font-size: large;
-        font-family: Arial;
-        color:black;
-        background-color: #ffffff;
-        padding-top: 0px;
-        letter-spacing:3px;
-    }
+body {
+    font-size: large;
+    font-family: 'PT Serif', Georgia, 'Times New Roman', Times, serif;
+    color: black;
+    background-color: #ffffff;
+    padding-top: 0px;
+    letter-spacing: 3px;
+}
 
 .table {
     font-family: 'PT Serif', Georgia, 'Times New Roman', Times, serif;
