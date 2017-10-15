@@ -16,15 +16,26 @@
 <body>
 
 
-
+   
     <div id="header" class="usersonline"></div>
+    @{ if (User.Identity.IsAuthenticated)
+        {
+            <div class="dropdown">
+                <p class="dropbtn">Users Online &#x25BF</p>
+                <div class="dropdown-content">
+                    <div class="usersonlinenames" id="chatusers"> </div>
+                </div>
+            </div>
 
+
+
+        }}
    
 
    
 
 
-
+    <br><br>
 
     <section class="cd-intro">
         <div class="cd-intro-content bouncy">
