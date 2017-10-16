@@ -10,10 +10,10 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="UserName" Type="varchar" MaxLength="100" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="100" />
           <Property Name="ConnID" Type="varchar" MaxLength="100" />
-          <Property Name="UserGroup" Type="varchar" MaxLength="2000" />
-          <Property Name="Message" Type="varchar" MaxLength="5000" />
+          <Property Name="UserGroup" Type="nvarchar" MaxLength="2000" />
+          <Property Name="Message" Type="nvarchar" MaxLength="4000" />
           <Property Name="Date" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Likes">
@@ -21,16 +21,16 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="UserName" Type="varchar" MaxLength="100" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="100" />
           <Property Name="count" Type="int" />
-          <Property Name="UserGroup" Type="varchar" MaxLength="2000" />
+          <Property Name="UserGroup" Type="nvarchar" MaxLength="2000" />
         </EntityType>
         <EntityType Name="Topics">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="title" Type="varchar" MaxLength="1000" Nullable="false" />
+          <Property Name="title" Type="nvarchar" MaxLength="1000" Nullable="false" />
           <Property Name="imageone" Type="nchar" MaxLength="100" />
           <Property Name="imagetwo" Type="nchar" MaxLength="100" />
           <Property Name="countLikes" Type="int" />
@@ -54,10 +54,10 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="UserName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="UserName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="ConnID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="UserGroup" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
-          <Property Name="Message" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="UserGroup" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="Message" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
           <Property Name="Date" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Likes">
@@ -65,16 +65,16 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="UserName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="UserName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="count" Type="Int32" />
-          <Property Name="UserGroup" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="UserGroup" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Topics">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="title" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="title" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
           <Property Name="imageone" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
           <Property Name="imagetwo" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
           <Property Name="countLikes" Type="Int32" />

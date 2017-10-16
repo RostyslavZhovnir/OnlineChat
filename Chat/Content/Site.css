@@ -2,11 +2,19 @@
 
     #table > tbody > tr > td {
         padding-right: 10px;
+        max-width: 250px;
+        word-wrap: break-word;
     }
 
 
     #chatusers {
         width: 90px;
+        
+    }
+
+    #chatusers p{
+        font-size:8px;
+
     }
 
 
@@ -125,7 +133,7 @@
 }
 
 footer {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'PT Serif', Georgia, 'Times New Roman', Times, serif;
     float: left;
     padding-left: 1em;
     font-size: x-small;
@@ -144,7 +152,7 @@ body {
 }
 
 .usersonlinenames {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'PT Serif', Georgia, 'Times New Roman', Times, serif;
     font-size: x-small;
     padding-top: 3px;
     width: 100%;
@@ -190,7 +198,7 @@ textarea {
 }
 
 #chatBody {
-    font-family: Arial;
+    font-family: 'PT Serif', Georgia, 'Times New Roman', Times, serif;
     font-size: medium;
     width: 100%;
     color: black;
@@ -283,7 +291,7 @@ textarea {
     letter-spacing: normal;
     word-wrap: break-word;
     font-size: medium;
-    font-weight: 600;
+    font-weight: 500;
     font-variant: normal;
     color: black;
     font-stretch: semi-condensed;
@@ -332,9 +340,25 @@ textarea {
         letter-spacing: 0.9em;
     }
     /*NavBar section*/
+@media(min-width:769px) and (max-width:1024px) {
+    #table > tbody > tr > td {
+        padding-right: 10px;
+        max-width: 900px;
+        word-wrap: break-word;
+    }
+
+}
+
+@media(min-width:1025px) and (max-width:2000px) {
+    #table > tbody > tr > td {
+        padding-right: 10px;
+        max-width: 1400px;
+        word-wrap: break-word;
+    }
+}
 @media (max-width: 2000px) {
 
-
+   
     /*######################################################*/
 
     .dropbtn {
@@ -449,7 +473,7 @@ textarea {
             .navbar-nav > li > a {
                 padding-top: 10px;
                 padding-bottom: 10px;
-                font-family: FangSong;
+                font-family: 'PT Serif', Georgia, 'Times New Roman', Times, serif;
                 font-size: 11px;
                 font-weight: lighter;
                 font-variant: normal;
@@ -493,7 +517,7 @@ textarea {
 .navbar-brand {
     float: left;
     font-size: large;
-    font-family: FangSong;
+    font-family: 'PT Serif', Georgia, 'Times New Roman', Times, serif;
     letter-spacing: 1em;
     text-transform: uppercase;
     padding-top: 22px;
@@ -502,7 +526,7 @@ textarea {
 }
 
 .navbar-inverse .navbar-brand {
-    font-family: monospace;
+    font-family: 'PT Serif', Georgia, 'Times New Roman', Times, serif;
     color: white;
 }
 
@@ -545,7 +569,8 @@ body {
     font-size: 16px;
     color: black;
     letter-spacing: normal;
-    max-width: 100%;
+    width: 90%;
+    word-wrap: break-word;
     margin-bottom: 20px;
 }
 
@@ -809,7 +834,7 @@ tr:hover {
     }
 
         .navbar-nav > li > a {
-            font-family: FangSong;
+            font-family: 'PT Serif', Georgia, 'Times New Roman', Times, serif;
             font-size: 9px;
             font-weight: lighter;
             font-variant: normal;
