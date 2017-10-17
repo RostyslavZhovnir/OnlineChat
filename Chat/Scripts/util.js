@@ -1,15 +1,16 @@
-﻿
+﻿$(function () {
 
-
-$(function () {
-    
     $(".dropbtn").on("click", function () {
         $(".dropdown-content").toggle();
     });
 
 
     $(".table").on('click', '#joinGroup', function () {
-       
+        var previousGrp = $('#grp').val();
+        if (previousGrp != null) {
+            chat.server.leaveGroup(previousGrp);
+        }
+        $('.message').val('');
         // get the current row
         var currentRow = $(this).closest("tr");
 
@@ -22,7 +23,8 @@ $(function () {
         $(function () {
             //Slide down to chatroom
             $('html,body').animate({
-                scrollTop: $("#groupName").offset().top },
+                scrollTop: $("#groupName").offset().top
+            },
                 'slow');
             //end Slide down
             chat.server.joinGroup(data);
@@ -43,15 +45,15 @@ $(function () {
 
         var data = col1.trim();
 
-     
+
         //if ($(this).text()=='Like') {
         //    $(this).text("Unlike");
         //} else {
         //    $(this).text("Like");
         //}
 
-     
-        
+
+
 
 
         chat.server.likes(data);
@@ -71,57 +73,57 @@ $(function () {
 
 
         $('#chatroom').prepend('<div id ="userName"><p><b>' + htmlEncode(name)
-            + ' : ' +'</b>'+ htmlEncode(message) + ' <br> ' + '</p>' + '<p class ="small" id= "chatTime">' + new Date().toLocaleString() + '</p></div>');
+            + ' : ' + '</b>' + htmlEncode(message) + ' <br> ' + '</p>' + '<p class ="small" id= "chatTime">' + new Date().toLocaleString() + '</p></div>');
 
 
-        $('.message').val('');
-       
+        //$('.message').val('');
+
 
 
     };
 
 
     //New Message Function
-    chat.client.AddLike = function (plusOrMinus,groupName) {
-                
+    chat.client.AddLike = function (plusOrMinus, groupName) {
+
         $('table tr').each(function () {
 
             var x = $(this).find('td').eq(0).text();
             var y = x.trim();
-            if ( y== groupName) {
+            if (y == groupName) {
 
                 //var el = parseInt($(this).find('td').eq(1).text());
-                        
+
 
                 if (plusOrMinus == false) {
                     var el = parseInt($(this).find('td').eq(3).text());
-                   //var div = $('#likecounter').text(el - 1);
-                   //$(this).append('<td id="likecounter">' + div.text() + '</td>');
-                   //$('#likecounter').text(el - 1);
-                   //$(this).text(el + 1);
-                   //$('.likes').remove();
-                   var x = el - 1;
-                   //$(this).append('<td class="likes">' + x + '</td>');
-                   $(this).find('td').eq(3).text(x);
-                   //$('td:eq(1)').append('<td class="likes">' + x + '</td>');
-                   el = 0;
-                 
+                    //var div = $('#likecounter').text(el - 1);
+                    //$(this).append('<td id="likecounter">' + div.text() + '</td>');
+                    //$('#likecounter').text(el - 1);
+                    //$(this).text(el + 1);
+                    //$('.likes').remove();
+                    var x = el - 1;
+                    //$(this).append('<td class="likes">' + x + '</td>');
+                    $(this).find('td').eq(3).text(x);
+                    //$('td:eq(1)').append('<td class="likes">' + x + '</td>');
+                    el = 0;
+
                 }
                 if (plusOrMinus == true) {
                     var el = parseInt($(this).find('td').eq(3).text());
-                   //$('.likes').remove();
-                   var y = el + 1;
-                   $(this).find('td').eq(3).text(y);
-                   //$(this).append('<td class="likes">' + y + '</td>');
-                   //$('td:eq(1)').text(y);
-                   el = 0;
+                    //$('.likes').remove();
+                    var y = el + 1;
+                    $(this).find('td').eq(3).text(y);
+                    //$(this).append('<td class="likes">' + y + '</td>');
+                    //$('td:eq(1)').text(y);
+                    el = 0;
                 }
 
-                
 
 
-                
-                
+
+
+
 
 
 
@@ -150,12 +152,13 @@ $(function () {
             }
         }
 
-      
 
 
-   ) };
 
-   
+        )
+    };
+
+
 
 
     //Users Online
@@ -164,10 +167,10 @@ $(function () {
 
 
         $('#chatroom').append('<p id="userJoin">  <font size="3" color="red">&#10004</font>  ' + htmlEncode(name)
-             + htmlEncode(message) + ' <br> </p>');
+            + htmlEncode(message) + ' <br> </p>');
 
 
-        $('.message').val('');
+
 
 
     };
@@ -187,9 +190,8 @@ $(function () {
         //Back to Top
         var navigationToTop = '<a href="#" id="back-to-top" title="Back to top">&uarr;</a>';
         $("#chatroom").append(navigationToTop);
-     
 
-        $('.message').val('');
+
 
 
     };
@@ -199,7 +201,7 @@ $(function () {
     $('#clearHistory').click(function () {
 
 
-         
+
         $('#chatroom').empty()
     });
 
@@ -233,7 +235,7 @@ $(function () {
     };
 
 
-  
+
 
 
     //Title Message Function
@@ -310,12 +312,18 @@ $(function () {
             // Call send method from hub
             var date = new Date().toLocaleString();
             //var newD = new Date();
+
             chat.server.send($('#username').val(), $('.message').val(), $('#grp').val(), date);
 
+            $('.message').val('');
 
 
 
-
+        });
+        $('#messagebox').keypress(function (e) {
+            if (e.which == 13) {//Enter key pressed
+                $('#sendmessage').click();//Trigger search button click event
+            }
         });
 
         var name = $("#txtUserName").val();
