@@ -297,6 +297,8 @@
     chat.client.onUserDisconnected = function (id, userName) {
 
         $('#' + id).remove();
+        $('#chatusers>p:contains("' + userName + '")').remove();
+   
 
     }
 

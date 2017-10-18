@@ -357,7 +357,9 @@ textarea {
     }
 }
 @media (max-width: 2000px) {
-
+    #navbarIcon{
+        float:right;
+    }
    
     /*######################################################*/
 

@@ -15,6 +15,7 @@ namespace Chat.Hubs
         static List<User> Users = new List<User>();
         static List<ConversationHistory> MessageList = new List<ConversationHistory>();
         private ChatDBEntities2 x = new ChatDBEntities2();
+       
         //static int counter = 0;
         //static bool alreadyCalled;
         //static string group;
@@ -47,6 +48,7 @@ namespace Chat.Hubs
         public void Connect(LogOnModel model)
         {
             var id = Context.ConnectionId;
+
             if (!Users.Any(x => x.ConnID == id))
             {
                 string userName = Membership.GetUser().UserName;
@@ -56,6 +58,27 @@ namespace Chat.Hubs
                 // Send message to all users except current
                 Clients.AllExcept(id).onNewUserConnected(id, userName);
             }
+
+            //var id = Context.ConnectionId;
+            //var z = Context.User.Identity.Name;
+
+            //if (!Users.Any(x => x.UserName !=z))
+            //{
+            //    string userName = Membership.GetUser().UserName;
+            //    Users.Add(new User { ConnID = id, UserName = userName });
+
+
+
+
+
+
+
+
+            //    // Send message to current user
+            //    Clients.Caller.onConnected(id, userName, Users);
+            //    // Send message to all users except current
+            //    Clients.AllExcept(id).onNewUserConnected(id, userName);
+            //}
         }
         // Disconect user
         public override System.Threading.Tasks.Task OnDisconnected(bool stopCalled)
