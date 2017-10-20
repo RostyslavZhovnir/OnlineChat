@@ -1,6 +1,32 @@
 ﻿@media only screen and (max-width: 768px) {
 
+
+
+    #homePage > div {
+        border-left: none;
+    }
+
+    /*#icon{
+      font-size:12px;
+      text-align:left;
+      float:left;
+     
+      
+  }*/
+
+    /*#icontext{
+   padding-top:20px;
+   padding-left:3px;
+  }*/
+
+    /*#icon img {
+        float: left;
+        
+    }*/
+
     #table > tbody > tr > td {
+        padding-top: 10px;
+        padding-bottom: 10px;
         padding-right: 10px;
         max-width: 250px;
         word-wrap: break-word;
@@ -9,13 +35,11 @@
 
     #chatusers {
         width: 90px;
-        
     }
 
-    #chatusers p{
-        font-size:8px;
-
-    }
+        #chatusers p {
+            font-size: 8px;
+        }
 
 
     #sendmessage {
@@ -34,7 +58,7 @@
     }
 
         p.indexPageText {
-            font-size: 9px;
+            font-size: 12px;
             text-align: left;
         }
 
@@ -92,17 +116,13 @@
     width: 100%;
     text-align: left;
     float: left;
-    border-left: thick solid #4CAF50;
+    margin-top: 60px;
     margin-bottom: 20px;
+    display: table;
     word-wrap: break-word;
 }
 
-    #homePage p {
-        font-size: 12px;
-        padding-left: 4%;
-        font-weight: 400;
-        letter-spacing: normal;
-    }
+
 
 
 #like.glyphicon.glyphicon-thumbs-up::before {
@@ -346,7 +366,6 @@ textarea {
         max-width: 900px;
         word-wrap: break-word;
     }
-
 }
 
 @media(min-width:1025px) and (max-width:2000px) {
@@ -356,11 +375,31 @@ textarea {
         word-wrap: break-word;
     }
 }
+
 @media (max-width: 2000px) {
-    #navbarIcon{
-        float:right;
+
+    #icontext {
+        padding-top: 30px;
+        vertical-align: top;
+        display: inline-block;
+        text-align: left;
+        width: 120px;
+        font-size: 12px;
+        font-weight: 500;
+        padding-left: inherit;
     }
-   
+
+    .indexTable {
+        border-left: thin solid #4CAF50;
+        width: 50%;
+        margin: 0 auto;
+        vertical-align: middle;
+    }
+
+    #navbarIcon {
+        float: right;
+    }
+
     /*######################################################*/
 
     .dropbtn {
@@ -571,7 +610,21 @@ body {
     font-size: 16px;
     color: black;
     letter-spacing: normal;
-    width: 90%;
+    width: 80%;
+    margin: 0 auto;
+    vertical-align: middle;
+    word-wrap: break-word;
+    margin-bottom: 20px;
+}
+
+#tablelogoff {
+    font-family: 'PT Serif', Georgia, 'Times New Roman', Times, serif;
+    font-size: 16px;
+    color: black;
+    letter-spacing: normal;
+    width: 50%;
+    margin: 0 auto;
+    vertical-align: middle;
     word-wrap: break-word;
     margin-bottom: 20px;
 }
@@ -755,7 +808,7 @@ cd-intro {
     font-weight: 400;
     font-variant: normal;
     text-transform: uppercase;
-    color: black;
+    color: #f5f5f5;
     text-align: right !important;
 }
 

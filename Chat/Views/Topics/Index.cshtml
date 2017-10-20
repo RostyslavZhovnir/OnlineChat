@@ -35,7 +35,7 @@
    
 
 
-    <br><br>
+   
 
     <section class="cd-intro">
         <div class="cd-intro-content bouncy">
@@ -45,7 +45,7 @@
             @{ if (User.Identity.IsAuthenticated == false)
                 {
                     <script src="~/Scripts/jquery-3.2.1.min.js"></script>
-                    
+
                     <div class="action-wrapper">
                         <a href="~/Account/login" class="loginBlock"> Login &nbsp;</a>
                         <a href="~/Account/register" class="loginBlock"> New user? &nbsp; </a>
@@ -60,7 +60,7 @@
     </section>
  @{ if (User.Identity.IsAuthenticated)
      {
-       
+
     <p class="indexPageText">Join Any Article and start live conversation with other users</p>
     <div id="createNewGroup">
         <a href="~/topics/create">
@@ -71,107 +71,108 @@
         @*@Html.ActionLink("Add new", "Create")*@
     </div>
 
+    <table class="table" id="table">
+
+
+
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.title)
+                </td>
+
+
+                @{ if (User.Identity.IsAuthenticated)
+                    {
+
+
+
+                        <td><a href="#"><p id="joinGroup">Join</p> </a> </td>
+
+
+                        <td><a href="#"><span class="glyphicon glyphicon-thumbs-up" id="like"></span></a></td>
+                        <td class="likes">
+                            @Html.DisplayFor(modelItem => item.countLikes)
+                        </td>
+
+                    }
+                }
+
+            </tr>
+                    }
+
+    </table>  
+
+
      }
      else
      {
     <script src="~/Scripts/ShowTableWhenUserNotAuth.js"></script>
-         <br><br>
+
 
        <div id="homePage">
-           <br>
-      <p><b>ClickChats is 100%  an open community, in our opinion, the reason is that : </b></p>
-        <p>You can create, read or vote for a real-time Article made on ClickChats.com by our members.</p>
-        <p>You don't need to install any side apps. Our interface is mobile friendly (any kind of smartphone or tablet).</p>
-        <p> You don't have to join some Article to "Like or "Dislike it!</p>
-        <p>All discussion are Live and with real users;</p>
-        
-        <p>
-            We don't have any user Groups or private Messages!! Once a user posts something he or she will be unable to delete it.
-            In this way, we provide kids-safe parent control! And essentially if you are a good and fair person you have nothing to hide.
-        </p>
+           <div class="indexTable">
+           <div class="container-fluid">
+               <div class="row">
+                   <div class="col-sm-4"><div id="icontext"><img src="~/Images/IndexPageImg/indexSmile.png" /> ClickChats is 100%  an open community</div></div>
+                   <div class="col-sm-4"><div id="icontext"><img src="~/Images/IndexPageImg/indexOnline.png" />All discussion are Live and with real users</div></div>
+                   <div class="col-sm-4"><div id="icontext"><img src="~/Images/IndexPageImg/indexHistory.png" />Chat history of every Article just in a few clicks</div></div>
+                   <div class="col-sm-4"><div id="icontext"><img src="~/Images/IndexPageImg/indexAllDevices.png" />You don't need to install any side apps.</div></div>
+                   <div class="col-sm-4"><div id="icontext"><img src="~/Images/IndexPageImg/indexReadWrite.png" />Create, read or vote for a real-time Articles</div></div>
+                   <div class="col-sm-4">
+                      <div id="icontext"><img src="~/Images/IndexPageImg/indexWeBlock.png" />We try to block/delete all illeagal or criminal materials</div>
+                   </div></div></div>
+               </div>
 
-        <p>
-            What will happen if connection lost during live chat discussion?
-            The Answer is nothing!! You can see Chat history of every Article just in a few clicks.
-        </p>
+   
+           
 
-        <p>
-            We try to block/delete all materials that:
-            Incites, advocates, or expresses pornography, obscenity, vulgarity, profanity, hatred, bigotry, racism, terrorism or gratuitous violence.
-        </p>
+       
 
            <br>
     </div>
     <br>
         <p class="indexPageText">Please take a quick journey of all available Articles at this moment! After login or Signup, you will be able to like, dislike or discuss them in a live chat.</p>
         <p class="seeArticles">Click to See Articles</p>
-     } }
+   
    <br><br>
-
     
-    <table class="table" id="table">
-       
-      
-       
-        @*<tr>
-            
-             Please Join Any Group to start live conversation with other users
-           
-            <th>
-                @Html.DisplayNameFor(model => model.imageone)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.imagetwo)
-            </th>
-            
-        </tr>*@
+ 
+      <table class="table" id="tablelogoff">
+        
+ 
 
-       
-              
 
-                    @foreach (var item in Model)
-                    {
-<tr>
+        @foreach (var item in Model)
+        {
+            <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.title)
                 </td>
-                @*<td class="likes">
-                @Html.DisplayFor(modelItem => item.countLikes )
-               </td>*@
-                @*<td>
-                    @Html.DisplayFor(modelItem => item.imageone)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.imagetwo)
-                </td>*@
-                @*<td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.id }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.id })
-                </td>*@
-             
+
+
                 @{ if (User.Identity.IsAuthenticated)
-                    { 
+                    {
 
 
 
                         <td><a href="#"><p id="joinGroup">Join</p> </a> </td>
 
-  
-                        @*<td><a href="#"><p id="like">Like</p> </a> </td>*@
- 
+
                         <td><a href="#"><span class="glyphicon glyphicon-thumbs-up" id="like"></span></a></td>
                         <td class="likes">
-                          @Html.DisplayFor(modelItem => item.countLikes) 
+                            @Html.DisplayFor(modelItem => item.countLikes)
                         </td>
 
                     }
                 }
-                
+
             </tr>
                     }
 
-    </table>
+    </table>  } }
     @{ if (User.Identity.IsAuthenticated == false)
         {
             <p class="hideArticles">Click to Hide Articles</p>
