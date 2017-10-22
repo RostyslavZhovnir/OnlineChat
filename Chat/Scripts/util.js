@@ -70,11 +70,15 @@
     //New Message Function
     chat.client.addMessage = function (name, message) {
 
+       
 
 
-        $('#chatroom').prepend('<div id ="userName"><p><b>' + htmlEncode(name)
-            + ' : ' + '</b>' + htmlEncode(message) + ' <br> ' + '</p>' + '<p class ="small" id= "chatTime">' + new Date().toLocaleString() + '</p></div>');
 
+            $('#chatroom').prepend('<div id ="userName"><p><b>' + htmlEncode(name)
+                + '</b>' + ' : '+ htmlEncode(message) + ' <br> ' + '</p>' + '<p class ="small" id= "chatTime">' + new Date().toLocaleString() + '</p></div>');
+     
+
+    
 
         //$('.message').val('');
 
@@ -180,12 +184,15 @@
     //Message Histry
     chat.client.addMessageHistory = function (name, message, date) {
 
-        //$('#chatroom').append('<div><p>' + htmlEncode(name)
-        //    + htmlEncode(message) + ' <br> </p>' + '<p class ="small" id="chatTime">' + htmlEncode(date) + '</p></div>');
+        //$('#chatroom').append('<div id="historyUserName"><p>' + htmlEncode(name) +'</p></div><div>'
+        //    + htmlEncode(message) + ' <br>' + '<p class ="small" id="chatTime">' + htmlEncode(date) + '</p></div>');
+
+        //$('#chatroom').append('<div id ="userName"><p><b>' + htmlEncode(name)
+        //    + ' : ' + '</b>' + htmlEncode(message) + ' <br> ' + '</p>' + '<p class ="small" id= "chatTime">' + new Date().toLocaleString() + '</p></div>');
 
 
-        $('#chatroom').append('<span><p>' + htmlEncode(name)
-            + ' : ' + htmlEncode(message) + ' <br> ' + '</p>' + '<p class ="small" id= "chatTime">' + htmlEncode(date) + '</p></span>');
+        $('#chatroom').append('<span class="historyUserName"><p><b>' + htmlEncode(name) 
+            + '</b></span><span class="msg">' + ' : ' + htmlEncode(message) + ' <br> '  +'</p>'+ '<p class ="small" id= "chatTime">' + htmlEncode(date) + '</p></span>');
 
         //Back to Top
         var navigationToTop = '<a href="#" id="back-to-top" title="Back to top">&uarr;</a>';
@@ -354,3 +361,23 @@ function AddUser(id, name) {
 
 
 }
+
+$(document).ready(function () {
+
+    $(document).on("click", "span.historyUserName>p>b, #userName>p>b", function () {
+
+        var z = $(this).text();
+        
+        $('.message').val('@'+z+' ');
+        $('html,body').animate({ scrollTop: $("#chatBody").offset().top }, 'slow');
+
+    });
+    //$("#chatTime").click(function () {
+    //    alert("Handler for .click() called.");
+    //});
+    
+    //$(".historyUserName").on('click', '#joinGroup', function () {
+    //}
+
+
+})

@@ -67,13 +67,13 @@ namespace Chat.Controllers
                 MembershipUser mu = Membership.GetUser(UserName);
                 string tempPassword = mu.ResetPassword();
                 //mu.ChangePassword(mu.ResetPassword(), password);
-                MailMessage EmailText = new MailMessage(Email, "rasty.home@gmail.com"); //from to emails
+                MailMessage EmailText = new MailMessage("info@clickchats.com",Email ); //from to emails
                 EmailText.Subject = "Your new Password";
-                EmailText.Body = $"Hello {UserName},<br/> your password was reseted to:{tempPassword} <br/> After Login to your account you will be able to change this password to new one <br/>,best regards <br/>Development team";
+                EmailText.Body = $"Hello {UserName},<br/> your password was reseted to:{tempPassword} <br/> After Login to your account you will be able to change this password to new one <br/>,best regards <br/>ClickChats.com";
                 EmailText.IsBodyHtml = true;
                 SmtpClient smtpClient = new SmtpClient();
                 smtpClient.Send(EmailText);
-                ViewBag.Succes = "The message has been sent";
+                ViewBag.Succes = "The message has been sent. Pease Check your email";
             }
             else
             {

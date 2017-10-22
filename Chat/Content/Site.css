@@ -1,5 +1,13 @@
 ﻿@media only screen and (max-width: 768px) {
 
+    #chatBody {
+        font-family: 'PT Serif',Georgia,'Times New Roman',Times,serif;
+        font-size: medium;
+        width: 100%;
+        color: #000;
+        margin: 0 auto;
+     
+    }
 
 
     #homePage > div {
@@ -218,10 +226,12 @@ textarea {
 }
 
 #chatBody {
-    font-family: 'PT Serif', Georgia, 'Times New Roman', Times, serif;
+    font-family: 'PT Serif',Georgia,'Times New Roman',Times,serif;
     font-size: medium;
-    width: 100%;
-    color: black;
+    width: 80%;
+    color: #000;
+    margin: 0 auto;
+    vertical-align: middle;
 }
 
 #chatroom {
@@ -378,6 +388,13 @@ textarea {
 
 @media (max-width: 2000px) {
 
+    .historyUserName>p {
+    color:black;
+    }
+    .historyUserName > p>b {
+        color: rgb(0, 197, 251);
+        cursor:pointer;
+    }
     #icontext {
         padding-top: 30px;
         vertical-align: top;
