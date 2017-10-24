@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Chat.Models.Topics>
+﻿﻿@model IEnumerable<Chat.Models.Topics>
 
 
 @{
@@ -16,7 +16,7 @@
 <body>
 
 
-   
+
     <div id="header" class="usersonline"></div>
     @{ if (User.Identity.IsAuthenticated)
         {
@@ -30,18 +30,20 @@
 
 
         }}
-   
-
-   
 
 
-   
+
+
+
+
 
     <section class="cd-intro">
         <div class="cd-intro-content bouncy">
             <h1>Thank you for visiting us</h1>
             <p>We hope you will have a great stay in fastest social network ever</p>
-           
+            
+   
+
             @{ if (User.Identity.IsAuthenticated == false)
                 {
                     <script src="~/Scripts/jquery-3.2.1.min.js"></script>
@@ -55,193 +57,219 @@
 
 
                 }}
-           
+
         </div>
     </section>
- @{ if (User.Identity.IsAuthenticated)
-     {
-
-    <p class="indexPageText">Join Any Article and start live conversation with other users</p>
-    <div id="createNewGroup">
-        <a href="~/topics/create">
-            <p>&#9998; New Article</p>
-        </a>
-      
-
-        @*@Html.ActionLink("Add new", "Create")*@
-    </div>
-
-    <table class="table" id="table">
-
-
-
-
-        @foreach (var item in Model)
+    @{ if (User.Identity.IsAuthenticated)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.title)
-                </td>
+            <br>
+            <p class="indexPageText">Join Any Article and start live conversation with other users. Top rated Articles will show up first</p>
+            <div id="createNewGroup">
+                <a href="~/topics/create">
+                    <p> &#x271A; Add New</p>
+                </a>
 
 
-                @{ if (User.Identity.IsAuthenticated)
+                @*@Html.ActionLink("Add new", "Create")*@
+            </div>
+
+            <table class="table" id="table">
+
+
+
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @if (item.imageone != null)
+                            {
+
+                               <a href="@Url.Content("~/img/" + System.IO.Path.GetFileName(item.imageone)) "target="_blank"> <img src="@Url.Content("~/img/" + System.IO.Path.GetFileName(item.imageone))" alt="@item.title"  style="max-height:100px; max-width:200px" /></a>
+
+                            }
+                            @Html.DisplayFor(modelItem => item.title)
+                          
+                        </td>
+
+
+                        @{ if (User.Identity.IsAuthenticated)
                     {
 
 
 
-                        <td><a href="#"><p id="joinGroup">Join</p> </a> </td>
+                                <td><a href="#"><p id="joinGroup">Join</p> </a> </td>
 
 
-                        <td><a href="#"><span class="glyphicon glyphicon-thumbs-up" id="like"></span></a></td>
-                        <td class="likes">
-                            @Html.DisplayFor(modelItem => item.countLikes)
-                        </td>
+                                <td><a href="#"><p id="like">&#10084;</p></a></td>
+                                <td class="likes">
+                                   <p> @Html.DisplayFor(modelItem => item.countLikes)</p>
+                                </td>
 
-                    }
-                }
+                            }
+                        }
 
-            </tr>
-                    }
+                    </tr>
+                            }
 
-    </table>  
-
-
-     }
-     else
-     {
-    <script src="~/Scripts/ShowTableWhenUserNotAuth.js"></script>
+            </table>
 
 
-       <div id="homePage">
-           <div class="indexTable">
-           <div class="container-fluid">
-               <div class="row">
-                   <div class="col-sm-4"><div id="icontext"><img src="~/Images/IndexPageImg/indexSmile.png" /> ClickChats is 100%  an open community</div></div>
-                   <div class="col-sm-4"><div id="icontext"><img src="~/Images/IndexPageImg/indexOnline.png" />All discussion are Live and with real users</div></div>
-                   <div class="col-sm-4"><div id="icontext"><img src="~/Images/IndexPageImg/indexHistory.png" />Chat history of every Article just in a few clicks</div></div>
-                   <div class="col-sm-4"><div id="icontext"><img src="~/Images/IndexPageImg/indexAllDevices.png" />You don't need to install any side apps.</div></div>
-                   <div class="col-sm-4"><div id="icontext"><img src="~/Images/IndexPageImg/indexReadWrite.png" />Create, read or vote for a real-time Articles</div></div>
-                   <div class="col-sm-4">
-                      <div id="icontext"><img src="~/Images/IndexPageImg/indexWeBlock.png" />We try to block/delete all illeagal or criminal materials</div>
-                   </div></div></div>
-               </div>
-
-   
-           
-
-       
-
-           <br>
-    </div>
-    <br>
-        <p class="indexPageText">Please take a quick journey of all available Articles at this moment! After login or Signup, you will be able to like, dislike or discuss them in a live chat.</p>
-        <p class="seeArticles">Click to See Articles</p>
-   
-   <br><br>
-    
- 
-      <table class="table" id="tablelogoff">
-        
- 
+                            }
+                            else
+                            {
+                                <script src="~/Scripts/ShowTableWhenUserNotAuth.js"></script>
 
 
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.title)
-                </td>
+                                <div id="homePage">
+                                    <div class="indexTable">
+                                        <div class="container-fluid">
+                                            <div class="row">
+                                                <div class="col-xs-6 col-sm-4"><div id="icontext"><img src="~/Images/IndexPageImg/indexSmile.png" /> ClickChats is 100%  an open community</div></div>
+                                                <div class="col-xs-6 col-sm-4"><div id="icontext"><img src="~/Images/IndexPageImg/indexOnline.png" />All discussion are Live and with real users</div></div>
+                                                <div class="col-xs-6 col-sm-4"><div id="icontext"><img src="~/Images/IndexPageImg/indexWeBlock.png" />We try to block/delete all illeagal or criminal materials</div></div>
+                                                <div class="col-xs-6 col-sm-4"><div id="icontext"><img src="~/Images/IndexPageImg/indexHistory.png" />Chat history of every Article just in a few clicks</div></div>
+                                                <div class="col-xs-6 col-sm-4"><div id="icontext"><img src="~/Images/IndexPageImg/indexAllDevices.png" />You don't need to install any side apps.</div></div>
+                                      
+                                                
+                                               
+                                                <div class="col-xs-6 col-sm-4"><div id="icontext"><img src="~/Images/IndexPageImg/indexReadWrite.png" />Create, read or vote for a real-time Articles</div></div>
+                                               
+                                              
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                              
+                                <br>
+                                <p class="indexPageText">Log In or Register to like, dislike or discuss topics in a live chat.</p>
+                                <p class="seeArticles">Click to See Topics</p>
+
+                                <br><br>
 
 
-                @{ if (User.Identity.IsAuthenticated)
+                                <table class="table" id="tablelogoff">
+
+
+
+
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+
+                                          
+
+                                            <td>
+                                                @if (item.imageone != null)
+                                                {
+
+                                                    <img src="@Url.Content("~/img/" + System.IO.Path.GetFileName(item.imageone))" alt="" style="max-height:100px; max-width:200px" />
+
+                                                }
+                                                @Html.DisplayFor(modelItem => item.title)
+                                            </td>
+
+                                          
+                                            <td class="likes">
+                                                &#10084;   @Html.DisplayFor(modelItem => item.countLikes)
+                                            </td>
+
+                                            @{ if (User.Identity.IsAuthenticated)
                     {
 
 
 
-                        <td><a href="#"><p id="joinGroup">Join</p> </a> </td>
+                                                    <td><a href="#"><p id="joinGroup">Join</p> </a> </td>
 
 
-                        <td><a href="#"><span class="glyphicon glyphicon-thumbs-up" id="like"></span></a></td>
-                        <td class="likes">
-                            @Html.DisplayFor(modelItem => item.countLikes)
-                        </td>
+                                                    <td><a href="#"><span class="glyphicon glyphicon-thumbs-up" id="like"></span></a></td>
+                                                    <td class="likes">
+                                                        @Html.DisplayFor(modelItem => item.countLikes)
+                                                    </td>
 
-                    }
-                }
+                                                }
+                                            }
 
-            </tr>
-                    }
+                                        </tr>
+                                                }
 
-    </table>  } }
+                                </table>  } }
     @{ if (User.Identity.IsAuthenticated == false)
         {
-            <p class="hideArticles">Click to Hide Articles</p>
+            <p class="hideArticles">Click to Hide </p>
         }
 
     }
-   
-        
+
+
     @{ if (User.Identity.IsAuthenticated)
         {
 
 
 
-                    <div class="main">
-                        @*<div id="loginBlock">
+            <div class="main">
+                @*<div id="loginBlock">
 
-                                <input id="txtUserName" type="text"  value="@User.Identity.Name"/>
+                        <input id="txtUserName" type="text"  value="@User.Identity.Name"/>
 
-                            </div>*@
-                        
-                        <div id="chatBody">
+                    </div>*@
 
-                            <div id="groupName"></div>
-                            <br>
-                            <div id="count"></div>
-                            <div id="inputForm">
-                                <input type="text" id="messagebox" class="message" />
-                                <input type="button" id="sendmessage" value="Send" />
-                                @*<input type="button" id="clearHistory" value="Hide History" />*@
-                                @*<input type="button" id="showHistory" value="Show History" />*@
-                               <br>
-                               
-                               
-                                    <span class="glyphicon glyphicon-arrow-down" id="showHistory">History</span>
-                                
-                                
-                                    <span class="glyphicon glyphicon-arrow-up" id="clearHistory">Hide</span>
-                               
-                         
-                            
-                        </div>
-                            <br>
-                            <div id="emptymessage"></div>
+                <div id="chatBody">
 
-                            <div id="chatroom"></div>
-
-                            @*<div class="usersonlinenames" id="chatusers">
-                                <p><b>Users Online</b></p>
-
-                            </div>*@
-
-                           
-                            @*<a href="#" id="back-to-top" title="Back to top">&uarr;</a>*@
+                    <div id="groupName"></div>
+                    <br>
+                    <div id="count"></div>
+                    <div id="inputForm">
+                        <input type="text" id="messagebox" class="message" />
+                        <input type="button" id="sendmessage" value="Send" />
 
 
-                        </div>
 
-                        <input id="hdId" type="hidden" />
-                        <input id="username" type="hidden" />
-                        <input id="grp" type="hidden" />
+
+                        @*<input type="button" id="clearHistory" value="Hide History" />*@
+                        @*<input type="button" id="showHistory" value="Show History" />*@
+                        <br>
+
+
+                        <span class="glyphicon glyphicon-arrow-down" id="showHistory">History</span>
+
+
+                        <span class="glyphicon glyphicon-arrow-up" id="clearHistory">Hide</span>
+
+
+
                     </div>
+                    <br>
+                    <div id="emptymessage"></div>
+
+                    <div id="chatroom"></div>
+
+                    @*<div class="usersonlinenames" id="chatusers">
+                            <p><b>Users Online</b></p>
+
+                        </div>*@
+
+
+                    @*<a href="#" id="back-to-top" title="Back to top">&uarr;</a>*@
+
+
+                </div>
+                <audio id="audio" src="~/sounds/newmessage.mp3"></audio>
+
+                
+                <input id="hdId" type="hidden" />
+                <input id="username" type="hidden" />
+                <input id="grp" type="hidden" />
+            </div>
                     <script src="~/Scripts/jquery-3.2.1.min.js"></script>
                     <script src="~/Scripts/jquery.signalR-2.2.2.min.js"></script>
                     <script src="~/signalr/hubs"></script>
                     <script src="~/Scripts/util.js"></script>
-                  
 
-            }
+
         }
+    }
 
 
 

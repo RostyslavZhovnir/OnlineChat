@@ -8,6 +8,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Chat.Models;
+using System.IO;
 
 namespace Chat.Controllers
 {
@@ -50,21 +51,57 @@ namespace Chat.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "id,title")] Topics topics)
+        public async Task<ActionResult> Create([Bind(Include = "id,title")] Topics topics, HttpPostedFileBase image)
         {
             if (ModelState.IsValid)
             {
+
+          
                 if (topics.title is null)
                 {
                     ViewBag.Error = "Topics can not be empty";
                     return View(topics);
                 }
-                else if (topics.title.Count() < 20)
+                else if (topics.title.Count() < 10)
                 {
-                    ViewBag.Error = "Topics has to be at least 20 symbols lenght";
+                    ViewBag.Error = "Topics has to be at least 10 symbols lenght";
                     return View(topics);
                 }
                 topics.countLikes = 0;
+                //if (image != null && image.ContentLength > 0)
+                //{
+
+                //    if (image.ContentType.ToLower() != "image/jpg" &&
+                //      image.ContentType.ToLower() != "image/jpeg" &&
+                //       image.ContentType.ToLower() != "image/pjpeg" &&
+                //       image.ContentType.ToLower() != "image/gif" &&
+                //       image.ContentType.ToLower() != "image/x-png" &&
+                //       image.ContentType.ToLower() != "image/png")
+                //    {
+                //        ViewBag.Error = "File is not a picture.";
+                //        return View();
+                //    }
+                    try
+                    {
+                        string path = Path.Combine(Server.MapPath("~/img"),
+                                                   Path.GetFileName(image.FileName));
+                        image.SaveAs(path);
+                        ViewBag.Error = "File uploaded successfully";
+                        topics.imageone = path;
+                      
+                    }
+                    catch (Exception ex)
+                    {
+                        ViewBag.Error = "ERROR:" + ex.Message.ToString();
+                        return View();
+                    }
+                
+                //else
+                //{
+                //    ViewBag.Error = "You have not specified a file.";
+                    
+                //}
+
                 db.Topics.Add(topics);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");

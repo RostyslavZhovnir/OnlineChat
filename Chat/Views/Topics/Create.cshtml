@@ -13,8 +13,11 @@
 </head>
 
 @*<body>*@
-    @using (Html.BeginForm())
-    {  <legend>Create Topic</legend>
+   @using (Html.BeginForm("Create",
+                                     "Topics",
+                                     FormMethod.Post,
+                                     new { enctype = "multipart/form-data" }))
+   {  <legend>Create Topic</legend>
         @Html.AntiForgeryToken()
         
         <div class="form-horizontal">
@@ -43,8 +46,15 @@
                     @Html.ValidationMessageFor(model => model.imagetwo, "", new { @class = "text-danger" })
                 </div>
             </div>*@
-    
-         <br>
+           
+           
+               
+                <input type="file" name="image" id="image" /><br><br>
+               
+               
+              
+           
+        
                     <input type="submit" value="Create" class="btn btn-default" />
                 
             

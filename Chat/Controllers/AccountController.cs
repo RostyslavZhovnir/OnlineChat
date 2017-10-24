@@ -38,7 +38,8 @@ namespace Chat.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Incorrect login or password");
+                    ViewBag.Succes = "Incorrect login or password";
+                 
                 }
             }
             return View(model);

@@ -75,10 +75,10 @@
 
 
             $('#chatroom').prepend('<div id ="userName"><p><b>' + htmlEncode(name)
-                + '</b>' + ' : '+ htmlEncode(message) + ' <br> ' + '</p>' + '<p class ="small" id= "chatTime">' + new Date().toLocaleString() + '</p></div>');
-     
+            + '</b>' + ' : ' + htmlEncode(message) + ' <br> ' + '</p>' + '<p class ="small" id= "chatTime">' + new Date().toLocaleString() + '</p></div>');
 
     
+           
 
         //$('.message').val('');
 
@@ -234,15 +234,16 @@
     // Clear ErrorMessage
     chat.client.clearError = function () {
         $('#emptymessage').empty();
+    };
 
-
-
-
+    // Play new message click
+    chat.client.playMusic = function () {
+        $('#audio').get(0).play();
 
     };
 
 
-
+    
 
 
     //Title Message Function

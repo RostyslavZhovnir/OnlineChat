@@ -1,17 +1,35 @@
 ﻿@media only screen and (max-width: 768px) {
 
+    body > div.container-fluid > div > div > section > div {
+        /* vertically align inside its parent */
+        display: block;
+        vertical-align: middle;
+        text-align: left;
+        padding: 0;
+        background: #ffffff;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    #tablelogoff {
+      
+       min-width:90%;
+     
+    }
+
+
+
     #chatBody {
         font-family: 'PT Serif',Georgia,'Times New Roman',Times,serif;
         font-size: medium;
         width: 100%;
         color: #000;
         margin: 0 auto;
-     
     }
 
 
     #homePage > div {
         border-left: none;
+        min-width:100%;
     }
 
     /*#icon{
@@ -36,7 +54,7 @@
         padding-top: 10px;
         padding-bottom: 10px;
         padding-right: 10px;
-        max-width: 250px;
+        max-width: 170px;
         word-wrap: break-word;
     }
 
@@ -133,17 +151,18 @@
 
 
 
-#like.glyphicon.glyphicon-thumbs-up::before {
-    content: "\e125";
-    font-size: 20px;
-    padding-right: 55px;
-    margin-right: -60px;
+#like::before {
+    font-size: 25px;
+    color: #fb5e58;
+    vertical-align: middle;
+    margin: 0 0 10px;
 }
 
-#like.glyphicon.glyphicon-thumbs-up:hover {
-    content: "\e125";
-    font-size: 15px;
+#like:hover {
+    vertical-align: middle;
+    font-size: 20px;
     color: #fb5e58;
+    margin: 0 0 10px;
 }
 
 
@@ -274,6 +293,7 @@ textarea {
 #chatroom div > p > b:nth-child(odd) {
     font-size: small;
     color: #fb5e58;
+    cursor:pointer;
 }
 
 #viewBag, .field-validation-error {
@@ -387,14 +407,22 @@ textarea {
 }
 
 @media (max-width: 2000px) {
+    #tablelogoff > tbody > tr > td:nth-child(1) > img
+    {
+        float:left;
+        
 
-    .historyUserName>p {
-    color:black;
     }
-    .historyUserName > p>b {
-        color: rgb(0, 197, 251);
-        cursor:pointer;
+
+    .historyUserName > p {
+        color: black;
     }
+
+        .historyUserName > p > b {
+            color: rgb(0, 197, 251);
+            cursor: pointer;
+        }
+
     #icontext {
         padding-top: 30px;
         vertical-align: top;
@@ -544,6 +572,31 @@ textarea {
     .collapse.in {
         display: block !important;
     }
+
+    .table {
+        font-family: 'PT Serif', Georgia, 'Times New Roman', Times, serif;
+        font-size: 16px;
+        color: black;
+        letter-spacing: normal;
+        width: 80%;
+        margin: 0 auto;
+        vertical-align: middle;
+        word-wrap: break-word;
+        margin-bottom: 20px;
+    }
+
+    #tablelogoff {
+        font-family: 'PT Serif', Georgia, 'Times New Roman', Times, serif;
+        font-size: 16px;
+        color: black;
+        letter-spacing: normal;
+        width: 50%;
+        margin: 0 auto;
+        vertical-align: middle;
+        word-wrap: break-word;
+        margin-bottom: 20px;
+    }
+
 }
 
 
@@ -622,29 +675,7 @@ body {
     letter-spacing: 3px;
 }
 
-.table {
-    font-family: 'PT Serif', Georgia, 'Times New Roman', Times, serif;
-    font-size: 16px;
-    color: black;
-    letter-spacing: normal;
-    width: 80%;
-    margin: 0 auto;
-    vertical-align: middle;
-    word-wrap: break-word;
-    margin-bottom: 20px;
-}
 
-#tablelogoff {
-    font-family: 'PT Serif', Georgia, 'Times New Roman', Times, serif;
-    font-size: 16px;
-    color: black;
-    letter-spacing: normal;
-    width: 50%;
-    margin: 0 auto;
-    vertical-align: middle;
-    word-wrap: break-word;
-    margin-bottom: 20px;
-}
 
 
 
@@ -753,6 +784,7 @@ cd-intro {
 .bouncy.cd-intro-content p {
     animation-duration: 1s;
     color: #4CAF50;
+
 }
 
 .bouncy.cd-intro-content .cd-btn {
@@ -841,8 +873,10 @@ cd-intro {
     padding-top: 2px;
     padding-bottom: 2px;
     line-height: 1.42857143;
-    vertical-align: top;
+    vertical-align: middle;
     border-top: 1px solid rgba(157, 157, 157, 0.18);
+    max-width: 100%;
+    word-break: break-word;
 }
 
 tr:hover {

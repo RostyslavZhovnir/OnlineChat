@@ -34,6 +34,7 @@ namespace Chat.Hubs
                 Clients.Group(group).addMessage(name, message);
                 //Clients.Group(group).addHeader(name);
                 Clients.OthersInGroup(group).addHeader(name);
+                Clients.OthersInGroup(group).playMusic();
                 var y = new ConversationHistory
                 { UserName = name, Message = message, UserGroup = group, ConnID = Context.ConnectionId, Date = date };
                 x.ConversationHistory.Add(y);
