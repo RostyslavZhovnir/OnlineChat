@@ -1,5 +1,10 @@
 ﻿@media only screen and (max-width: 768px) {
 
+    .action-wrapper {
+    
+    text-align:center;
+    }
+
     body > div.container-fluid > div > div > section > div {
         /* vertically align inside its parent */
         display: block;
@@ -56,6 +61,8 @@
         padding-right: 10px;
         max-width: 170px;
         word-wrap: break-word;
+        vertical-align: top;
+        padding-bottom:10px;
     }
 
 
@@ -108,6 +115,7 @@
 
     table {
         font-size: 12px;
+        min-width:90%;
     }
 
     #groupName {
@@ -152,7 +160,7 @@
 
 
 #like::before {
-    font-size: 25px;
+    font-size: 23px;
     color: #fb5e58;
     vertical-align: middle;
     margin: 0 0 10px;

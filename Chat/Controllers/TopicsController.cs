@@ -83,7 +83,18 @@ namespace Chat.Controllers
                 //    }
                     try
                     {
-                        string path = Path.Combine(Server.MapPath("~/img"),
+
+                    if (image.ContentType.ToLower() != "image/jpg" &&
+                      image.ContentType.ToLower() != "image/jpeg" &&
+                       image.ContentType.ToLower() != "image/pjpeg" &&
+                       image.ContentType.ToLower() != "image/gif" &&
+                       image.ContentType.ToLower() != "image/x-png" &&
+                       image.ContentType.ToLower() != "image/png")
+                    {
+                        ViewBag.Error = "File is not a picture.";
+                        return View();
+                    }
+                    string path = Path.Combine(Server.MapPath("~/img"),
                                                    Path.GetFileName(image.FileName));
                         image.SaveAs(path);
                         ViewBag.Error = "File uploaded successfully";

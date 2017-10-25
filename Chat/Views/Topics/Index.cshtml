@@ -50,7 +50,7 @@
 
                     <div class="action-wrapper">
                         <a href="~/Account/login" class="loginBlock"> Login &nbsp;</a>
-                        <a href="~/Account/register" class="loginBlock"> New user? &nbsp; </a>
+                        <a href="~/Account/register" class="loginBlock"> Sign Up &nbsp; </a>
                         <a href="~/Account/ResendPassword" class="loginBlock"> Forgot Password? </a>
 
                     </div>
@@ -159,39 +159,44 @@
                                         <tr>
 
                                           
+                                            
+                                                <td>
+                                                    <a href="~/Account/login">
+                                                        @if (item.imageone != null)
+                                                        {
 
-                                            <td>
-                                                @if (item.imageone != null)
-                                                {
+                                                            <img src="@Url.Content("~/img/" + System.IO.Path.GetFileName(item.imageone))" alt="" style="max-height:100px; max-width:200px" />
 
-                                                    <img src="@Url.Content("~/img/" + System.IO.Path.GetFileName(item.imageone))" alt="" style="max-height:100px; max-width:200px" />
+                                                        }
 
-                                                }
-                                                @Html.DisplayFor(modelItem => item.title)
-                                            </td>
+                                                        @Html.DisplayFor(modelItem => item.title)
+                                                    </a>
+                                                </td>
 
-                                          
-                                            <td class="likes">
-                                                &#10084;   @Html.DisplayFor(modelItem => item.countLikes)
-                                            </td>
 
-                                            @{ if (User.Identity.IsAuthenticated)
+                                                <td class="likes">
+                                                     <a href="~/Account/login">
+                                                    &#10084;   @Html.DisplayFor(modelItem => item.countLikes)
+                                                </a>
+                                                         </td>
+
+                                                @{ if (User.Identity.IsAuthenticated)
                     {
 
 
 
-                                                    <td><a href="#"><p id="joinGroup">Join</p> </a> </td>
+                                                        <td><a href="#"><p id="joinGroup">Join</p> </a> </td>
 
 
-                                                    <td><a href="#"><span class="glyphicon glyphicon-thumbs-up" id="like"></span></a></td>
-                                                    <td class="likes">
-                                                        @Html.DisplayFor(modelItem => item.countLikes)
-                                                    </td>
+                                                        <td><a href="#"><span class="glyphicon glyphicon-thumbs-up" id="like"></span></a></td>
+                                                        <td class="likes">
+                                                            @Html.DisplayFor(modelItem => item.countLikes)
+                                                        </td>
 
+                                                    }
                                                 }
-                                            }
 
-                                        </tr>
+</tr>
                                                 }
 
                                 </table>  } }
