@@ -5,7 +5,7 @@
     });
 
 
-    $(".table").on('click', '#joinGroup', function () {
+    $(".table").on('click', '#joinGroup,#titles', function () {
         var previousGrp = $('#grp').val();
         if (previousGrp != null) {
             chat.server.leaveGroup(previousGrp);
@@ -31,6 +31,7 @@
             $('#inputForm').show();
             $('#grp').val(data);
             $('#chatroom').empty();
+            
             //$('#chatroom').append('You Joined group' + ' ( ' + data + ' ) ' + '<br>' + new Date().toLocaleTimeString() + ' ');
             $('#groupName').html('<p>You join group:</p> ' + data);
         });

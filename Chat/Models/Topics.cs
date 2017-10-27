@@ -11,12 +11,16 @@ namespace Chat.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+
     public partial class Topics
     {
         public int id { get; set; }
+        [DisplayName("Message*")]
         public string title { get; set; }
+        [DisplayName("Add Image*")]
         public string imageone { get; set; }
+        [DisplayName("Add link")]
         public string imagetwo { get; set; }
         public Nullable<int> countLikes { get; set; }
     }

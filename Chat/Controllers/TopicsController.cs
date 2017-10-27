@@ -51,7 +51,7 @@ namespace Chat.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "id,title")] Topics topics, HttpPostedFileBase image)
+        public async Task<ActionResult> Create([Bind(Include = "id,title,imagetwo")] Topics topics, HttpPostedFileBase image)
         {
             if (ModelState.IsValid)
             {

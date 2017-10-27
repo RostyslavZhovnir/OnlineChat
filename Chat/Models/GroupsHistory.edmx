@@ -31,8 +31,8 @@
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="title" Type="nvarchar" MaxLength="1000" Nullable="false" />
-          <Property Name="imageone" Type="nchar" MaxLength="100" />
-          <Property Name="imagetwo" Type="nchar" MaxLength="100" />
+          <Property Name="imageone" Type="nvarchar" MaxLength="1000" />
+          <Property Name="imagetwo" Type="nvarchar" MaxLength="1000" />
           <Property Name="countLikes" Type="int" />
         </EntityType>
         <EntityContainer Name="ChatDBModelHistoryStoreContainer">
@@ -75,8 +75,8 @@
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="title" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
-          <Property Name="imageone" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
-          <Property Name="imagetwo" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="imageone" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="imagetwo" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
           <Property Name="countLikes" Type="Int32" />
         </EntityType>
       </Schema>

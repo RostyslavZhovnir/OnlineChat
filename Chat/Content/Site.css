@@ -26,7 +26,7 @@
     #chatBody {
         font-family: 'PT Serif',Georgia,'Times New Roman',Times,serif;
         font-size: medium;
-        width: 100%;
+        min-width: 90%;
         color: #000;
         margin: 0 auto;
     }
@@ -64,7 +64,15 @@
         vertical-align: top;
         padding-bottom:10px;
     }
-
+    #tablelogoff > tbody > tr > td {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-right: 10px;
+        max-width: 170px;
+        word-wrap: break-word;
+        vertical-align: top;
+        padding-bottom: 10px;
+    }
 
     #chatusers {
         width: 90px;
@@ -133,6 +141,11 @@
             color: #fb5e58;
             font-stretch: semi-condensed;
         }
+}
+
+#titles{
+    cursor:pointer;
+
 }
 
 /*.glyphicon {
@@ -415,6 +428,15 @@ textarea {
 }
 
 @media (max-width: 2000px) {
+
+    #linksource a{
+        font-size:x-small;
+        color:#4CAF50;
+        float:right;
+        padding-top:10px;
+
+    }
+
     #tablelogoff > tbody > tr > td:nth-child(1) > img
     {
         float:left;
