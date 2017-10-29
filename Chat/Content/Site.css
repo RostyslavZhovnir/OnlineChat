@@ -1,8 +1,7 @@
 ﻿@media only screen and (max-width: 768px) {
 
     .action-wrapper {
-    
-    text-align:center;
+        text-align: center;
     }
 
     body > div.container-fluid > div > div > section > div {
@@ -16,9 +15,7 @@
     }
 
     #tablelogoff {
-      
-       min-width:100%;
-     
+        min-width: 100%;
     }
 
 
@@ -34,7 +31,7 @@
 
     #homePage > div {
         border-left: none;
-        min-width:100%;
+        min-width: 100%;
     }
 
     /*#icon{
@@ -58,12 +55,11 @@
     #table > tbody > tr > td {
         padding-top: 10px;
         padding-bottom: 10px;
-        padding-right: 10px;
         max-width: 173px;
         word-wrap: break-word;
         vertical-align: top;
-        padding-bottom:10px;
     }
+
     #tablelogoff > tbody > tr > td {
         padding-top: 10px;
         padding-bottom: 10px;
@@ -123,7 +119,7 @@
 
     table {
         font-size: 12px;
-        min-width:90%;
+        min-width: 90%;
     }
 
     #groupName {
@@ -143,10 +139,20 @@
         }
 }
 
-#titles{
-    cursor:pointer;
-
+#titlesImage {
+    cursor: pointer;
+    display: block;
+    max-width: 170px;
+    float: left;
+    margin-right: 10px;
 }
+
+#title {
+    cursor: pointer;
+    display: block;
+    max-width: 200px;
+}
+
 
 /*.glyphicon {
     font-family: 'PT Serif', Georgia, 'Times New Roman';
@@ -314,7 +320,7 @@ textarea {
 #chatroom div > p > b:nth-child(odd) {
     font-size: small;
     color: #fb5e58;
-    cursor:pointer;
+    cursor: pointer;
 }
 
 #viewBag, .field-validation-error {
@@ -425,23 +431,25 @@ textarea {
         max-width: 1400px;
         word-wrap: break-word;
     }
+
+    #tablelogoff > tbody > tr > td {
+        padding-right: 10px;
+        max-width: 700px;
+        word-wrap: break-word;
+    }
 }
 
-@media (max-width: 2000px) {
+@media(max-width:4000px) {
 
-    #linksource a{
-        font-size:x-small;
-        color:#4CAF50;
-        float:right;
-        padding-top:10px;
-
+    #linksource a {
+        font-size: x-small;
+        color: #4CAF50;
+        float: right;
+        padding-top: 10px;
     }
 
-    #tablelogoff > tbody > tr > td:nth-child(1) > img
-    {
-        float:left;
-        
-
+    #tablelogoff > tbody > tr > td:nth-child(1) > img {
+        float: left;
     }
 
     .historyUserName > p {
@@ -626,7 +634,6 @@ textarea {
         word-wrap: break-word;
         margin-bottom: 20px;
     }
-
 }
 
 
@@ -814,7 +821,6 @@ cd-intro {
 .bouncy.cd-intro-content p {
     animation-duration: 1s;
     color: #4CAF50;
-
 }
 
 .bouncy.cd-intro-content .cd-btn {

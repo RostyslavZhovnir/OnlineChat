@@ -83,7 +83,7 @@
                     <tr>
                         <td>
                             @if (item.imageone != null)
-                            { <span id="titles">
+                            { <span id="titlesImage">
 
                                 @*<a href="@Url.Content("~/img/" + System.IO.Path.GetFileName(item.imageone)) "target="_blank">*@ <img src="@Url.Content("~/img/" + System.IO.Path.GetFileName(item.imageone))" alt="@item.title" style="height:120px; width:170px" />@*</a>*@
                             </span>
@@ -161,7 +161,7 @@
 
                                 <br>
                                 <p class="indexPageText">Log In or Register to like, dislike or discuss topics in a live chat.</p>
-                                    @*<p class="seeArticles">Click to Hide Topics</p>*@
+                                    <p class="seeArticles">Click to Show Topics</p>
                                 <p class="hideArticles">Click to Hide </p>
 
                                     <br><br>
@@ -181,7 +181,7 @@
                                                         {
 
 
-                                                            <span id="titles">
+                                                            <span id="titlesImage">
 
                                                                 @*<a href="@Url.Content("~/img/" + System.IO.Path.GetFileName(item.imageone)) "target="_blank">*@ <img src="@Url.Content("~/img/" + System.IO.Path.GetFileName(item.imageone))" alt="@item.title" style="height:120px; width:170px" />@*</a>*@
                                                             </span>

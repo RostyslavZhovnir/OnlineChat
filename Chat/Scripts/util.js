@@ -5,7 +5,7 @@
     });
 
 
-    $(".table").on('click', '#joinGroup,#titles', function () {
+    $(".table").on('click', '#joinGroup,#titles,#titlesImage', function () {
         var previousGrp = $('#grp').val();
         if (previousGrp != null) {
             chat.server.leaveGroup(previousGrp);
