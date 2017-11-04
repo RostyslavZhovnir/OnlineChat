@@ -31,7 +31,7 @@
             $('#inputForm').show();
             $('#grp').val(data);
             $('#chatroom').empty();
-            
+            chat.server.showHistory(data);
             //$('#chatroom').append('You Joined group' + ' ( ' + data + ' ) ' + '<br>' + new Date().toLocaleTimeString() + ' ');
             $('#groupName').html('<p>You join group:</p> ' + data);
         });
@@ -195,9 +195,7 @@
         $('#chatroom').append('<span class="historyUserName"><p><b>' + htmlEncode(name) 
             + '</b></span><span class="msg">' + ' : ' + htmlEncode(message) + ' <br> '  +'</p>'+ '<p class ="small" id= "chatTime">' + htmlEncode(date) + '</p></span>');
 
-        //Back to Top
-        var navigationToTop = '<a href="#" id="back-to-top" title="Back to top">&uarr;</a>';
-        $("#chatroom").append(navigationToTop);
+    
 
 
 

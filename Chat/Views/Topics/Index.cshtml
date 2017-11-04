@@ -1,4 +1,4 @@
-﻿﻿﻿@model IEnumerable<Chat.Models.Topics>
+﻿﻿﻿﻿@model IEnumerable<Chat.Models.Topics>
 
 
 @{
@@ -85,7 +85,7 @@
                             @if (item.imageone != null)
                             { <span id="titlesImage">
 
-                                @*<a href="@Url.Content("~/img/" + System.IO.Path.GetFileName(item.imageone)) "target="_blank">*@ <img src="@Url.Content("~/img/" + System.IO.Path.GetFileName(item.imageone))" alt="@item.title" style="height:120px; width:170px" />@*</a>*@
+                                @*<a href="@Url.Content("~/img/" + System.IO.Path.GetFileName(item.imageone)) "target="_blank">*@ <img src="@Url.Content("~/img/" + System.IO.Path.GetFileName(item.imageone))" alt="www.clickchats.com @item.title" style="height:120px; width:170px" />@*</a>*@
                             </span>
 
                             }
@@ -95,7 +95,7 @@
                             </span>
                             <br>
                             @*<span id="linksource">
-                                    <a href="@Html.DisplayFor(modelItem => item.imagetwo)" target="_blank">@Html.DisplayFor(modelItem => item.imagetwo)</a>
+                                    <a href="@Html.DisplayFor(modelItem => item.imagetwo)" target="_blank">@Html.DisplayFor(modelItem => item.imagetwo) </a>
                                 </span>*@
                         </td>
 
@@ -105,10 +105,10 @@
 
 
 
-                                <td><a href="#"><p id="joinGroup">Comment</p> </a> </td>
+                                <td><p id="joinGroup">Start Chat</p></td>
 
 
-                                <td><a href="#"><p id="like">&#10084;</p></a></td>
+                                <td><p id="like">&#10084;</p></td>
                                 <td class="likes">
                                     <p> @Html.DisplayFor(modelItem => item.countLikes)</p>
                                 </td>
@@ -122,7 +122,7 @@
                                 <tr>
                                     <td>
                                         <span id="linksource">
-                                            <a href="@Html.DisplayFor(modelItem => item.imagetwo)" target="_blank">@Html.DisplayFor(modelItem => item.imagetwo)</a>
+                                            <a href="@Html.DisplayFor(modelItem => item.imagetwo)" target="_blank">@Html.DisplayFor(modelItem => item.imagetwo) </a>
                                         </span>
                                     </td>
                                 </tr> }
@@ -130,7 +130,7 @@
                             }
 
             </table>
-
+           
 
                             }
                             else
@@ -142,15 +142,15 @@
                                     <div class="indexTable">
                                         <div class="container-fluid">
                                             <div class="row">
-                                                <div class="col-xs-6 col-sm-4"><div id="icontext"><img src="~/Images/IndexPageImg/indexSmile.png" /> ClickChats is 100%  an open community</div></div>
-                                                <div class="col-xs-6 col-sm-4"><div id="icontext"><img src="~/Images/IndexPageImg/indexOnline.png" />All discussion are Live and with real users</div></div>
-                                                <div class="col-xs-6 col-sm-4"><div id="icontext"><img src="~/Images/IndexPageImg/indexWeBlock.png" />We try to block/delete all illeagal or criminal materials</div></div>
-                                                <div class="col-xs-6 col-sm-4"><div id="icontext"><img src="~/Images/IndexPageImg/indexHistory.png" />Chat history of every Article just in a few clicks</div></div>
-                                                <div class="col-xs-6 col-sm-4"><div id="icontext"><img src="~/Images/IndexPageImg/indexAllDevices.png" />You don't need to install any side apps.</div></div>
+                                                <div class="col-xs-6 col-sm-4"><div id="icontext"><img src="~/Images/IndexPageImg/indexSmile.png" alt="www.clickchats.com" /> ClickChats is 100%  an open community</div></div>
+                                                <div class="col-xs-6 col-sm-4"><div id="icontext"><img src="~/Images/IndexPageImg/indexOnline.png" alt="www.clickchats.com" />All discussion are Live and with real users</div></div>
+                                                <div class="col-xs-6 col-sm-4"><div id="icontext"><img src="~/Images/IndexPageImg/indexWeBlock.png" alt="www.clickchats.com" />We try to block/delete all illeagal or criminal materials</div></div>
+                                                <div class="col-xs-6 col-sm-4"><div id="icontext"><img src="~/Images/IndexPageImg/indexHistory.png" alt="www.clickchats.com" />Chat history of every Article just in a few clicks</div></div>
+                                                <div class="col-xs-6 col-sm-4"><div id="icontext"><img src="~/Images/IndexPageImg/indexAllDevices.png" alt="www.clickchats.com" />You don't need to install any side apps.</div></div>
 
 
 
-                                                <div class="col-xs-6 col-sm-4"><div id="icontext"><img src="~/Images/IndexPageImg/indexReadWrite.png" />Create, read or vote for a real-time Articles</div></div>
+                                                <div class="col-xs-6 col-sm-4"><div id="icontext"><img src="~/Images/IndexPageImg/indexReadWrite.png" alt="www.clickchats.com" />Create, read or vote for a real-time Articles</div></div>
 
 
                                             </div>
@@ -161,7 +161,7 @@
 
                                 <br>
                                 <p class="indexPageText">Log In or Register to like, dislike or discuss topics in a live chat.</p>
-                                    <p class="seeArticles">Click to Show Topics</p>
+                                <p class="seeArticles">Click to Show Topics</p>
                                 <p class="hideArticles">Click to Hide </p>
 
                                     <br><br>
@@ -183,7 +183,7 @@
 
                                                             <span id="titlesImage">
 
-                                                                @*<a href="@Url.Content("~/img/" + System.IO.Path.GetFileName(item.imageone)) "target="_blank">*@ <img src="@Url.Content("~/img/" + System.IO.Path.GetFileName(item.imageone))" alt="@item.title" style="height:120px; width:170px" />@*</a>*@
+                                                                @*<a href="@Url.Content("~/img/" + System.IO.Path.GetFileName(item.imageone)) "target="_blank">*@ <img src="@Url.Content("~/img/" + System.IO.Path.GetFileName(item.imageone))" alt="www.clickchats.com@item.title" style="height:120px; width:170px" />@*</a>*@
                                                             </span>
 
 
@@ -196,7 +196,7 @@
                                                     </a>
                                                 </td>
 
-                                                <td><a href="~/Account/login"><p id="joinGroup">Comment</p> </a> </td>
+                                                <td><a href="~/Account/login"><p id="joinGroup">Start Chat</p> </a> </td>
 
 
                                                 <td><a href="~/Account/login"><p id="like">&#10084;</p></a></td>
@@ -216,7 +216,7 @@
                                                 <tr>
                                                     <td>
                                                         <span id="linksource">
-                                                            <a href="@Html.DisplayFor(modelItem => item.imagetwo)" target="_blank">@Html.DisplayFor(modelItem => item.imagetwo)</a>
+                                                            <a href="@Html.DisplayFor(modelItem => item.imagetwo)" alt="www.clickchats.com" target="_blank">@Html.DisplayFor(modelItem => item.imagetwo)</a>
                                                         </span>
                                                     </td>
                                                 </tr> }
@@ -226,6 +226,7 @@
     @{ if (User.Identity.IsAuthenticated == false)
         {
             <p class="hideArticles">Click to Hide </p>
+<script src="~/Scripts/YoutubeTopicsUserNotAuth.js"></script >
         }
 
     }
@@ -271,18 +272,23 @@
                     <br>
                     <div id="emptymessage"></div>
 
-                    <div id="chatroom"></div>
+                    <div id="chatroom">
 
+                       
+
+                    </div>
+                
                     @*<div class="usersonlinenames" id="chatusers">
                             <p><b>Users Online</b></p>
 
                         </div>*@
 
 
-                    @*<a href="#" id="back-to-top" title="Back to top">&uarr;</a>*@
+                  
 
 
                 </div>
+                <a href="javascript:void(0);" id="scroll" title="Scroll to Top" style="display: none;">Top<span></span></a>
                 <audio id="audio" src="~/sounds/newmessage.mp3"></audio>
 
 
@@ -292,10 +298,10 @@
             </div>
             <script src="~/Scripts/jquery-3.2.1.min.js"></script>
             <script src="~/Scripts/jquery.signalR-2.2.2.min.js"></script>
-                    <script src="~/signalr/hubs"></script>
-                    <script src="~/Scripts/util.js"></script>
-
-
+            <script src="~/signalr/hubs"></script>
+            <script src="~/Scripts/util.js"></script>
+            <script src="~/Scripts/YoutubeTopicsUserAuth.js"></script>
+            <script src="~/Scripts/BackToTop.js"></script >
         }
     }
 

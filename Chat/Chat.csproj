@@ -231,6 +231,7 @@
     <Content Include="Images\IndexPageImg\indexWeBlock.png" />
     <Content Include="Images\logo.jpg" />
     <Content Include="Images\logo.png" />
+    <Content Include="Scripts\BackToTop.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.2.1.js" />
@@ -279,6 +280,8 @@
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <Content Include="Scripts\TopicsScript.js" />
     <Content Include="Scripts\util.js" />
+    <Content Include="Scripts\YoutubeTopicsUserAuth.js" />
+    <Content Include="Scripts\YoutubeTopicsUserNotAuth.js" />
     <Content Include="sounds\newmessage.mp3" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">

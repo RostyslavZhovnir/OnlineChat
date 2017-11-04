@@ -1,40 +1,45 @@
-﻿@media only screen and (max-width: 768px) {
+﻿﻿@media only screen and (max-width: 768px) {
+    .youtube-frame
 
-    .action-wrapper {
-        text-align: center;
-    }
+{
+    max-width: fit-content;
+}
 
-    body > div.container-fluid > div > div > section > div {
-        /* vertically align inside its parent */
-        display: block;
-        vertical-align: middle;
-        text-align: left;
-        padding: 0;
-        background: #ffffff;
-        -webkit-font-smoothing: antialiased;
-    }
+.action-wrapper {
+    text-align: center;
+}
 
-    #tablelogoff {
-        min-width: 100%;
-    }
+body > div.container-fluid > div > div > section > div {
+    /* vertically align inside its parent */
+    display: block;
+    vertical-align: middle;
+    text-align: left;
+    padding: 0;
+    background: #ffffff;
+    -webkit-font-smoothing: antialiased;
+}
 
-
-
-    #chatBody {
-        font-family: 'PT Serif',Georgia,'Times New Roman',Times,serif;
-        font-size: medium;
-        min-width: 90%;
-        color: #000;
-        margin: 0 auto;
-    }
+#tablelogoff {
+    min-width: 100%;
+}
 
 
-    #homePage > div {
-        border-left: none;
-        min-width: 100%;
-    }
 
-    /*#icon{
+#chatBody {
+    font-family: 'PT Serif',Georgia,'Times New Roman',Times,serif;
+    font-size: medium;
+    min-width: 90%;
+    color: #000;
+    margin: 0 auto;
+}
+
+
+#homePage > div {
+    border-left: none;
+    min-width: 100%;
+}
+
+/*#icon{
       font-size:12px;
       text-align:left;
       float:left;
@@ -42,101 +47,102 @@
       
   }*/
 
-    /*#icontext{
+/*#icontext{
    padding-top:20px;
    padding-left:3px;
   }*/
 
-    /*#icon img {
+/*#icon img {
         float: left;
         
     }*/
 
-    #table > tbody > tr > td {
-        padding-top: 10px;
-        padding-bottom: 10px;
-        max-width: 173px;
-        word-wrap: break-word;
-        vertical-align: top;
-    }
+#table > tbody > tr > td {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    max-width: 173px;
+    word-wrap: break-word;
+    vertical-align: top;
+}
 
-    #tablelogoff > tbody > tr > td {
-        padding-top: 10px;
-        padding-bottom: 10px;
-        padding-right: 10px;
-        max-width: 173px;
-        word-wrap: break-word;
-        vertical-align: top;
-        padding-bottom: 10px;
-    }
+#tablelogoff > tbody > tr > td {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+    max-width: 173px;
+    word-wrap: break-word;
+    vertical-align: top;
+    padding-bottom: 10px;
+}
 
-    #chatusers {
-        width: 90px;
-    }
+#chatusers {
+    width: 90px;
+}
 
-        #chatusers p {
-            font-size: 8px;
-        }
-
-
-    #sendmessage {
-        margin-top: 7px;
-        margin-bottom: 5px;
+    #chatusers p {
+        font-size: 8px;
     }
 
 
-    button.dropbtn {
+#sendmessage {
+    margin-top: 7px;
+    margin-bottom: 5px;
+}
+
+
+button.dropbtn {
+    font-size: 12px;
+    padding-top: 10px;
+}
+
+p {
+    font-size: 14px;
+}
+
+    p.indexPageText {
         font-size: 12px;
-        padding-top: 10px;
+        text-align: left;
     }
 
-    p {
-        font-size: 14px;
-    }
+a.navbar-brand {
+    font-size: small;
+}
 
-        p.indexPageText {
-            font-size: 12px;
-            text-align: left;
-        }
+#header.usersonline {
+    font-size: 10px;
+    font-weight: lighter;
+    font-variant: normal;
+    color: #fb5e58;
+    letter-spacing: normal;
+    padding-right: 15px;
+}
 
-    a.navbar-brand {
+body > div.container-fluid > div > div > div.dropdown > p {
+    font-size: 10px;
+    letter-spacing: normal;
+}
+
+table {
+    font-size: 12px;
+    min-width: 90%;
+}
+
+#groupName {
+    font-size: small;
+    font-weight: lighter;
+    font-variant: normal;
+    color: #ffffff;
+    font-stretch: semi-condensed;
+}
+
+    #groupName p {
         font-size: small;
-    }
-
-    #header.usersonline {
-        font-size: 10px;
         font-weight: lighter;
         font-variant: normal;
         color: #fb5e58;
-        letter-spacing: normal;
-        padding-right: 15px;
-    }
-
-    body > div.container-fluid > div > div > div.dropdown > p {
-        font-size: 10px;
-        letter-spacing: normal;
-    }
-
-    table {
-        font-size: 12px;
-        min-width: 90%;
-    }
-
-    #groupName {
-        font-size: small;
-        font-weight: lighter;
-        font-variant: normal;
-        color: #ffffff;
         font-stretch: semi-condensed;
     }
 
-        #groupName p {
-            font-size: small;
-            font-weight: lighter;
-            font-variant: normal;
-            color: #fb5e58;
-            font-stretch: semi-condensed;
-        }
 }
 
 #titlesImage {
@@ -430,6 +436,7 @@ textarea {
         padding-right: 10px;
         max-width: 1400px;
         word-wrap: break-word;
+        cursor: pointer;
     }
 
     #tablelogoff > tbody > tr > td {
@@ -440,6 +447,12 @@ textarea {
 }
 
 @media(max-width:4000px) {
+    .youtube-frame {
+        float: left;
+        margin-bottom: 10px;
+        margin-top: 10px;
+        border: none;
+    }
 
     #linksource a {
         font-size: x-small;
@@ -994,3 +1007,36 @@ tr:hover {
     height: auto;
     width: 100%;
 }
+#scroll {
+    position: fixed;
+    right: 3%;
+    bottom: 6%;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    background-color: #4CAF50;
+    text-indent: -9999px;
+    display: none;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+    #scroll span {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-left: -8px;
+        margin-top: -12px;
+        height: 0;
+        width: 0;
+        border: 8px solid transparent;
+        border-bottom-color: #ffffff
+    }
+
+    #scroll:hover {
+        background-color: #fb5e58;
+        opacity: 1;
+        filter: "alpha(opacity=100)";
+        -ms-filter: "alpha(opacity=100)";
+    }

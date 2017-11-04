@@ -122,12 +122,12 @@ namespace Chat.Hubs
                 if (totallikes.countLikes ==0)
                 {
                     totallikes.countLikes =+1;
-                    Clients.All.Addlike(true, groupName);
+                 Clients.All.Addlike(true, groupName);
                 }
                 else
                 {
                     totallikes.countLikes++;
-                    Clients.All.Addlike(true, groupName);
+                  Clients.All.Addlike(true, groupName);
                 }
                
                 await x.SaveChangesAsync();
@@ -140,7 +140,7 @@ namespace Chat.Hubs
                 z.count = 0;
                 totallikes.countLikes --;
                 await x.SaveChangesAsync();
-                Clients.All.Addlike(false,groupName);
+               Clients.All.Addlike(false,groupName);
                 //alreadyCalled = true;
             }
 

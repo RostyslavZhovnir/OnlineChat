@@ -20,8 +20,9 @@ namespace Chat.Controllers
         public async Task<ActionResult> Index()
 
         {
-            List<Topics> lst = await db.Topics.OrderByDescending(x => x.countLikes).ToListAsync();
-           
+            //List<Topics> lst = await db.Topics.OrderByDescending(x => x.countLikes).ToListAsync();
+            List<Topics> lst = await db.Topics.OrderByDescending(x => x.countLikes).AsNoTracking().ToListAsync();
+
             return View(lst);
         }
 
