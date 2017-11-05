@@ -45,9 +45,9 @@
                                 <li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
                             @{ if (User.Identity.IsAuthenticated == false)
                                 {
-                                    <li class="logoff">@Html.ActionLink("LogIn", "Login", "Account")</li>
-                                    <li class="logoff">@Html.ActionLink("Forgot password ?", "ResendPassword", "Account")</li>
-                                    <li class="logoff">@Html.ActionLink("SignUp", "Register", "Account")</li>
+                                    <li class="logoff">@Html.ActionLink("Войти", "Login", "Account")</li>
+                                    <li class="logoff">@Html.ActionLink("Забыли пароль?", "ResendPassword", "Account")</li>
+                                    <li class="logoff">@Html.ActionLink("Регитрация", "Register", "Account")</li>
 
                                 } }
 
@@ -61,8 +61,8 @@
                                         <ul class="dropdown-menu">*@
 
                                     
-                                    <li class="logoff">@Html.ActionLink("Change password", "ChangePassword", "Account")</li>
-                                    <li class="logoff">@Html.ActionLink("LogOut", "LogOff", "Account")</li>
+                                    <li class="logoff">@Html.ActionLink("Изменить пароль", "ChangePassword", "Account")</li>
+                                    <li class="logoff">@Html.ActionLink("Выйти", "LogOff", "Account")</li>
                                     @*</ul>
                                         </li>*@
 

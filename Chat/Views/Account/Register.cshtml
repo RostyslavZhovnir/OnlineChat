@@ -3,7 +3,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @{
-    ViewBag.Title = "SignUp";
+    ViewBag.Title = "Регистрация";
 }
 
 <script src="~/Scripts/jquery-3.2.1.min.js"></script>
@@ -13,7 +13,7 @@
     <p id="ViewBag"> @ViewBag.Succes</p>
 
     <fieldset>
-        <legend>All fields are required</legend>
+        <legend>Все поля обязательны для заполнения</legend>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.UserName)
@@ -47,8 +47,8 @@
             @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
         </div>
         <br>
-        <input type="submit" class="cd-btn main-action" value="Register Me" />
-       
+        <input type="submit" class="cd-btn main-action" value="Зарегистрировать" />
+        <br><br><a href="~/Topics/Index" class="loginBlock"> Назад </a>
     </fieldset>
 
 }

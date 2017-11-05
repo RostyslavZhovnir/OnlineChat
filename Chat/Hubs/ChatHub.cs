@@ -28,13 +28,14 @@ namespace Chat.Hubs
             {
                 if (group is null)
                 {
-                    Clients.Caller.errorEmptyMessage(name, "Error!! First join to some group");
+                    Clients.Caller.errorEmptyMessage(name, "Сперва откройте чат темы");
                     return;
                 }
                 Clients.Group(group).addMessage(name, message);
                 //Clients.Group(group).addHeader(name);
                 Clients.OthersInGroup(group).addHeader(name);
                 Clients.OthersInGroup(group).playMusic();
+                Clients.Others.showNotification(group,date,name);
                 var y = new ConversationHistory
                 { UserName = name, Message = message, UserGroup = group, ConnID = Context.ConnectionId, Date = date };
                 x.ConversationHistory.Add(y);
@@ -42,7 +43,7 @@ namespace Chat.Hubs
             }
             else
             {
-                Clients.Caller.errorEmptyMessage(name, "Error!! Message can not be empty");
+                Clients.Caller.errorEmptyMessage(name, "Сообщение не может быть отправлено пустым");
             }
         }
         // New user

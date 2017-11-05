@@ -1,4 +1,4 @@
-﻿$(function () {
+﻿﻿$(function () {
 
     $(".dropbtn").on("click", function () {
         $(".dropdown-content").toggle();
@@ -33,7 +33,7 @@
             $('#chatroom').empty();
             chat.server.showHistory(data);
             //$('#chatroom').append('You Joined group' + ' ( ' + data + ' ) ' + '<br>' + new Date().toLocaleTimeString() + ' ');
-            $('#groupName').html('<p>You join group:</p> ' + data);
+            $('#groupName').html('<p>Вы в чате под именем :</p> ' + data);
         });
     });
 
@@ -71,15 +71,15 @@
     //New Message Function
     chat.client.addMessage = function (name, message) {
 
-       
 
 
 
-            $('#chatroom').prepend('<div id ="userName"><p><b>' + htmlEncode(name)
+
+        $('#chatroom').prepend('<div id ="userName"><p><b>' + htmlEncode(name)
             + '</b>' + ' : ' + htmlEncode(message) + ' <br> ' + '</p>' + '<p class ="small" id= "chatTime">' + new Date().toLocaleString() + '</p></div>');
 
-    
-           
+
+
 
         //$('.message').val('');
 
@@ -192,10 +192,10 @@
         //    + ' : ' + '</b>' + htmlEncode(message) + ' <br> ' + '</p>' + '<p class ="small" id= "chatTime">' + new Date().toLocaleString() + '</p></div>');
 
 
-        $('#chatroom').append('<span class="historyUserName"><p><b>' + htmlEncode(name) 
-            + '</b></span><span class="msg">' + ' : ' + htmlEncode(message) + ' <br> '  +'</p>'+ '<p class ="small" id= "chatTime">' + htmlEncode(date) + '</p></span>');
+        $('#chatroom').append('<span class="historyUserName"><p><b>' + htmlEncode(name)
+            + '</b></span><span class="msg">' + ' : ' + htmlEncode(message) + ' <br> ' + '</p>' + '<p class ="small" id= "chatTime">' + htmlEncode(date) + '</p></span>');
 
-    
+
 
 
 
@@ -241,8 +241,59 @@
 
     };
 
+    // Notification
+    chat.client.showNotification = function (Group, Date, Name) {
 
-    
+        $("#notification").empty();
+
+        $("#notification").fadeIn("slow").append('<span class="dismiss"><a title="Скрыть это уведомление">x</a></span>' + '<p>Новость </p>');
+
+
+
+        $("#notification p").click(function () {
+            $('html,body').animate({ scrollTop: $("#notificationfull").offset().top }, 'slow');
+            $(".dropdown").hide();
+            $(".usersonline").hide();
+            $("#notification").hide();
+            $("#notification").empty();
+
+
+            $("#notificationfull").empty();
+            $("#notificationfull").show();
+            $("#notificationfull").append('<span class="dismiss"><a title="Скрыть это уведомление">x</a></span>').hide();
+            $("#notificationfull").fadeIn("slow").append('<p><b><font color="#fb5e58">' + Name + '</font></b>' + ' ' + '<b> добавил(ла) новое сообщение в </b>' + '<p> ' + Group + '</p>' + '<p><small>' + Date + '</small></p>' + '</p>');
+
+        });
+
+
+
+        $("#notificationfull").click(function () {
+
+
+            $("#notificationfull").empty();
+            $("#notificationfull").hide();
+            $(".dropdown").show();
+            $(".usersonline").show();
+
+        });
+
+        $(".dismiss").click(function () {
+
+            $("#notification").empty();
+            $("#notification").hide();
+
+
+            $("#notificationfull").hide();
+            $("#notificationfull").empty();
+
+
+        });
+
+    };
+
+
+
+
 
 
     //Title Message Function
@@ -251,11 +302,11 @@
 
             var title = document.title;
 
-            document.title = (title == "New message from" ? htmlEncode(name) : "New message from");
+            document.title = (title == "Новое сообщение от" ? htmlEncode(name) : "Новое сообщение от");
         }, 4000);
 
 
-        
+
 
 
 
@@ -284,7 +335,7 @@
         $('#hdId').val(id);
 
         $('#username').val(userName);
-        $('#header').html('Hello, ' + userName);
+        $('#header').html('Привет, ' + userName);
 
 
         for (i = 0; i < allUsers.length; i++) {
@@ -309,7 +360,7 @@
 
         $('#' + id).remove();
         $('#chatusers>p:contains("' + userName + '")').remove();
-   
+
 
     }
 
@@ -367,15 +418,15 @@ $(document).ready(function () {
     $(document).on("click", "span.historyUserName>p>b, #userName>p>b", function () {
 
         var z = $(this).text();
-        
-        $('.message').val('@'+z+' ');
+
+        $('.message').val('@' + z + ' ');
         $('html,body').animate({ scrollTop: $("#chatBody").offset().top }, 'slow');
 
     });
     //$("#chatTime").click(function () {
     //    alert("Handler for .click() called.");
     //});
-    
+
     //$(".historyUserName").on('click', '#joinGroup', function () {
     //}
 

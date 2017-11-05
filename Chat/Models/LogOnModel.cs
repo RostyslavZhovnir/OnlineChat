@@ -8,48 +8,49 @@ namespace Chat.Models
 {
     public class LogOnModel
     {
-        [Required]
-        [Display(Name = "Login")]
+        [Required(ErrorMessage = "Введите имя пользователя")]
+        [Display(Name = "Имя")]
+
         public string UserName { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Введите пароль пользователя")]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "Пароль")]
         public string Password { get; set; }
 
-        [Display(Name = "Remember Me")]
+        [Display(Name = "Запомнить меня")]
         public bool RememberMe { get; set; }
     }
 
     public class RegisterModel
     {
-        [Required]
-        [Display(Name = "User Name")]
+        [Required(ErrorMessage = "Введите имя пользователя")]
+        [Display(Name = "Имя")]
         public string UserName { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Введите e-mail")]
         [DataType(DataType.EmailAddress)]
         [Display(Name = "E-mail")]
         public string Email { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Введите пароль пользователя")]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "Пароль")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Confirm Password")]
-        [Compare("Password", ErrorMessage = "Password does not match the Confirm password")]
+        [Display(Name = "Подтвердить пароль")]
+        [Compare("Password", ErrorMessage = "Пароли не совпадают")]
         public string ConfirmPassword { get; set; }
     }
 
     public class ForgetPassword {
 
-        [Required]
-        [Display(Name = "Login")]
+        [Required(ErrorMessage = "Введите имя пользователя")]
+        [Display(Name = "Имя")]
         public string UserName { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Введите e-mail")]
         [DataType(DataType.EmailAddress)]
         [Display(Name = "E-mail")]
         public string Email { get; set; }
@@ -59,20 +60,20 @@ namespace Chat.Models
     }
     public class ChangePassword {
 
-        [Required]
+        [Required(ErrorMessage = "Введите cтарый или временный пароль пользователя")]
         [DataType(DataType.Password)]
-        [Display(Name = "Old Password")]
+        [Display(Name = "Старый пароль")]
         public string Password { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Введите новый пароль пользователя")]
         [DataType(DataType.Password)]
-        [Display(Name = " New Password")]
-        [StringLength(1000, MinimumLength = 6, ErrorMessage = "Our Password policy means that passwords must be at least 6 characters long")]
+        [Display(Name = "Новый пароль")]
+        [StringLength(1000, MinimumLength = 6, ErrorMessage = "Пароль должен состоять хотя бы из 6 символов")]
         public string NewPassword { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Confirm New Password")]
-        [Compare("NewPassword", ErrorMessage = "Password does not match the Confirm password")]
+        [Display(Name = "Подтвердить пароль")]
+        [Compare("NewPassword", ErrorMessage = "Пароли не совпадают")]
         public string ConfirmPassword { get; set; }
 
     }

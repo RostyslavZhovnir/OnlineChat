@@ -38,7 +38,7 @@ namespace Chat.Controllers
                 }
                 else
                 {
-                    ViewBag.Succes = "Incorrect login or password";
+                    ViewBag.Succes = "Неверный логин или пароль";
                  
                 }
             }
@@ -69,16 +69,16 @@ namespace Chat.Controllers
                 string tempPassword = mu.ResetPassword();
                 //mu.ChangePassword(mu.ResetPassword(), password);
                 MailMessage EmailText = new MailMessage("info@clickchats.com",Email ); //from to emails
-                EmailText.Subject = "Your new Password";
-                EmailText.Body = $"Hello {UserName},<br/> your password was reseted to:{tempPassword} <br/> After Login to your account you will be able to change this password to new one <br/>,best regards <br/>ClickChats.com";
+                EmailText.Subject = "Ваш новый пароль на www.clickchats.com";
+                EmailText.Body = $"Hello {UserName},<br/> ваш временный пароль:{tempPassword} <br/> После входа в профайл вы сможете его изменить  <br/>,best regards <br/>ClickChats.com";
                 EmailText.IsBodyHtml = true;
                 SmtpClient smtpClient = new SmtpClient();
                 smtpClient.Send(EmailText);
-                ViewBag.Succes = "The message has been sent. Pease Check your email";
+                ViewBag.Succes = "Пароль отправлен на ваш e-mail";
             }
             else
             {
-                ViewBag.Succes = "The information provided does not match our records";
+                ViewBag.Succes = "Введенная информация не верна пожалуйста проверьте введенную информацию";
             }
             return View();
         }
@@ -96,18 +96,18 @@ namespace Chat.Controllers
                bool x= Membership.GetUser().ChangePassword(Password, NewPassword);
                 if (x)
                 {
-                    ViewBag.Succes = "Your password was changed";
+                    ViewBag.Succes = "Пароль изменен";
                     Membership.GetUser().ChangePassword(Password, NewPassword);
                 }
                 else
                 {
-                    ViewBag.Succes = "Wrong old password";
+                    ViewBag.Succes = "Неверный пароль";
                 }
                 
             }
             else
             {
-                ViewBag.Succes = "Please Check your input data";
+                ViewBag.Succes = "Введенная информация не верна ";
             }
 
 
@@ -138,7 +138,7 @@ namespace Chat.Controllers
                 }
                 else
                 {
-                    ViewBag.Succes="User with this name already exist";
+                    ViewBag.Succes= "Пользователь с таким именем уже существует";
                 }
             }
 

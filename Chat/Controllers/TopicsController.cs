@@ -21,7 +21,8 @@ namespace Chat.Controllers
 
         {
             //List<Topics> lst = await db.Topics.OrderByDescending(x => x.countLikes).ToListAsync();
-            List<Topics> lst = await db.Topics.OrderByDescending(x => x.countLikes).AsNoTracking().ToListAsync();
+            //List<Topics> lst = await db.Topics.OrderByDescending(x => x.countLikes).AsNoTracking().ToListAsync();
+            List<Topics> lst = await db.Topics.OrderByDescending(x => x.id).AsNoTracking().ToListAsync();
 
             return View(lst);
         }
@@ -60,12 +61,12 @@ namespace Chat.Controllers
           
                 if (topics.title is null)
                 {
-                    ViewBag.Error = "Topics can not be empty";
+                    ViewBag.Error = "Тема не может быть пустой";
                     return View(topics);
                 }
                 else if (topics.title.Count() < 10)
                 {
-                    ViewBag.Error = "Topics has to be at least 10 symbols lenght";
+                    ViewBag.Error = "Тема должна быть минимум 10 символов";
                     return View(topics);
                 }
                 topics.countLikes = 0;
@@ -92,7 +93,7 @@ namespace Chat.Controllers
                        image.ContentType.ToLower() != "image/x-png" &&
                        image.ContentType.ToLower() != "image/png")
                     {
-                        ViewBag.Error = "File is not a picture.";
+                        ViewBag.Error = "Это не изображение";
                         return View();
                     }
                     string path = Path.Combine(Server.MapPath("~/img"),
@@ -102,10 +103,11 @@ namespace Chat.Controllers
                         topics.imageone = path;
                       
                     }
-                    catch (Exception ex)
+                    catch (Exception )
                     {
-                        ViewBag.Error = "ERROR:" + ex.Message.ToString();
-                        return View();
+                    //ViewBag.Error = "ERROR:" + ex.Message.ToString();
+                    ViewBag.Error = "Изображение пустое";
+                    return View();
                     }
                 
                 //else

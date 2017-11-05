@@ -16,11 +16,11 @@ namespace Chat.Models
     public partial class Topics
     {
         public int id { get; set; }
-        [DisplayName("Message*")]
+        [DisplayName("Сообщение*")]
         public string title { get; set; }
-        [DisplayName("Add Image*")]
+        [DisplayName("Добавить изображение*")]
         public string imageone { get; set; }
-        [DisplayName("Add link")]
+        [DisplayName("Ссылка на источник")]
         public string imagetwo { get; set; }
         public Nullable<int> countLikes { get; set; }
     }
