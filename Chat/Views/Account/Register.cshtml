@@ -13,7 +13,7 @@
     <p id="ViewBag"> @ViewBag.Succes</p>
 
     <fieldset>
-        <legend>Все поля обязательны для заполнения</legend>
+        <legend>*All field are required</legend>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.UserName)
@@ -47,8 +47,8 @@
             @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
         </div>
         <br>
-        <input type="submit" class="cd-btn main-action" value="Зарегистрировать" />
-        <br><br><a href="~/Topics/Index" class="loginBlock"> Назад </a>
+        <input type="submit" class="cd-btn main-action" value="Register Me" />
+        <br><br><a href="~/Topics/Index" class="loginBlock"> Back </a>
     </fieldset>
 
 }

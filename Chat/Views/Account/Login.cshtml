@@ -12,7 +12,7 @@
    
 
     <fieldset>
-        <legend>Войти в мой профайл</legend>
+        <legend>Enter to your profile</legend>
         <p id="ViewBag"> @ViewBag.Succes</p>
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="editor-label">
@@ -39,9 +39,9 @@
         </div>
 
         
-            <input type="submit"class="cd-btn main-action" value="Логин" /><br><br><br>
-        <a href="~/Account/register" class="loginBlock"> Новый пользователь? &nbsp; </a>
-        <br><br><a href="~/Topics/Index" class="loginBlock"> Назад </a>
+            <input type="submit"class="cd-btn main-action" value="LogIn" /><br><br><br>
+        <a href="~/Account/register" class="loginBlock"> New user (Registration)? &nbsp; </a>
+        <br><br><a href="~/Topics/Index" class="loginBlock"> Back </a>
     </fieldset>
 
 }

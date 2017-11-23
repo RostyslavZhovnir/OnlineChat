@@ -28,7 +28,7 @@ namespace Chat.Hubs
             {
                 if (group is null)
                 {
-                    Clients.Caller.errorEmptyMessage(name, "Сперва откройте чат темы");
+                    Clients.Caller.errorEmptyMessage(name, "First open chat");
                     return;
                 }
                 Clients.Group(group).addMessage(name, message);
@@ -43,7 +43,7 @@ namespace Chat.Hubs
             }
             else
             {
-                Clients.Caller.errorEmptyMessage(name, "Сообщение не может быть отправлено пустым");
+                Clients.Caller.errorEmptyMessage(name, "The message can not be empty");
             }
         }
         // New user

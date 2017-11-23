@@ -33,7 +33,7 @@
             $('#chatroom').empty();
             chat.server.showHistory(data);
             //$('#chatroom').append('You Joined group' + ' ( ' + data + ' ) ' + '<br>' + new Date().toLocaleTimeString() + ' ');
-            $('#groupName').html('<p>Вы в чате под именем :</p> ' + data);
+            $('#groupName').html('<p>You join group :</p> ' + data);
         });
     });
 
@@ -246,7 +246,7 @@
 
         $("#notification").empty();
 
-        $("#notification").fadeIn("slow").append('<span class="dismiss"><a title="Скрыть это уведомление">x</a></span>' + '<p>Новость </p>');
+        $("#notification").fadeIn("slow").append('<span class="dismiss"><a title="Hide this notification">x</a></span>' + '<p>News </p>');
 
 
 
@@ -260,8 +260,8 @@
 
             $("#notificationfull").empty();
             $("#notificationfull").show();
-            $("#notificationfull").append('<span class="dismiss"><a title="Скрыть это уведомление">x</a></span>').hide();
-            $("#notificationfull").fadeIn("slow").append('<p><b><font color="#fb5e58">' + Name + '</font></b>' + ' ' + '<b> добавил(ла) новое сообщение в </b>' + '<p> ' + Group + '</p>' + '<p><small>' + Date + '</small></p>' + '</p>');
+            $("#notificationfull").append('<span class="dismiss"><a title="Hide this notification">x</a></span>').hide();
+            $("#notificationfull").fadeIn("slow").append('<p><b><font color="#fb5e58">' + Name + '</font></b>' + ' ' + '<b> add new message to </b>' + '<p> ' + Group + '</p>' + '<p><small>' + Date + '</small></p>' + '</p>');
 
         });
 
@@ -302,7 +302,7 @@
 
             var title = document.title;
 
-            document.title = (title == "Новое сообщение от" ? htmlEncode(name) : "Новое сообщение от");
+            document.title = (title == "Новое сообщение от" ? htmlEncode(name) : "new message from");
         }, 4000);
 
 
@@ -335,7 +335,7 @@
         $('#hdId').val(id);
 
         $('#username').val(userName);
-        $('#header').html('Привет, ' + userName);
+        $('#header').html('Hello, ' + userName);
 
 
         for (i = 0; i < allUsers.length; i++) {

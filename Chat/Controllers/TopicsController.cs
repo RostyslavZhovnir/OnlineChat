@@ -61,12 +61,12 @@ namespace Chat.Controllers
           
                 if (topics.title is null)
                 {
-                    ViewBag.Error = "Тема не может быть пустой";
+                    ViewBag.Error = "Topic can not be empty";
                     return View(topics);
                 }
                 else if (topics.title.Count() < 10)
                 {
-                    ViewBag.Error = "Тема должна быть минимум 10 символов";
+                    ViewBag.Error = "Topic has to be longer than 10 characters";
                     return View(topics);
                 }
                 topics.countLikes = 0;
@@ -93,7 +93,7 @@ namespace Chat.Controllers
                        image.ContentType.ToLower() != "image/x-png" &&
                        image.ContentType.ToLower() != "image/png")
                     {
-                        ViewBag.Error = "Это не изображение";
+                        ViewBag.Error = "You try to upload not image";
                         return View();
                     }
                     string path = Path.Combine(Server.MapPath("~/img"),
@@ -106,7 +106,7 @@ namespace Chat.Controllers
                     catch (Exception )
                     {
                     //ViewBag.Error = "ERROR:" + ex.Message.ToString();
-                    ViewBag.Error = "Изображение пустое";
+                    ViewBag.Error = "Image can not be empty";
                     return View();
                     }
                 

@@ -1,4 +1,4 @@
-﻿﻿﻿﻿﻿@model IEnumerable<Chat.Models.Topics>
+﻿﻿﻿﻿﻿﻿@model IEnumerable<Chat.Models.Topics>
 
 
 @{
@@ -28,7 +28,7 @@
     @{ if (User.Identity.IsAuthenticated)
         {
             <div class="dropdown">
-                <p class="dropbtn">Кто Online? &#x25BF</p>
+                <p class="dropbtn">Users Online &#x25BF</p>
                 <div class="dropdown-content">
                     <div class="usersonlinenames" id="chatusers"> </div>
                 </div>
@@ -46,8 +46,8 @@
 
     <section class="cd-intro">
         <div class="cd-intro-content bouncy">
-            <h1>Спасибо что вы с нами</h1>
-            <p>Наша цель это живое общение на интересные Вам темы</p>
+            <h1>Thank you for visiting Us</h1>
+            <p>Before ask please try to find the anwers to your question in our topics list</p>
 
 
 
@@ -56,9 +56,9 @@
                     <script src="~/Scripts/jquery-3.2.1.min.js"></script>
 
                     <div class="action-wrapper">
-                        <a href="~/Account/login" class="loginBlock"> Войти &nbsp;</a>
-                        <a href="~/Account/register" class="loginBlock"> Регитрация &nbsp; </a>
-                        <a href="~/Account/ResendPassword" class="loginBlock">Забыли пароль? </a>
+                        <a href="~/Account/login" class="loginBlock"> Login &nbsp;</a>
+                        <a href="~/Account/register" class="loginBlock"> New User (Registration) &nbsp; </a>
+                        <a href="~/Account/ResendPassword" class="loginBlock">Forgot password? </a>
 
                     </div>
 
@@ -70,10 +70,10 @@
     @{ if (User.Identity.IsAuthenticated)
         {
             <br>
-            <p class="indexPageText">Создавайте свою или комментируйте любую тему из списка</p>
+            <p class="indexPageText">Create your own question and discuss it in own chat with other users</p>
             <div id="createNewGroup">
                 <a href="~/topics/create">
-                    <p> &#x271A; Добавить тему</p>
+                    <p> &#x271A; Add question</p>
                 </a>
 
 
@@ -112,7 +112,7 @@
 
 
 
-                                <td><p id="joinGroup">Открыть чат</p></td>
+                                <td><p id="joinGroup">Open Chat</p></td>
 
 
                                 <td><p id="like">&#10084;</p></td>
@@ -149,16 +149,16 @@
                                     <div class="indexTable">
                                         <div class="container-fluid">
                                             <div class="row">
-                                                <div class="col-xs-6 col-sm-4"><div id="icontext"><img src="~/Images/IndexPageImg/indexSmile.png" alt="www.clickchats.com" /> ClickChats это 100% открытая социальная сеть</div></div>
-                                                <div class="col-xs-6 col-sm-4"><div id="icontext"><img src="~/Images/IndexPageImg/indexReadWrite.png" alt="www.clickchats.com" />Добавляйте, коментируйте или голосуйте сами</div></div>
-                                                <div class="col-xs-6 col-sm-4"><div id="icontext"><img src="~/Images/IndexPageImg/indexOnline.png" alt="www.clickchats.com" />Все темы создают сами пользователи</div></div>
-                                                <div class="col-xs-6 col-sm-4"><div id="icontext"><img src="~/Images/IndexPageImg/indexWeBlock.png" alt="www.clickchats.com" />Мы пытаемся блокировать все незаконные материалы</div></div>
-                                                <div class="col-xs-6 col-sm-4"><div id="icontext"><img src="~/Images/IndexPageImg/indexHistory.png" alt="www.clickchats.com" />Свой Чат для каждой темы</div></div>
-                                                <div class="col-xs-6 col-sm-4"><div id="icontext"><img src="~/Images/IndexPageImg/indexAllDevices.png" alt="www.clickchats.com" />Не надо скачивать никаких App's.</div></div>
 
+                                                <div class="col-xs-6 col-sm-4"><div id="icontext"><img src="~/Images/IndexPageImg/indexHistory.png" alt="www.clickchats.com" />Own chat per each question</div></div>
 
+                                                <div class="col-xs-6 col-sm-4"><div id="icontext"><img src="~/Images/IndexPageImg/indexAllDevices.png" alt="www.clickchats.com" />No any side App's needed</div></div>
 
-                                                
+                                                <div class="col-xs-6 col-sm-4"><div id="icontext"><img src="~/Images/IndexPageImg/indexReadWrite.png" alt="www.clickchats.com" />Add, like or discuss question in chat</div></div>
+
+                                                <div class="col-xs-6 col-sm-4"><div id="icontext"><img src="~/Images/IndexPageImg/indexSmile.png" alt="www.clickchats.com" /> ClickChats it is 100% open community</div></div>
+                                                <div class="col-xs-6 col-sm-4"><div id="icontext"><img src="~/Images/IndexPageImg/indexOnline.png" alt="www.clickchats.com" />All questions where made by users itself</div></div>
+                                                <div class="col-xs-6 col-sm-4"><div id="icontext"><img src="~/Images/IndexPageImg/indexWeBlock.png" alt="www.clickchats.com" />We block all illegal content</div></div>
 
 
                                             </div>
@@ -168,9 +168,9 @@
 
 
                                 <br>
-                                <p class="indexPageText">Пожалуйста войдите в свой в аккаунт или зарегистрируйтесь</p>
-                                <p class="seeArticles">Показать все темы</p>
-                                <p class="hideArticles">Скрыть темы</p>
+
+                                <p class="seeArticles">Show questions List &#9660;</p>
+                                <p class="hideArticles">Hide questions List &#9650;</p>
 
                                 <br><br>
 
@@ -204,7 +204,7 @@
                                                 </a>
                                             </td>
 
-                                            <td><a href="~/Account/login"><p id="joinGroup">Открыть Чат</p> </a> </td>
+                                            <td><a href="~/Account/login"><p id="joinGroup">Open Chat</p> </a> </td>
 
 
                                             <td><a href="~/Account/login"><p id="like">&#10084;</p></a></td>
@@ -233,7 +233,7 @@
                                 </table>  } }
     @{ if (User.Identity.IsAuthenticated == false)
         {
-            <p class="hideArticles">Скрыть темы </p>
+            <p class="hideArticles">Hide questions List &#9650; </p>
             <script src="~/Scripts/YoutubeTopicsUserNotAuth.js"></script>
         }
 
@@ -269,10 +269,10 @@
                         <br>
 
 
-                        <span class="glyphicon glyphicon-arrow-down" id="showHistory">История</span>
+                        <span class="glyphicon glyphicon-arrow-down" id="showHistory">Show History</span>
 
 
-                        <span class="glyphicon glyphicon-arrow-up" id="clearHistory">Скрыть</span>
+                        <span class="glyphicon glyphicon-arrow-up" id="clearHistory">Hide History</span>
 
 
 
@@ -298,7 +298,7 @@
                 </div>
 
 
-                <a href="javascript:void(0);" id="scroll" title="Наверх" style="display: none;">Наверх<span></span></a>
+                <a href="javascript:void(0);" id="scroll" title="Back to top" style="display: none;">Back to top<span></span></a>
                 <audio id="audio" src="~/sounds/newmessage.mp3"></audio>
 
 
