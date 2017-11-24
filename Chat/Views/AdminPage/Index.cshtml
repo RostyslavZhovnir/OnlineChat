@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Chat.Models.Users>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AdminPage</title>
+</head>
+<body>
+    @if (User.Identity.Name == "admin")
+    {
+    <table class=" col-lg-8 ">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.LastActivityDate)
+            </th>
+         
+        </tr>
+        
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastActivityDate)
+            </td>
+        </tr>
+    }
+    </table>
+
+    }
+@if (User.Identity.Name != "admin")
+{   
+    <p style="color:red">You are not authorized to view this page</p>    
+}
+
+
+    <script src="~/Scripts/jquery-3.2.1.min.js"></script>
+</body>
+</html>

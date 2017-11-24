@@ -93,12 +93,19 @@
                             { <span id="titlesImage">
 
                                 @*<a href="@Url.Content("~/img/" + System.IO.Path.GetFileName(item.imageone)) "target="_blank">*@ <img src="@Url.Content("~/img/" + System.IO.Path.GetFileName(item.imageone))" alt="www.clickchats.com @item.title" style="height:120px; width:170px" />@*</a>*@
+                            
+                            <br>
+                                 @if (User.Identity.Name == "admin")
+                                 {
+                                      @Html.ActionLink(" |Edit| ", "Edit", new { id = item.id })
+                                      @Html.ActionLink(" |Delete| ", "Delete", new { id = item.id })
+                                  }
                             </span>
 
                             }
                             <span id="titles">
                                 @Html.DisplayFor(modelItem => item.title)
-
+                             
                             </span>
                             <br>
                             @*<span id="linksource">
@@ -132,9 +139,20 @@
                                             <a href="@Html.DisplayFor(modelItem => item.imagetwo)" target="_blank">@Html.DisplayFor(modelItem => item.imagetwo) </a>
                                         </span>
                                     </td>
+
+                                    @*<td>
+                                        @if (User.Identity.IsAuthenticated)
+                                        {
+                                            @Html.ActionLink(" |Edit| ", "Edit", new { id = item.id })
+                                            @Html.ActionLink(" |Delete| ", "Delete", new { id = item.id })
+                                        }
+                                      
+                                    </td>*@
+
                                 </tr> }
 
                             }
+
 
             </table>
 

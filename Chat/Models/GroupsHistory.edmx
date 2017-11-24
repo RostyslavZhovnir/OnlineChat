@@ -35,10 +35,21 @@
           <Property Name="imagetwo" Type="nvarchar" MaxLength="1000" />
           <Property Name="countLikes" Type="int" />
         </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsAnonymous" Type="bit" Nullable="false" />
+          <Property Name="LastActivityDate" Type="datetime" Nullable="false" />
+        </EntityType>
         <EntityContainer Name="ChatDBModelHistoryStoreContainer">
           <EntitySet Name="ConversationHistory" EntityType="Self.ConversationHistory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Likes" EntityType="Self.Likes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Topics" EntityType="Self.Topics" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -48,6 +59,7 @@
           <EntitySet Name="ConversationHistory" EntityType="ChatDBModelHistory.ConversationHistory" />
           <EntitySet Name="Likes" EntityType="ChatDBModelHistory.Likes" />
           <EntitySet Name="Topics" EntityType="ChatDBModelHistory.Topics" />
+          <EntitySet Name="Users" EntityType="ChatDBModelHistory.Users" />
         </EntityContainer>
         <EntityType Name="ConversationHistory">
           <Key>
@@ -78,6 +90,16 @@
           <Property Name="imageone" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
           <Property Name="imagetwo" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
           <Property Name="countLikes" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Guid" Nullable="false" />
+          <Property Name="ApplicationId" Type="Guid" Nullable="false" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsAnonymous" Type="Boolean" Nullable="false" />
+          <Property Name="LastActivityDate" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -115,6 +137,17 @@
                 <ScalarProperty Name="imageone" ColumnName="imageone" />
                 <ScalarProperty Name="title" ColumnName="title" />
                 <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="ChatDBModelHistory.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="LastActivityDate" ColumnName="LastActivityDate" />
+                <ScalarProperty Name="IsAnonymous" ColumnName="IsAnonymous" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

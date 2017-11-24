@@ -13,15 +13,14 @@ namespace Chat.Models
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
-    public partial class Topics
+    public partial class Users
     {
-        public int id { get; set; }
-        [Display(Name = "Title")]
-        public string title { get; set; }
-        [Display(Name = "Image")]
-        public string imageone { get; set; }
-        [Display(Name = "Source link")]
-        public string imagetwo { get; set; }
-        public Nullable<int> countLikes { get; set; }
+        public System.Guid UserId { get; set; }
+        public System.Guid ApplicationId { get; set; }
+        [Display(Name = "User Name")]
+        public string UserName { get; set; }
+        public bool IsAnonymous { get; set; }
+        [Display(Name = "Last Activity Date")]
+        public System.DateTime LastActivityDate { get; set; }
     }
 }
