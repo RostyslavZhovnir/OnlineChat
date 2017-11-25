@@ -653,12 +653,11 @@ textarea {
 
 
 /*IndexPage Section*/
-.likes {
-    font-size: 10px;
-    vertical-align: bottom;
-    color: black;
-    vertical-align: bottom;
-    letter-spacing: 0.3em;
+
+.navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus .likes {
+
+    color: #ff3a32;
+
 }
 
 
