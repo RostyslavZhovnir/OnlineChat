@@ -95,11 +95,13 @@
                                 @*<a href="@Url.Content("~/img/" + System.IO.Path.GetFileName(item.imageone)) "target="_blank">*@ <img src="@Url.Content("~/img/" + System.IO.Path.GetFileName(item.imageone))" alt="www.clickchats.com @item.title" style="height:120px; width:170px" />@*</a>*@
                             
                             <br>
-                                 @if (User.Identity.Name == "admin")
-                                 {
+                          
+                                 @*@if (User.Identity.Name == "admin")
+                                 { 
                                       @Html.ActionLink(" |Edit| ", "Edit", new { id = item.id })
                                       @Html.ActionLink(" |Delete| ", "Delete", new { id = item.id })
-                                  }
+                                  }*@
+                                
                             </span>
 
                             }
@@ -119,12 +121,26 @@
 
 
 
-                                <td><p id="joinGroup">Open Chat</p></td>
+                                <td><p id="joinGroup">Open Chat</p>
+                                    @if (User.Identity.Name == "admin") // Admin Page will ShowUP
+                                    {
+                                        <p>@Html.ActionLink(" Edit ", "Edit", new { id = item.id })</p>
+                                        <p> @Html.ActionLink(" Delete ", "Delete", new { id = item.id })</p>
+                                    }
+                        
+                        </td>
 
 
                                 <td><p id="like">&#10084;</p></td>
                                 <td class="likes">
                                     <p> @Html.DisplayFor(modelItem => item.countLikes)</p>
+                                    
+                                  
+                                    
+                                 
+
+
+
                                 </td>
 
                             }
