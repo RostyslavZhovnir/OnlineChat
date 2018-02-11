@@ -18,7 +18,7 @@
 
         var data = col1.trim();
 
-
+        
 
         $(function () {
             //Slide down to chatroom
