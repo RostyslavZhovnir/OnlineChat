@@ -16,12 +16,13 @@ namespace Chat.Controllers
         private ChatDBEntities2 db = new ChatDBEntities2();
 
         // GET: AdminPage
-        public async Task<ActionResult> Index()
+        public ActionResult Index()
         {
-            return View(await db.Users.ToListAsync());
+            var x = db.Users.OrderByDescending(z => z.LastActivityDate).ToList();
+            return View(x);
         }
 
-   
+
 
         protected override void Dispose(bool disposing)
         {
