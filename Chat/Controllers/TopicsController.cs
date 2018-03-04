@@ -53,7 +53,7 @@ namespace Chat.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "id,title,imagetwo")] Topics topics, HttpPostedFileBase image)
+        public ActionResult Create([Bind(Include = "id,title,imagetwo")] Topics topics, HttpPostedFileBase image)
         {
             if (ModelState.IsValid)
             {
@@ -84,7 +84,7 @@ namespace Chat.Controllers
                 //        return View();
                 //    }
                     try
-                    {
+                 {
 
                     if (image.ContentType.ToLower() != "image/jpg" &&
                       image.ContentType.ToLower() != "image/jpeg" &&
@@ -96,13 +96,15 @@ namespace Chat.Controllers
                         ViewBag.Error = "You try to upload not image";
                         return View();
                     }
-                    string path = Path.Combine(Server.MapPath("~/img"),
-                                                   Path.GetFileName(image.FileName));
+                    else
+                    {
+                        string path = Path.Combine(Server.MapPath("~/img"),
+                                                       Path.GetFileName(image.FileName));
                         image.SaveAs(path);
                         ViewBag.Error = "File uploaded successfully";
                         topics.imageone = path;
-                      
                     }
+                 }
                     catch (Exception )
                     {
                     //ViewBag.Error = "ERROR:" + ex.Message.ToString();
@@ -117,7 +119,7 @@ namespace Chat.Controllers
                 //}
 
                 db.Topics.Add(topics);
-                await db.SaveChangesAsync();
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
