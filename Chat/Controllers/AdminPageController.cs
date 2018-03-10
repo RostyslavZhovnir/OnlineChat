@@ -17,7 +17,7 @@ namespace Chat.Controllers
 
         // GET: AdminPage
         public ActionResult Index()
-        {
+        {  string ipAdress = Request.UserHostAddress;
             var x = db.Users.OrderByDescending(z => z.LastActivityDate).ToList();
             return View(x);
         }

@@ -8,10 +8,12 @@ using System.Web.Mvc;
 using Chat.Controllers;
 using System.Web.Security;
 using System.Threading.Tasks;
+
 namespace Chat.Hubs
-{
+{ 
     public class ChatHub : Hub
     {
+        
         static List<User> Users = new List<User>();
         static List<ConversationHistory> MessageList = new List<ConversationHistory>();
         private ChatDBEntities2 x = new ChatDBEntities2();
@@ -50,7 +52,7 @@ namespace Chat.Hubs
         public void Connect(LogOnModel model)
         {
             var id = Context.ConnectionId;
-
+            
             if (!Users.Any(x => x.ConnID == id))
             {
                 string userName = Membership.GetUser().UserName;

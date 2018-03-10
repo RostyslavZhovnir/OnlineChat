@@ -18,6 +18,7 @@ namespace Chat.Models
         public string UserGroup { get; set; }
         public string Message { get; set; }
 
+
     }
 }
 
